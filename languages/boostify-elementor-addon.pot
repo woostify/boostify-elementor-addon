@@ -1,0 +1,150 @@
+# Copyright (C) 2020 boostify-elementor-addon
+# This file is distributed under the same license as the boostify-elementor-addon package.
+msgid ""
+msgstr ""
+"Project-Id-Version: boostify-elementor-addon\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: inc/class-boostify-elementor-addon.php:47
+msgid "Boostify"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:50, inc/widgets/basic/class-button.php:172
+msgid "Button"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:57, inc/widgets/basic/class-button.php:245
+msgid "Label"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:59, inc/widgets/basic/class-button.php:160
+msgid "Click Me"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:60, inc/widgets/basic/class-button.php:161
+msgid "Enter button label"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:71
+msgid "Link"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:73
+msgid "https://your-link.com"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:83, inc/widgets/basic/class-post-grid.php:80
+msgid "Alignment"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:88, inc/widgets/basic/class-button.php:142, inc/widgets/basic/class-post-grid.php:84
+msgid "Left"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:92, inc/widgets/basic/class-post-grid.php:88
+msgid "Center"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:96, inc/widgets/basic/class-button.php:146, inc/widgets/basic/class-post-grid.php:92
+msgid "Right"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:100
+msgid "Justify"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:114
+msgid "Effect"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:118
+msgid "Default"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:119
+msgid "Slide To Top"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:120
+msgid "Slide To Bottom"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:121
+msgid "Slide To Left"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:122
+msgid "Slide To Right"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:130, inc/widgets/basic/class-button.php:310
+msgid "Icon"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:138
+msgid "Icon Position"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:158
+msgid "Id Button"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:163
+msgid "Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows A-z 0-9 & underscore chars without spaces."
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:180
+msgid "Padding"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:193
+msgid "Border"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:203, inc/widgets/basic/class-button.php:255
+msgid "Normal"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:211, inc/widgets/basic/class-button.php:230
+msgid "Background"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:222, inc/widgets/basic/class-button.php:276
+msgid "Hover"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:262, inc/widgets/basic/class-button.php:283, inc/widgets/basic/class-button.php:318
+msgid "Color"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:330
+msgid "Font Size"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:349, inc/widgets/basic/class-button.php:371
+msgid "Space"
+msgstr ""
+
+#: inc/widgets/basic/class-post-grid.php:41, inc/widgets/basic/class-post-grid.php:61
+msgid "Copyright"
+msgstr ""
+
+#: inc/widgets/basic/class-post-grid.php:68
+msgid "Copyright Text"
+msgstr ""
+
+#: inc/widgets/basic/class-post-grid.php:73
+msgid "Copyright © [btf_year] [btf_site_tile] | All Rights Reserved. Designed by [btf_site_tile]."
+msgstr ""
+
+#: inc/widgets/basic/class-post-grid.php:105
+msgid "Text Color"
+msgstr ""
