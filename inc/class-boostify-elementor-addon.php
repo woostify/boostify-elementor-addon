@@ -54,8 +54,10 @@ class Boostify_Elementor_Addon {
 	public function get_widgets() {
 		$widgets = array(
 			'basic' => array(
-				// 'Post_Grid',
 				'Button',
+			),
+			'post'  => array(
+				'Post_Grid',
 			),
 		);
 		return $widgets;
@@ -86,7 +88,7 @@ class Boostify_Elementor_Addon {
 			foreach ( $widgets as $widget ) {
 				$filename = strtolower( $widget );
 				$filename = str_replace( '_', '-', $filename );
-				$filename = BOOSTIFY_ELEMENTOR_PATCH . 'inc/widgets/' . $folder . '/class-' . $filename . '.php';
+				$filename = BOOSTIFY_ELEMENTOR_PATH . 'inc/widgets/' . $folder . '/class-' . $filename . '.php';
 
 				if ( is_readable( $filename ) ) {
 					include $filename;
@@ -150,7 +152,13 @@ class Boostify_Elementor_Addon {
 	}
 
 	public function register_core() {
-		require BOOSTIFY_ELEMENTOR_PATCH . 'inc/core/class-base-widget.php';
+		require BOOSTIFY_ELEMENTOR_PATH . 'inc/core/class-base-widget.php';
+	}
+
+	public function include_files() {
+		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/core/core.php';
+		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/core/hook.php';
+		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/core/template.php';
 	}
 
 
@@ -164,6 +172,8 @@ class Boostify_Elementor_Addon {
 	 */
 	public function __construct() {
 		$this->setup_hooks();
+
+		$this->include_files();
 	}
 }
 // Instantiate Boostify_Elementor_Addon Class

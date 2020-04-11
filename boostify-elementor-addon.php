@@ -8,8 +8,8 @@
  * Author URI: https://woostify.com
  */
 
-define( 'BOOSTIFY_ELEMENTOR_PATCH', plugin_dir_path( __FILE__ ) );
+define( 'BOOSTIFY_ELEMENTOR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'BOOSTIFY_ELEMENTOR_URL', plugin_dir_url( __FILE__ ) );
 define( 'BOOSTIFY_ELEMENTOR_VER', '1.0.0' );
 
-require_once BOOSTIFY_ELEMENTOR_PATCH . 'inc/class-boostify-elementor-addon.php';
+require_once BOOSTIFY_ELEMENTOR_PATH . 'inc/class-boostify-elementor-addon.php';

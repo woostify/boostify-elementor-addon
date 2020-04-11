@@ -1,3 +1,233 @@
+.boostify-grid {
+  margin-left: -15px;
+  margin-right: -15px;
+  min-height: 1px;
+}
+
+.boostify-grid-item {
+  padding-left: 15px;
+  padding-right: 15px;
+  float: left;
+  min-height: 1px;
+  min-height: 1px;
+}
+
+@media (min-width: 1024px) {
+  .boostify-grid-1 .boostify-grid-item {
+    width: calc( 100% / 1);
+  }
+  .boostify-grid-2 .boostify-grid-item {
+    width: calc( 100% / 2);
+  }
+  .boostify-grid-2 .boostify-grid-item:nth-of-type(2n+3) {
+    clear: both;
+  }
+  .boostify-grid-3 .boostify-grid-item {
+    width: calc( 100% / 3);
+  }
+  .boostify-grid-3 .boostify-grid-item:nth-of-type(3n+4) {
+    clear: both;
+  }
+  .boostify-grid-4 .boostify-grid-item {
+    width: calc( 100% / 4);
+  }
+  .boostify-grid-4 .boostify-grid-item:nth-of-type(4n+5) {
+    clear: both;
+  }
+  .boostify-grid-5 .boostify-grid-item {
+    width: calc( 100% / 5);
+  }
+  .boostify-grid-5 .boostify-grid-item:nth-of-type(5n+6) {
+    clear: both;
+  }
+  .boostify-grid-6 .boostify-grid-item {
+    width: calc( 100% / 6);
+  }
+  .boostify-grid-6 .boostify-grid-item:nth-of-type(6n+7) {
+    clear: both;
+  }
+  .boostify-grid-7 .boostify-grid-item {
+    width: calc( 100% / 7);
+  }
+  .boostify-grid-7 .boostify-grid-item:nth-of-type(7n+8) {
+    clear: both;
+  }
+  .boostify-grid-8 .boostify-grid-item {
+    width: calc( 100% / 8);
+  }
+  .boostify-grid-8 .boostify-grid-item:nth-of-type(8n+9) {
+    clear: both;
+  }
+  .boostify-grid-9 .boostify-grid-item {
+    width: calc( 100% / 9);
+  }
+  .boostify-grid-9 .boostify-grid-item:nth-of-type(9n+10) {
+    clear: both;
+  }
+  .boostify-grid-10 .boostify-grid-item {
+    width: calc( 100% / 10);
+  }
+  .boostify-grid-10 .boostify-grid-item:nth-of-type(10n+11) {
+    clear: both;
+  }
+  .boostify-grid-11 .boostify-grid-item {
+    width: calc( 100% / 11);
+  }
+  .boostify-grid-11 .boostify-grid-item:nth-of-type(11n+12) {
+    clear: both;
+  }
+  .boostify-grid-12 .boostify-grid-item {
+    width: calc( 100% / 12);
+  }
+  .boostify-grid-12 .boostify-grid-item:nth-of-type(12n+13) {
+    clear: both;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .boostify-grid-tablet-1 .boostify-grid-item {
+    width: calc( 100% / 1);
+  }
+  .boostify-grid-tablet-2 .boostify-grid-item {
+    width: calc( 100% / 2);
+  }
+  .boostify-grid-tablet-2 .boostify-grid-item:nth-of-type(2n+3) {
+    clear: both;
+  }
+  .boostify-grid-tablet-3 .boostify-grid-item {
+    width: calc( 100% / 3);
+  }
+  .boostify-grid-tablet-3 .boostify-grid-item:nth-of-type(3n+4) {
+    clear: both;
+  }
+  .boostify-grid-tablet-4 .boostify-grid-item {
+    width: calc( 100% / 4);
+  }
+  .boostify-grid-tablet-4 .boostify-grid-item:nth-of-type(4n+5) {
+    clear: both;
+  }
+  .boostify-grid-tablet-5 .boostify-grid-item {
+    width: calc( 100% / 5);
+  }
+  .boostify-grid-tablet-5 .boostify-grid-item:nth-of-type(5n+6) {
+    clear: both;
+  }
+  .boostify-grid-tablet-6 .boostify-grid-item {
+    width: calc( 100% / 6);
+  }
+  .boostify-grid-tablet-6 .boostify-grid-item:nth-of-type(6n+7) {
+    clear: both;
+  }
+  .boostify-grid-tablet-7 .boostify-grid-item {
+    width: calc( 100% / 7);
+  }
+  .boostify-grid-tablet-7 .boostify-grid-item:nth-of-type(7n+8) {
+    clear: both;
+  }
+  .boostify-grid-tablet-8 .boostify-grid-item {
+    width: calc( 100% / 8);
+  }
+  .boostify-grid-tablet-8 .boostify-grid-item:nth-of-type(8n+9) {
+    clear: both;
+  }
+  .boostify-grid-tablet-9 .boostify-grid-item {
+    width: calc( 100% / 9);
+  }
+  .boostify-grid-tablet-9 .boostify-grid-item:nth-of-type(9n+10) {
+    clear: both;
+  }
+  .boostify-grid-tablet-10 .boostify-grid-item {
+    width: calc( 100% / 10);
+  }
+  .boostify-grid-tablet-10 .boostify-grid-item:nth-of-type(10n+11) {
+    clear: both;
+  }
+  .boostify-grid-tablet-11 .boostify-grid-item {
+    width: calc( 100% / 11);
+  }
+  .boostify-grid-tablet-11 .boostify-grid-item:nth-of-type(11n+12) {
+    clear: both;
+  }
+  .boostify-grid-tablet-12 .boostify-grid-item {
+    width: calc( 100% / 12);
+  }
+  .boostify-grid-tablet-12 .boostify-grid-item:nth-of-type(12n+13) {
+    clear: both;
+  }
+}
+
+@media (max-width: 767px) {
+  .boostify-grid-mobile-1 .boostify-grid-item {
+    width: calc( 100% / 1);
+  }
+  .boostify-grid-mobile-2 .boostify-grid-item {
+    width: calc( 100% / 2);
+  }
+  .boostify-grid-mobile-2 .boostify-grid-item:nth-of-type(2n+3) {
+    clear: both;
+  }
+  .boostify-grid-mobile-3 .boostify-grid-item {
+    width: calc( 100% / 3);
+  }
+  .boostify-grid-mobile-3 .boostify-grid-item:nth-of-type(3n+4) {
+    clear: both;
+  }
+  .boostify-grid-mobile-4 .boostify-grid-item {
+    width: calc( 100% / 4);
+  }
+  .boostify-grid-mobile-4 .boostify-grid-item:nth-of-type(4n+5) {
+    clear: both;
+  }
+  .boostify-grid-mobile-5 .boostify-grid-item {
+    width: calc( 100% / 5);
+  }
+  .boostify-grid-mobile-5 .boostify-grid-item:nth-of-type(5n+6) {
+    clear: both;
+  }
+  .boostify-grid-mobile-6 .boostify-grid-item {
+    width: calc( 100% / 6);
+  }
+  .boostify-grid-mobile-6 .boostify-grid-item:nth-of-type(6n+7) {
+    clear: both;
+  }
+  .boostify-grid-mobile-7 .boostify-grid-item {
+    width: calc( 100% / 7);
+  }
+  .boostify-grid-mobile-7 .boostify-grid-item:nth-of-type(7n+8) {
+    clear: both;
+  }
+  .boostify-grid-mobile-8 .boostify-grid-item {
+    width: calc( 100% / 8);
+  }
+  .boostify-grid-mobile-8 .boostify-grid-item:nth-of-type(8n+9) {
+    clear: both;
+  }
+  .boostify-grid-mobile-9 .boostify-grid-item {
+    width: calc( 100% / 9);
+  }
+  .boostify-grid-mobile-9 .boostify-grid-item:nth-of-type(9n+10) {
+    clear: both;
+  }
+  .boostify-grid-mobile-10 .boostify-grid-item {
+    width: calc( 100% / 10);
+  }
+  .boostify-grid-mobile-10 .boostify-grid-item:nth-of-type(10n+11) {
+    clear: both;
+  }
+  .boostify-grid-mobile-11 .boostify-grid-item {
+    width: calc( 100% / 11);
+  }
+  .boostify-grid-mobile-11 .boostify-grid-item:nth-of-type(11n+12) {
+    clear: both;
+  }
+  .boostify-grid-mobile-12 .boostify-grid-item {
+    width: calc( 100% / 12);
+  }
+  .boostify-grid-mobile-12 .boostify-grid-item:nth-of-type(12n+13) {
+    clear: both;
+  }
+}
+
 .boostify-button-widget .boostify--btn {
   display: inline-flex;
   justify-content: center;
@@ -22,6 +252,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  background-color: #000;
 }
 
 .boostify-button-widget .boostify-btn-default {
@@ -35,6 +266,7 @@
   height: 100%;
   white-space: nowrap;
   overflow: hidden;
+  color: #fff;
 }
 
 .boostify-button-widget .boostify-label-hover {
