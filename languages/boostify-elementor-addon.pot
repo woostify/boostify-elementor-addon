@@ -17,134 +17,210 @@ msgstr ""
 msgid "Boostify"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:50, inc/widgets/basic/class-button.php:172
+#: inc/widgets/basic/class-button.php:51, inc/widgets/basic/class-button.php:247
 msgid "Button"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:57, inc/widgets/basic/class-button.php:245
+#: inc/widgets/basic/class-button.php:58, inc/widgets/basic/class-button.php:353
 msgid "Label"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:59, inc/widgets/basic/class-button.php:160
+#: inc/widgets/basic/class-button.php:60
 msgid "Click Me"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:60, inc/widgets/basic/class-button.php:161
+#: inc/widgets/basic/class-button.php:61, inc/widgets/basic/class-button.php:236
 msgid "Enter button label"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:71
+#: inc/widgets/basic/class-button.php:72
 msgid "Link"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:73
+#: inc/widgets/basic/class-button.php:74
 msgid "https://your-link.com"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:83, inc/widgets/basic/class-post-grid.php:80
+#: inc/widgets/basic/class-button.php:84
 msgid "Alignment"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:88, inc/widgets/basic/class-button.php:142, inc/widgets/basic/class-post-grid.php:84
+#: inc/widgets/basic/class-button.php:89, inc/widgets/basic/class-button.php:143
 msgid "Left"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:92, inc/widgets/basic/class-post-grid.php:88
+#: inc/widgets/basic/class-button.php:93
 msgid "Center"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:96, inc/widgets/basic/class-button.php:146, inc/widgets/basic/class-post-grid.php:92
+#: inc/widgets/basic/class-button.php:97, inc/widgets/basic/class-button.php:147
 msgid "Right"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:100
+#: inc/widgets/basic/class-button.php:101
 msgid "Justify"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:114
+#: inc/widgets/basic/class-button.php:112
 msgid "Effect"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:118
+#: inc/widgets/basic/class-button.php:116
 msgid "Default"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:119
+#: inc/widgets/basic/class-button.php:117
 msgid "Slide To Top"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:120
+#: inc/widgets/basic/class-button.php:118
 msgid "Slide To Bottom"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:121
+#: inc/widgets/basic/class-button.php:119
 msgid "Slide To Left"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:122
+#: inc/widgets/basic/class-button.php:120
 msgid "Slide To Right"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:130, inc/widgets/basic/class-button.php:310
+#: inc/widgets/basic/class-button.php:121
+msgid "Grow"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:122
+msgid "Shrink"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:123
+msgid "Push"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:131
 msgid "Icon"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:138
+#: inc/widgets/basic/class-button.php:139
 msgid "Icon Position"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:158
-msgid "Id Button"
-msgstr ""
-
 #: inc/widgets/basic/class-button.php:163
-msgid "Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows A-z 0-9 & underscore chars without spaces."
-msgstr ""
-
-#: inc/widgets/basic/class-button.php:180
-msgid "Padding"
-msgstr ""
-
-#: inc/widgets/basic/class-button.php:193
-msgid "Border"
-msgstr ""
-
-#: inc/widgets/basic/class-button.php:203, inc/widgets/basic/class-button.php:255
-msgid "Normal"
-msgstr ""
-
-#: inc/widgets/basic/class-button.php:211, inc/widgets/basic/class-button.php:230
-msgid "Background"
-msgstr ""
-
-#: inc/widgets/basic/class-button.php:222, inc/widgets/basic/class-button.php:276
-msgid "Hover"
-msgstr ""
-
-#: inc/widgets/basic/class-button.php:262, inc/widgets/basic/class-button.php:283, inc/widgets/basic/class-button.php:318
-msgid "Color"
-msgstr ""
-
-#: inc/widgets/basic/class-button.php:330
 msgid "Font Size"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:349, inc/widgets/basic/class-button.php:371
+#: inc/widgets/basic/class-button.php:182, inc/widgets/basic/class-button.php:208
 msgid "Space"
 msgstr ""
 
-#: inc/widgets/basic/class-post-grid.php:41, inc/widgets/basic/class-post-grid.php:61
-msgid "Copyright"
+#: inc/widgets/basic/class-button.php:234
+msgid "Id Button"
 msgstr ""
 
-#: inc/widgets/basic/class-post-grid.php:68
-msgid "Copyright Text"
+#: inc/widgets/basic/class-button.php:238
+msgid "Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows A-z 0-9 & underscore chars without spaces."
 msgstr ""
 
-#: inc/widgets/basic/class-post-grid.php:73
-msgid "Copyright © [btf_year] [btf_site_tile] | All Rights Reserved. Designed by [btf_site_tile]."
+#: inc/widgets/basic/class-button.php:255
+msgid "Padding"
 msgstr ""
 
-#: inc/widgets/basic/class-post-grid.php:105
-msgid "Text Color"
+#: inc/widgets/basic/class-button.php:268
+msgid "Border"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:277
+msgid "Box Shadow"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:287, inc/widgets/basic/class-button.php:363
+msgid "Normal"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:294, inc/widgets/basic/class-button.php:325
+msgid "Border Radius"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:307, inc/widgets/basic/class-button.php:338
+msgid "Background"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:318, inc/widgets/basic/class-button.php:385
+msgid "Hover"
+msgstr ""
+
+#: inc/widgets/basic/class-button.php:370, inc/widgets/basic/class-button.php:392
+msgid "Color"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:48
+msgid "Post Grid"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:55
+msgid "Columns"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:58
+msgid "1"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:59
+msgid "2"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:60
+msgid "3"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:61
+msgid "4"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:62
+msgid "5"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:76
+msgid "Query"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:84
+msgid "Order By"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:87
+msgid "ID"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:88
+msgid "Date"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:89
+msgid "Title"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:90
+msgid "Author"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:91
+msgid "Random"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:100
+msgid "Order"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:104
+msgid "ASC"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:108
+msgid "DESC"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:119, inc/widgets/post/class-post-grid.php:128
+msgid "Posts Per Page"
 msgstr ""

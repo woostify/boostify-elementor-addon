@@ -38,6 +38,34 @@ class Boostify_Elementor_Addon {
 	}
 
 	/**
+	 *  Plugin class constructor
+	 *
+	 * Register plugin action hooks and filters
+	 *
+	 * @since 1.2.0
+	 * @access public
+	 */
+	public function __construct() {
+		$this->setup_hooks();
+
+		$this->include_files();
+	}
+
+	private function setup_hooks() {
+		// Register custom widget categories.
+		add_action( 'elementor/elements/categories_registered', array( $this, 'add_elementor_widget_categories' ) );
+		// Register widget scripts
+		add_action( 'elementor/frontend/after_register_scripts', array( $this, 'widget_scripts' ) );
+		// Register widgets
+		add_action( 'elementor/widgets/widgets_registered', array( $this, 'init_widgets' ) );
+		add_action( 'elementor/init', array( $this, 'register_core' ) );
+
+		add_action( 'wp_enqueue_scripts', array( $this, 'style' ), 99 );
+
+		add_action( 'elementor/init', array( $this, 'elementor_loaded' ) );
+	}
+
+	/**
 	 * Register custom widget categories.
 	 */
 	public function add_elementor_widget_categories( $elements_manager ) {
@@ -139,42 +167,26 @@ class Boostify_Elementor_Addon {
 		);
 	}
 
-	private function setup_hooks() {
-		// Register custom widget categories.
-		add_action( 'elementor/elements/categories_registered', array( $this, 'add_elementor_widget_categories' ) );
-		// Register widget scripts
-		add_action( 'elementor/frontend/after_register_scripts', array( $this, 'widget_scripts' ) );
-		// Register widgets
-		add_action( 'elementor/widgets/widgets_registered', array( $this, 'init_widgets' ) );
-		add_action( 'elementor/init', array( $this, 'register_core' ) );
 
-		add_action( 'wp_enqueue_scripts', array( $this, 'style' ), 99 );
-	}
 
 	public function register_core() {
-		require BOOSTIFY_ELEMENTOR_PATH . 'inc/core/class-base-widget.php';
+		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/core/class-base-widget.php';
+		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/widgets/post/class-post-base.php';
 	}
 
 	public function include_files() {
 		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/core/core.php';
 		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/core/hook.php';
 		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/core/template.php';
+		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/widgets/post/skin/class-layout.php';
 	}
 
 
-	/**
-	 *  Plugin class constructor
-	 *
-	 * Register plugin action hooks and filters
-	 *
-	 * @since 1.2.0
-	 * @access public
-	 */
-	public function __construct() {
-		$this->setup_hooks();
-
-		$this->include_files();
+	public function elementor_loaded() {
+		new \Boostify_Elementor\Posts\Layout();
 	}
+
+
 }
 // Instantiate Boostify_Elementor_Addon Class
 Boostify_Elementor_Addon::instance();

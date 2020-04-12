@@ -20,21 +20,16 @@ function boostify_post_class( $class = '' ) {
 }
 
 function boostify_post_thumbnail() {
-	?>
-	<div class="boostify-post-thumbnail">
-		<a href="<?php echo esc_url( get_the_permalink() ); ?>">
-	<?php
+
 	if ( has_post_thumbnail() ) {
-		the_post_thumbnail();
-	} else {
 		?>
-		<img src="<?php echo esc_url( BOOSTIFY_ELEMENTOR_URL . 'assets/images/placeholder.png' ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>">
+		<div class="boostify-post-thumbnail">
+			<a href="<?php echo esc_url( get_the_permalink() ); ?>">
+				<?php the_post_thumbnail(); ?>
+			</a>
+		</div>
 		<?php
 	}
-	?>
-		</a>
-	</div>
-	<?php
 }
 
 function boostify_post_meta() {
@@ -42,14 +37,8 @@ function boostify_post_meta() {
 	$author = get_the_author_meta( 'ID' );
 	?>
 	<div class="boostify-post-meta">
-		<span class="boostify-meta-item boostify-author-meta boostify-post-by">
-			<a href="<?php echo esc_url( get_author_posts_url( $author ) ); ?>">
-				<?php echo 'By ' . get_the_author(); ?>
-			</a>
-		</span>
-		<span class="boostify-meta-item boostify-post-in">
-			<?php echo esc_html( $date ); ?>
-		</span>
+		<?php boostify_post_author(); ?>
+		<?php boostify_post_date(); ?>
 		<?php boostify_post_category(); ?>
 	</div>
 	<?php
@@ -75,8 +64,55 @@ function boostify_post_category() {
 	<?php
 }
 
+function boostify_post_date() {
+	$date = get_the_date();
+	?>
+		<span class="boostify-meta-item boostify-post-in">
+			<?php echo esc_html( $date ); ?>
+		</span>
+	<?php
+}
 
-function boostify_theme_default() {
+function boostify_post_author() {
+	$author = get_the_author_meta( 'ID' );
+	?>
+	<span class="boostify-meta-item boostify-author-meta boostify-post-by">
+		<a href="<?php echo esc_url( get_author_posts_url( $author ) ); ?>">
+			<?php echo 'By ' . get_the_author(); ?>
+		</a>
+	</span>
+	<?php
+}
+
+function boostify_post_time() {
+	$time = get_the_time();
+	?>
+	<span class="boostify-meta-item boostify-time-meta">
+		<?php echo esc_html( $time ); ?>
+	</span>
+	<?php
+}
+
+function boostify_comment_count() {
+	$comment = get_comments_number();
+	?>
+	<span class="boostify-meta-item boostify-comment-count">
+	<?php
+	if ( 0 == $comment ) { // phpcs:ignore
+		echo esc_html__( 'No Comments', 'boostify' );
+	} else {
+		printf(
+			/* translators: 1: comment count number, 2: title. */
+			esc_html( _n( '%1$s Comment', '%1$s Comments', $comment, 'boostify' ) ),
+			esc_html( number_format_i18n( $comment ) )
+		);
+	}
+	?>
+	</span>
+	<?php
+}
+
+function boostify_theme_post_type() {
 	$post_types       = get_post_types();
 	$post_types_unset = array(
 		'attachment'          => 'attachment',
@@ -105,6 +141,12 @@ function boostify_theme_default() {
 		'product_variation'   => 'product_variation',
 	);
 	$options          = array_diff( $post_types, $post_types_unset );
+
+	foreach ( $options as $key => $option ) {
+		$value           = str_replace( '_', ' ', $option );
+		$value           = ucwords( $value );
+		$options[ $key ] = $value;
+	}
 
 	return $options;
 }

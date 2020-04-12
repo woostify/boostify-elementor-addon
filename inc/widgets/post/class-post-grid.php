@@ -3,9 +3,11 @@
 namespace Boostify_Elementor\Widgets;
 
 use Boostify_Elementor\Base_Widget;
+use Boostify_Elementor\Layout;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
+
 
 /**
  * Copyright
@@ -49,6 +51,16 @@ class Post_Grid extends Base_Widget {
 			)
 		);
 
+		$this->add_control(
+			'layout',
+			array(
+				'label'   => esc_html__( 'Layout', 'boostify' ),
+				'type'    => Controls_Manager::SELECT,
+				'options' => $this->layouts(),
+				'default' => 'default',
+			)
+		);
+
 		$this->add_responsive_control(
 			'columns',
 			array(
@@ -67,6 +79,100 @@ class Post_Grid extends Base_Widget {
 			)
 		);
 
+		$this->add_control(
+			'image',
+			array(
+				'label'        => __( 'Thumbnail', 'boostify' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'boostify' ),
+				'label_off'    => __( 'Hide', 'boostify' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			)
+		);
+
+		$this->add_control(
+			'title_tag',
+			array(
+				'label'   => __( 'Title HTML Tag', 'boostify' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'h5',
+				'options' => array(
+					'h1' => 'H1',
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+				),
+			)
+		);
+
+		$this->add_control(
+			'excpert',
+			array(
+				'label'        => __( 'Excpert', 'boostify' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'boostify' ),
+				'label_off'    => __( 'Hide', 'boostify' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			)
+		);
+
+		$this->add_control(
+			'length',
+			array(
+				'label'   => __( 'Excpert Length', 'boostify' ),
+				'type'    => Controls_Manager::NUMBER,
+				'default' => 50,
+				'min'     => 0,
+			)
+		);
+
+		$this->add_control(
+			'meta_data',
+			array(
+				'label'       => esc_html__( 'Meta Data', 'boostify' ),
+				'type'        => Controls_Manager::SELECT2,
+				'multiple'    => true,
+				'default'     => array( 'author', 'date', 'category' ),
+				'label_block' => true,
+				'options'     => array(
+					'author'   => __( 'Author', 'boostify' ),
+					'date'     => __( 'Date', 'boostify' ),
+					'time'     => __( 'Time', 'boostify' ),
+					'category' => __( 'Category', 'boostify' ),
+					'comment'  => __( 'Comments', 'boostify' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'show_read_more',
+			array(
+				'label'        => __( 'Read More', 'boostify' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'boostify' ),
+				'label_off'    => __( 'Hide', 'boostify' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			)
+		);
+
+		$this->add_control(
+			'read_more',
+			array(
+				'label'       => __( 'Read More Text', 'boostify' ),
+				'type'        => Controls_Manager::TEXT,
+				'label_block' => true,
+				'default'     => __( 'Read More', 'boostify' ),
+				'placeholder' => __( 'Enter Read More Text', 'boostify' ),
+				'condition'   => array(
+					'show_read_more' => 'yes',
+				),
+			)
+		);
 
 		$this->end_controls_section();
 
@@ -77,6 +183,15 @@ class Post_Grid extends Base_Widget {
 			)
 		);
 
+		$this->add_control(
+			'post_type',
+			array(
+				'label'   => __( 'Post Type', 'boostify' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'post',
+				'options' => boostify_theme_post_type(),
+			)
+		);
 
 		$this->add_control(
 			'orderby',
@@ -125,9 +240,12 @@ class Post_Grid extends Base_Widget {
 		$this->add_control(
 			'pagination',
 			array(
-				'label'   => esc_html__( 'Posts Per Page', 'boostify' ),
-				'type'    => Controls_Manager::NUMBER,
-				'default' => 3,
+				'label'        => esc_html__( 'Pagination', 'boostify' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'boostify' ),
+				'label_off'    => __( 'Hide', 'boostify' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
 			)
 		);
 
@@ -143,29 +261,44 @@ class Post_Grid extends Base_Widget {
 	 * @access protected
 	 */
 	protected function render() {
-		$settings = $this->get_settings_for_display();
-		$path     = BOOSTIFY_ELEMENTOR_PATH . 'templates/content/content-post-grid.php';
-		$columns  = $settings['columns'];
-		$args     = array(
-			'post_type'      => 'post',
+		$settings   = $this->get_settings_for_display();
+		$path       = BOOSTIFY_ELEMENTOR_PATH . 'templates/content/content-post-grid.php';
+		$columns    = $settings['columns'];
+		$args       = array(
+			'post_type'      => $settings['post_type'],
 			'post_status'    => 'publish',
-			'posts_per_page' => -1,
+			'posts_per_page' => $settings['posts_per_page'],
+			'order'          => $settings['order'],
+			'orderby'        => $settings['orderby'],
+			'paged'          => get_query_var( 'paged' ),
 		);
-		$posts    = new \WP_Query( $args );
-		var_dump( boostify_theme_default() );
-
+		$posts      = new \WP_Query( $args );
+		$total_page = $posts->max_num_pages;
+		$action     = 'boostify_post_grid_' . $settings['layout'];
+		$classes    = array(
+			'boostify-widget-post-grid-wrapper',
+			'boostify-grid',
+			'boostify-grid-' . $columns,
+			'boostify-grid-tablet-' . $settings['columns_tablet'],
+			'boostify-grid-mobile-' . $settings['columns_mobile'],
+		);
+		$class      = implode( ' ', $classes );
 		if ( $posts->have_posts() ) {
 			?>
 			<div class="boostify-addon-widget boostify-post-grid-widget">
-				<div class="boostify-widget-post-grid-wrapper boostify-grid boostify-grid-<?php echo esc_attr( $columns ); ?>">
+				<div class="<?php echo esc_attr( $class ); ?>">
 					<?php
 					while ( $posts->have_posts() ) {
 						$posts->the_post();
-						boostify_template_post_grid();
+						do_action( $action, $settings );
 					}
 					?>
-
 				</div>
+				<?php
+				if ( $total_page > 1 && 'yes' === $settings['pagination'] ) {
+					boostify_pagination( $total_page );
+				}
+				?>
 			</div>
 			<?php
 
@@ -173,9 +306,16 @@ class Post_Grid extends Base_Widget {
 		}
 	}
 
+	public function layouts() {
+		$layout = new \Boostify_Elementor\Posts\Layout();
+		$args   = array(
+			'default' => 'Default',
+			'box'     => 'Box',
+		);
+		$layout->add_layout_grid( $args );
+		$layouts = \Boostify_Elementor\Posts\Layout::$grid_layouts;
 
-	public function taxonomies() {
-		$taxonomies = get_taxonomies();
+		return $layouts;
 	}
 
 }
