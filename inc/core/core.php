@@ -78,7 +78,7 @@ function boostify_post_author() {
 	?>
 	<span class="boostify-meta-item boostify-author-meta boostify-post-by">
 		<a href="<?php echo esc_url( get_author_posts_url( $author ) ); ?>">
-			<?php echo 'By ' . get_the_author(); ?>
+			<?php the_author(); ?>
 		</a>
 	</span>
 	<?php

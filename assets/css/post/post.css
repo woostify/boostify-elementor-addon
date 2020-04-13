@@ -1,0 +1,38 @@
+.boostify-post-item-wrapper {
+  overflow: hidden;
+}
+
+.boostify-post-item-wrapper .boostify-post-title {
+  margin: 0;
+}
+
+.boostify-post-item-wrapper .boostify-post-thumbnail {
+  overflow: hidden;
+  margin: 0 0 15px;
+}
+
+.boostify-post-item-wrapper .boostify-post-title {
+  font-size: 18px;
+  text-transform: capitalize;
+  padding-bottom: 15px;
+}
+
+.boostify-post-item-wrapper .boostify-post-read-more {
+  display: inline-block;
+  clear: both;
+}
+
+.boostify-post-item-wrapper .boostify-meta-item {
+  text-transform: capitalize;
+  font-size: 13px;
+}
+
+.boostify-post-item-wrapper .boostify-meta-item:not(:last-child):after {
+  content: '/';
+}
+
+.elementor-widget-boostify-post-grid .boostify-post-item-wrapper .boostify-post-excpert .post-excpert,
+.elementor-widget-boostify-post-grid .boostify-post-item-wrapper .boostify-post-read-more,
+.elementor-widget-boostify-post-grid .boostify-post-item-wrapper .boostify-post-meta .boostify-meta-item {
+  font-weight: 400;
+}

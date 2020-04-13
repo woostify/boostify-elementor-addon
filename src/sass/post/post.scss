@@ -1,0 +1,42 @@
+.boostify-post-item-wrapper {
+	overflow: hidden;
+
+	.boostify-post-title {
+		margin: 0;
+	}
+
+	.boostify-post-thumbnail {
+		overflow: hidden;
+		margin: 0 0 15px;
+	}
+
+	.boostify-post-title {
+		font-size: 18px;
+		text-transform: capitalize;
+		padding-bottom: 15px;
+	}
+
+	.boostify-post-read-more {
+		display: inline-block;
+		clear: both;
+	}
+
+	.boostify-meta-item {
+		text-transform: capitalize;
+		font-size: 13px;
+		&:not(:last-child) {
+			&:after {
+				content: '/';
+			}
+		}
+	}
+
+}
+
+.elementor-widget-boostify-post-grid .boostify-post-item-wrapper{
+	.boostify-post-excpert .post-excpert,
+	.boostify-post-read-more,
+	.boostify-post-meta .boostify-meta-item {
+		font-weight: 400;
+	}
+}

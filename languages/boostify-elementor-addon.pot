@@ -13,8 +13,20 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: inc/class-boostify-elementor-addon.php:47
+#: inc/class-boostify-elementor-addon.php:75
 msgid "Boostify"
+msgstr ""
+
+#: inc/core/core.php:102
+msgid "No Comments"
+msgstr ""
+
+#: inc/core/template.php:101
+msgid "«"
+msgstr ""
+
+#: inc/core/template.php:102
+msgid "»"
 msgstr ""
 
 #: inc/widgets/basic/class-button.php:51, inc/widgets/basic/class-button.php:247
@@ -153,74 +165,138 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:48
+#: inc/widgets/post/class-post-grid.php:50
 msgid "Post Grid"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:55
+#: inc/widgets/post/class-post-grid.php:57
+msgid "Layout"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:67
 msgid "Columns"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:58
+#: inc/widgets/post/class-post-grid.php:70
 msgid "1"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:59
+#: inc/widgets/post/class-post-grid.php:71
 msgid "2"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:60
+#: inc/widgets/post/class-post-grid.php:72
 msgid "3"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:61
+#: inc/widgets/post/class-post-grid.php:73
 msgid "4"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:62
+#: inc/widgets/post/class-post-grid.php:74
 msgid "5"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:76
-msgid "Query"
+#: inc/widgets/post/class-post-grid.php:85
+msgid "Thumbnail"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:84
-msgid "Order By"
+#: inc/widgets/post/class-post-grid.php:87, inc/widgets/post/class-post-grid.php:116, inc/widgets/post/class-post-grid.php:156, inc/widgets/post/class-post-grid.php:245
+msgid "Show"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:87
-msgid "ID"
+#: inc/widgets/post/class-post-grid.php:88, inc/widgets/post/class-post-grid.php:117, inc/widgets/post/class-post-grid.php:157, inc/widgets/post/class-post-grid.php:246
+msgid "Hide"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:88
-msgid "Date"
+#: inc/widgets/post/class-post-grid.php:97
+msgid "Title HTML Tag"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:89
-msgid "Title"
+#: inc/widgets/post/class-post-grid.php:114
+msgid "Excpert"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:90
+#: inc/widgets/post/class-post-grid.php:126
+msgid "Excpert Length"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:136
+msgid "Meta Data"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:142, inc/widgets/post/class-post-grid.php:205
 msgid "Author"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:91
+#: inc/widgets/post/class-post-grid.php:143, inc/widgets/post/class-post-grid.php:203
+msgid "Date"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:144
+msgid "Time"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:145
+msgid "Category"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:146
+msgid "Comments"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:154, inc/widgets/post/class-post-grid.php:169
+msgid "Read More"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:166
+msgid "Read More Text"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:170
+msgid "Enter Read More Text"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:182
+msgid "Query"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:189
+msgid "Post Type"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:199
+msgid "Order By"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:202
+msgid "ID"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:204
+msgid "Title"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:206
 msgid "Random"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:100
+#: inc/widgets/post/class-post-grid.php:215
 msgid "Order"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:104
+#: inc/widgets/post/class-post-grid.php:219
 msgid "ASC"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:108
+#: inc/widgets/post/class-post-grid.php:223
 msgid "DESC"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:119, inc/widgets/post/class-post-grid.php:128
+#: inc/widgets/post/class-post-grid.php:234
 msgid "Posts Per Page"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:243
+msgid "Pagination"
 msgstr ""

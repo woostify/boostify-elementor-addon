@@ -44,20 +44,22 @@ function boostify_template_post_grid( $settings ) {
 
 					?>
 				</div>
-			</div>
-			<?php if ( 'yes' === $settings['excpert'] ) : ?>
-				<div class="boostify-post-excpert">
-					<span class="post-excpert">
-						<?php echo wp_trim_words( get_the_content( get_the_ID() ) , $settings['length'], null ); //phpcs:ignore ?>
-					</span>
-				</div>
-			<?php endif ?>
 
-			<?php if ( $settings['show_read_more'] ) : ?>
-				<a href="<?php echo esc_url( get_the_permalink() ); ?>">
-					<?php echo esc_html( $settings['read_more'] ); ?>
-				</a>
-			<?php endif ?>
+				<?php if ( 'yes' === $settings['excpert'] ) : ?>
+					<div class="boostify-post-excpert">
+						<span class="post-excpert">
+							<?php echo wp_trim_words( get_the_content( get_the_ID() ) , $settings['length'], null ); //phpcs:ignore ?>
+						</span>
+					</div>
+				<?php endif ?>
+
+				<?php if ( $settings['show_read_more'] ) : ?>
+					<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="boostify-post-read-more">
+						<?php echo esc_html( $settings['read_more'] ); ?>
+					</a>
+				<?php endif ?>
+			</div>
+
 		</div>
 	</article><!-- #post-<?php the_ID(); ?> -->
 	<?php
