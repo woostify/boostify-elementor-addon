@@ -1,0 +1,13 @@
+.elementor-element .icon {
+  position: relative;
+}
+
+.elementor-element .icon .boostify:after {
+  content: '\0041';
+  font-family: 'boostify';
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 15px;
+  color: #cdcfd2;
+}

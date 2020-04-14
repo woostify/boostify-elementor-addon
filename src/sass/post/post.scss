@@ -36,7 +36,65 @@
 .elementor-widget-boostify-post-grid .boostify-post-item-wrapper{
 	.boostify-post-excpert .post-excpert,
 	.boostify-post-read-more,
-	.boostify-post-meta .boostify-meta-item {
+	.boostify-post-meta .boostify-meta-item,
+	.boostify-pagination .page-numbers {
 		font-weight: 400;
+	}
+}
+
+.boostify-pagination {
+	display: flex;
+	align-items: center;
+	.page-numbers {
+		display: inline-flex;
+		min-width: 30px;
+		min-height: 30px;
+		justify-content: center;
+		align-items: center;
+		transition: all 0.3s;
+
+		&.next {
+			position: relative;
+			color: rgba( 0, 0, 0, 0 )!important;
+			font-size: 1px!important;
+			&:after {
+				content: "\f125";
+				font-size: 12px;
+				font-family: "Ionicons";
+				position: absolute;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				color: #000;
+			}
+		}
+
+		&.prev {
+			position: relative;
+			color: rgba( 0, 0, 0, 0 )!important;
+			font-size: 1px!important;
+			&:after {
+				content: "\f124";
+				font-size: 12px;
+				font-family: "Ionicons";
+				position: absolute;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				color: #000;
+			}
+		}
+
+		&:not(:last-child) {
+			margin-right: 8px;
+		}
 	}
 }

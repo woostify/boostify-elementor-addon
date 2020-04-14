@@ -41,7 +41,7 @@ class Button extends Base_Widget {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'eicon-button';
+		return 'boostify eicon-button';
 	}
 
 	protected function _register_controls() { //phpcs:ignore

@@ -63,6 +63,12 @@ class Boostify_Elementor_Addon {
 		add_action( 'wp_enqueue_scripts', array( $this, 'style' ), 99 );
 
 		add_action( 'elementor/init', array( $this, 'elementor_loaded' ) );
+
+		add_action( 'elementor/editor/wp_head', array( $this, 'enqueue_icon' ) );
+
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_icon' ) );
+
+		// add_action( 'elementor/controls/controls_registered', array( $this, 'register_controls' ) );
 	}
 
 	/**
@@ -167,11 +173,32 @@ class Boostify_Elementor_Addon {
 		);
 	}
 
+	public function enqueue_icon() {
+		wp_enqueue_style(
+			'boostify-font',
+			BOOSTIFY_ELEMENTOR_URL . '/assets/css/boostify-font.css',
+			array(),
+			BOOSTIFY_ELEMENTOR_VER
+		);
 
+		wp_enqueue_style(
+			'boostify-elementor-editer',
+			BOOSTIFY_ELEMENTOR_URL . '/assets/css/elementor-editer.css',
+			array(),
+			BOOSTIFY_ELEMENTOR_VER
+		);
+	}
 
 	public function register_core() {
 		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/core/class-base-widget.php';
 		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/widgets/post/class-post-base.php';
+	}
+
+	public function register_controls() {
+		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/control/class-group-control-post.php';
+
+		$control_manager = \Elementor\Plugin::instance()->controls_manager;
+		$control_manager->register_control( 'boostify_post', new Boostify_Elementor\Group_Control_Post() );
 	}
 
 	public function include_files() {
@@ -185,7 +212,6 @@ class Boostify_Elementor_Addon {
 	public function elementor_loaded() {
 		new \Boostify_Elementor\Posts\Layout();
 	}
-
 
 }
 // Instantiate Boostify_Elementor_Addon Class

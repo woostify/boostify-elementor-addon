@@ -92,7 +92,7 @@ function boostify_pagination( $total_page ) {
 	if ( $total_page > 1 ) {
 		$current_page = max( 1, get_query_var( 'paged' ) );
 		?>
-		<nav class="pagination blog-pagination">
+		<nav class="boostify-pagination blog-pagination">
 			<?php
 			echo paginate_links( //phpcs:ignore
 				array(
@@ -100,8 +100,8 @@ function boostify_pagination( $total_page ) {
 					'format'    => '/page/%#%',
 					'current'   => $current_page,
 					'total'     => $total_page,
-					'prev_text' => esc_html__( '«', 'boostify' ),
-					'next_text' => esc_html__( '»', 'boostify' ),
+					'prev_text' => esc_html__( 'Prev', 'boostify' ),
+					'next_text' => esc_html__( 'Next', 'boostify' ),
 					'end_size'  => 3,
 					'mid_size'  => 3,
 				)
