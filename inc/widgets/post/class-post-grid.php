@@ -4,6 +4,7 @@ namespace Boostify_Elementor\Widgets;
 
 use Boostify_Elementor\Base_Widget;
 use Boostify_Elementor\Layout;
+use Boostify_Elementor\Group_Control_Post;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Scheme_Typography;
@@ -62,6 +63,15 @@ class Post_Grid extends Base_Widget {
 				'default' => 'default',
 			)
 		);
+
+		$this->add_group_control(
+			Group_Control_Post::get_type(),
+			array(
+				'label' => esc_html__( 'Layout', 'boostify' ),
+				'name'  => 'sgggs',
+			)
+		);
+
 
 		$this->add_responsive_control(
 			'columns',
@@ -1152,6 +1162,7 @@ class Post_Grid extends Base_Widget {
 			'boostify-grid-mobile-' . $settings['columns_mobile'],
 		);
 		$class      = implode( ' ', $classes );
+
 		if ( $posts->have_posts() ) {
 			?>
 			<div class="boostify-addon-widget boostify-post-grid-widget">

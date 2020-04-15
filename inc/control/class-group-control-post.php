@@ -1,4 +1,5 @@
 <?php
+
 namespace Boostify_Elementor;
 
 use Elementor\Controls_Manager;
@@ -27,7 +28,7 @@ class Group_Control_Post extends Group_Control_Base {
 	 * @access protected
 	 * @static
 	 *
-	 * @var array Border control fields.
+	 * @var array Post control fields.
 	 */
 	protected static $fields;
 
@@ -57,38 +58,32 @@ class Group_Control_Post extends Group_Control_Base {
 	 * @return array Control fields.
 	 */
 	protected function init_fields() {
-		$fields = [];
+		$fields = array();
 
-		$fields['post'] = [
-			'label' => _x( 'Border Type', 'Border Control', 'elementor' ),
-			'type' => Controls_Manager::SELECT,
-			'options' => [
-				'' => __( 'None', 'elementor' ),
-				'solid' => _x( 'Solid', 'Border Control', 'elementor' ),
-				'double' => _x( 'Double', 'Border Control', 'elementor' ),
-				'dotted' => _x( 'Dotted', 'Border Control', 'elementor' ),
-				'dashed' => _x( 'Dashed', 'Border Control', 'elementor' ),
-				'groove' => _x( 'Groove', 'Border Control', 'elementor' ),
-			],
-		];
+		$fields['post_type'] = array(
+			'label'   => _x( 'Post Type', 'Post Control', 'boostify' ),
+			'type'    => Controls_Manager::SELECT,
+			'options' => boostify_theme_post_type(),
+			'default' => 'post',
+		);
 
-		$fields['width'] = [
-			'label' => _x( 'Width', 'Border Control', 'elementor' ),
-			'type' => Controls_Manager::DIMENSIONS,
-			'condition' => [
+		$fields['term'] = array(
+			'label'      => _x( 'Term', 'Post Control', 'boostify' ),
+			'type'       => Controls_Manager::SELECT2,
+			'condition'  => array(
 				'post!' => '',
-			],
+			),
 			'responsive' => true,
-		];
+		);
 
-		$fields['color'] = [
-			'label' => _x( 'Color', 'Border Control', 'elementor' ),
-			'type' => Controls_Manager::COLOR,
-			'default' => '',
-			'condition' => [
+		$fields['color'] = array(
+			'label'     => _x( 'Color', 'Post Control', 'boostify' ),
+			'type'      => Controls_Manager::COLOR,
+			'default'   => '',
+			'condition' => array(
 				'post!' => '',
-			],
-		];
+			),
+		);
 
 		return $fields;
 	}
@@ -105,8 +100,8 @@ class Group_Control_Post extends Group_Control_Base {
 	 * @return array Default post control options.
 	 */
 	protected function get_default_options() {
-		return [
+		return array(
 			'popover' => false,
-		];
+		);
 	}
 }

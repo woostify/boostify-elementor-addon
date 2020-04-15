@@ -68,7 +68,7 @@ class Boostify_Elementor_Addon {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_icon' ) );
 
-		// add_action( 'elementor/controls/controls_registered', array( $this, 'register_controls' ) );
+		add_action( 'elementor/controls/controls_registered', array( $this, 'register_controls' ) );
 	}
 
 	/**
@@ -198,7 +198,7 @@ class Boostify_Elementor_Addon {
 		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/control/class-group-control-post.php';
 
 		$control_manager = \Elementor\Plugin::instance()->controls_manager;
-		$control_manager->register_control( 'boostify_post', new Boostify_Elementor\Group_Control_Post() );
+		$control_manager->add_group_control( 'boostify-post', new Boostify_Elementor\Group_Control_Post() );
 	}
 
 	public function include_files() {

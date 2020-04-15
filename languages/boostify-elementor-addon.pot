@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: inc/class-boostify-elementor-addon.php:75
+#: inc/class-boostify-elementor-addon.php:81
 msgid "Boostify"
 msgstr ""
 
@@ -22,11 +22,11 @@ msgid "No Comments"
 msgstr ""
 
 #: inc/core/template.php:103
-msgid "«"
+msgid "Prev"
 msgstr ""
 
 #: inc/core/template.php:104
-msgid "»"
+msgid "Next"
 msgstr ""
 
 #: inc/widgets/basic/class-button.php:51, inc/widgets/basic/class-button.php:247
@@ -53,19 +53,19 @@ msgstr ""
 msgid "https://your-link.com"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:84, inc/widgets/post/class-post-grid.php:340
+#: inc/widgets/basic/class-button.php:84, inc/widgets/post/class-post-grid.php:284, inc/widgets/post/class-post-grid.php:375
 msgid "Alignment"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:89, inc/widgets/basic/class-button.php:143, inc/widgets/post/class-post-grid.php:344
+#: inc/widgets/basic/class-button.php:89, inc/widgets/basic/class-button.php:143, inc/widgets/post/class-post-grid.php:288, inc/widgets/post/class-post-grid.php:379
 msgid "Left"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:93, inc/widgets/post/class-post-grid.php:348
+#: inc/widgets/basic/class-button.php:93, inc/widgets/post/class-post-grid.php:292, inc/widgets/post/class-post-grid.php:383
 msgid "Center"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:97, inc/widgets/basic/class-button.php:147, inc/widgets/post/class-post-grid.php:352
+#: inc/widgets/basic/class-button.php:97, inc/widgets/basic/class-button.php:147, inc/widgets/post/class-post-grid.php:296, inc/widgets/post/class-post-grid.php:387
 msgid "Right"
 msgstr ""
 
@@ -121,7 +121,7 @@ msgstr ""
 msgid "Font Size"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:182, inc/widgets/basic/class-button.php:208, inc/widgets/post/class-post-grid.php:518, inc/widgets/post/class-post-grid.php:607, inc/widgets/post/class-post-grid.php:659, inc/widgets/post/class-post-grid.php:716
+#: inc/widgets/basic/class-button.php:182, inc/widgets/basic/class-button.php:208, inc/widgets/post/class-post-grid.php:553, inc/widgets/post/class-post-grid.php:642, inc/widgets/post/class-post-grid.php:694, inc/widgets/post/class-post-grid.php:751
 msgid "Space"
 msgstr ""
 
@@ -133,7 +133,7 @@ msgstr ""
 msgid "Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows A-z 0-9 & underscore chars without spaces."
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:255, inc/widgets/post/class-post-grid.php:328, inc/widgets/post/class-post-grid.php:400, inc/widgets/post/class-post-grid.php:841
+#: inc/widgets/basic/class-button.php:255, inc/widgets/post/class-post-grid.php:363, inc/widgets/post/class-post-grid.php:435, inc/widgets/post/class-post-grid.php:876
 msgid "Padding"
 msgstr ""
 
@@ -141,27 +141,27 @@ msgstr ""
 msgid "Border"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:277, inc/widgets/post/class-post-grid.php:433, inc/widgets/post/class-post-grid.php:473
+#: inc/widgets/basic/class-button.php:277, inc/widgets/post/class-post-grid.php:468, inc/widgets/post/class-post-grid.php:508
 msgid "Box Shadow"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:287, inc/widgets/basic/class-button.php:363, inc/widgets/post/class-post-grid.php:414, inc/widgets/post/class-post-grid.php:539, inc/widgets/post/class-post-grid.php:750
+#: inc/widgets/basic/class-button.php:287, inc/widgets/basic/class-button.php:363, inc/widgets/post/class-post-grid.php:449, inc/widgets/post/class-post-grid.php:574, inc/widgets/post/class-post-grid.php:785, inc/widgets/post/class-post-grid.php:989
 msgid "Normal"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:294, inc/widgets/basic/class-button.php:325, inc/widgets/post/class-post-grid.php:388, inc/widgets/post/class-post-grid.php:506, inc/widgets/post/class-post-grid.php:856
+#: inc/widgets/basic/class-button.php:294, inc/widgets/basic/class-button.php:325, inc/widgets/post/class-post-grid.php:423, inc/widgets/post/class-post-grid.php:541, inc/widgets/post/class-post-grid.php:891, inc/widgets/post/class-post-grid.php:975
 msgid "Border Radius"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:307, inc/widgets/basic/class-button.php:338, inc/widgets/post/class-post-grid.php:421, inc/widgets/post/class-post-grid.php:461, inc/widgets/post/class-post-grid.php:772, inc/widgets/post/class-post-grid.php:810
+#: inc/widgets/basic/class-button.php:307, inc/widgets/basic/class-button.php:338, inc/widgets/post/class-post-grid.php:456, inc/widgets/post/class-post-grid.php:496, inc/widgets/post/class-post-grid.php:807, inc/widgets/post/class-post-grid.php:845, inc/widgets/post/class-post-grid.php:1021, inc/widgets/post/class-post-grid.php:1064, inc/widgets/post/class-post-grid.php:1109
 msgid "Background"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:318, inc/widgets/basic/class-button.php:385, inc/widgets/post/class-post-grid.php:454, inc/widgets/post/class-post-grid.php:556, inc/widgets/post/class-post-grid.php:788
+#: inc/widgets/basic/class-button.php:318, inc/widgets/basic/class-button.php:385, inc/widgets/post/class-post-grid.php:489, inc/widgets/post/class-post-grid.php:591, inc/widgets/post/class-post-grid.php:823, inc/widgets/post/class-post-grid.php:1077
 msgid "Hover"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:370, inc/widgets/basic/class-button.php:392, inc/widgets/post/class-post-grid.php:585, inc/widgets/post/class-post-grid.php:636, inc/widgets/post/class-post-grid.php:688, inc/widgets/post/class-post-grid.php:757, inc/widgets/post/class-post-grid.php:795
+#: inc/widgets/basic/class-button.php:370, inc/widgets/basic/class-button.php:392, inc/widgets/post/class-post-grid.php:620, inc/widgets/post/class-post-grid.php:671, inc/widgets/post/class-post-grid.php:723, inc/widgets/post/class-post-grid.php:792, inc/widgets/post/class-post-grid.php:830, inc/widgets/post/class-post-grid.php:996, inc/widgets/post/class-post-grid.php:1041, inc/widgets/post/class-post-grid.php:1084
 msgid "Color"
 msgstr ""
 
@@ -169,7 +169,7 @@ msgstr ""
 msgid "Post Grid"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:59, inc/widgets/post/class-post-grid.php:277
+#: inc/widgets/post/class-post-grid.php:59, inc/widgets/post/class-post-grid.php:312
 msgid "Layout"
 msgstr ""
 
@@ -201,11 +201,11 @@ msgstr ""
 msgid "Thumbnail"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:89, inc/widgets/post/class-post-grid.php:118, inc/widgets/post/class-post-grid.php:176, inc/widgets/post/class-post-grid.php:265
+#: inc/widgets/post/class-post-grid.php:89, inc/widgets/post/class-post-grid.php:118, inc/widgets/post/class-post-grid.php:176, inc/widgets/post/class-post-grid.php:274
 msgid "Show"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:90, inc/widgets/post/class-post-grid.php:119, inc/widgets/post/class-post-grid.php:177, inc/widgets/post/class-post-grid.php:266
+#: inc/widgets/post/class-post-grid.php:90, inc/widgets/post/class-post-grid.php:119, inc/widgets/post/class-post-grid.php:177, inc/widgets/post/class-post-grid.php:275
 msgid "Hide"
 msgstr ""
 
@@ -213,7 +213,7 @@ msgstr ""
 msgid "Title HTML Tag"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:116, inc/widgets/post/class-post-grid.php:680
+#: inc/widgets/post/class-post-grid.php:116, inc/widgets/post/class-post-grid.php:715
 msgid "Excpert"
 msgstr ""
 
@@ -221,7 +221,7 @@ msgstr ""
 msgid "Excpert Length"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:141, inc/widgets/post/class-post-grid.php:628
+#: inc/widgets/post/class-post-grid.php:141, inc/widgets/post/class-post-grid.php:663
 msgid "Meta Data"
 msgstr ""
 
@@ -277,7 +277,7 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:224, inc/widgets/post/class-post-grid.php:577
+#: inc/widgets/post/class-post-grid.php:224, inc/widgets/post/class-post-grid.php:612
 msgid "Title"
 msgstr ""
 
@@ -301,38 +301,54 @@ msgstr ""
 msgid "Posts Per Page"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:263
+#: inc/widgets/post/class-post-grid.php:265, inc/widgets/post/class-post-grid.php:272, inc/widgets/post/class-post-grid.php:908
 msgid "Pagination"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:285
+#: inc/widgets/post/class-post-grid.php:320
 msgid "Columns Space"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:305
+#: inc/widgets/post/class-post-grid.php:340
 msgid "Row Space"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:368
+#: inc/widgets/post/class-post-grid.php:403
 msgid "Box"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:376
+#: inc/widgets/post/class-post-grid.php:411, inc/widgets/post/class-post-grid.php:963
 msgid "Border Width"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:441, inc/widgets/post/class-post-grid.php:481
+#: inc/widgets/post/class-post-grid.php:476, inc/widgets/post/class-post-grid.php:516
 msgid "Border Color"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:498
+#: inc/widgets/post/class-post-grid.php:533
 msgid "Image"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:598, inc/widgets/post/class-post-grid.php:650, inc/widgets/post/class-post-grid.php:704, inc/widgets/post/class-post-grid.php:829
+#: inc/widgets/post/class-post-grid.php:633, inc/widgets/post/class-post-grid.php:685, inc/widgets/post/class-post-grid.php:739, inc/widgets/post/class-post-grid.php:864, inc/widgets/post/class-post-grid.php:935
 msgid "Typography"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:740
+#: inc/widgets/post/class-post-grid.php:775
 msgid "Read More Button"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:916
+msgid "Space Top"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:944
+msgid "Width"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:1010, inc/widgets/post/class-post-grid.php:1053, inc/widgets/post/class-post-grid.php:1098
+msgid "Color Border"
+msgstr ""
+
+#: inc/widgets/post/class-post-grid.php:1034
+msgid "Active"
 msgstr ""

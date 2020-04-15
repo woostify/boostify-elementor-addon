@@ -143,9 +143,14 @@ function boostify_theme_post_type() {
 	$options          = array_diff( $post_types, $post_types_unset );
 
 	foreach ( $options as $key => $option ) {
-		$value           = str_replace( '_', ' ', $option );
-		$value           = ucwords( $value );
-		$options[ $key ] = $value;
+		$object_post = get_post_type_object( $option );
+		if ( $object_post->label ) {
+			$options[ $key ] = $object_post->label;
+		} else {
+			$value           = str_replace( '_', ' ', $option );
+			$value           = ucwords( $value );
+			$options[ $key ] = $value;
+		}
 	}
 
 	return $options;
