@@ -47,6 +47,12 @@ class Group_Control_Post extends Group_Control_Base {
 		return 'boostify-post';
 	}
 
+	protected function init_args( $args ) {
+		parent::init_args( $args );
+		$args = $this->get_args();
+		static::$fields = $this->init_fields_by_name( $args['name'] );
+	}
+
 	/**
 	 * Init fields.
 	 *
@@ -58,7 +64,17 @@ class Group_Control_Post extends Group_Control_Base {
 	 * @return array Control fields.
 	 */
 	protected function init_fields() {
+		$args = $this->get_args();
+		$this->init_fields_by_name( $args['name'] );
+	}
+
+	public function init_fields_by_name( $name ) {
 		$fields = array();
+
+		$name .= '_';
+		$tabs_wrapper = $name . 'query_args';
+		$include_wrapper = $name . 'query_include';
+		$exclude_wrapper = $name . 'query_exclude';
 
 		$fields['post_type'] = array(
 			'label'   => _x( 'Post Type', 'Post Control', 'boostify' ),
@@ -67,21 +83,47 @@ class Group_Control_Post extends Group_Control_Base {
 			'default' => 'post',
 		);
 
-		$fields['term'] = array(
-			'label'      => _x( 'Term', 'Post Control', 'boostify' ),
-			'type'       => Controls_Manager::SELECT2,
-			'condition'  => array(
-				'post!' => '',
-			),
-			'responsive' => true,
+		$fields['query_include'] = array(
+			'type'         => Controls_Manager::TAB,
+			'label'        => __( 'Include', 'boostify' ),
+			'tabs_wrapper' => $tabs_wrapper,
 		);
 
-		$fields['color'] = array(
-			'label'     => _x( 'Color', 'Post Control', 'boostify' ),
-			'type'      => Controls_Manager::COLOR,
-			'default'   => '',
-			'condition' => array(
-				'post!' => '',
+		$fields['include'] = array(
+			'label'       => __( 'Include By', 'boostify' ),
+			'type'        => Controls_Manager::SELECT2,
+			'multiple'    => true,
+			'label_block' => true,
+			'inner_tab'   => $include_wrapper,
+			'options'     => array(
+				'terms'   => __( 'Term', 'boostify' ),
+				'authors' => __( 'Author', 'boostify' ),
+			),
+		);
+
+		$fields['include_term_ids'] = array(
+			'label'       => __( 'Include By', 'boostify' ),
+			'type'        => Controls_Manager::SELECT2,
+			'multiple'    => true,
+			'label_block' => true,
+			'inner_tab'   => $include_wrapper,
+			'options'     => array(
+				'terms'   => __( 'Term', 'boostify' ),
+				'authors' => __( 'Author', 'boostify' ),
+			),
+			'condition'   => array(
+				'include' => 'terms',
+			),
+		);
+
+		$fields['include_term_ids'] = array(
+			'label'       => __( 'Include By', 'boostify' ),
+			'type'        => Controls_Manager::SELECT2,
+			'multiple'    => true,
+			'label_block' => true,
+			'options'     => boostify_user(),
+			'condition'   => array(
+				'include' => 'authors',
 			),
 		);
 

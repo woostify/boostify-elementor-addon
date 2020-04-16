@@ -68,10 +68,9 @@ class Post_Grid extends Base_Widget {
 			Group_Control_Post::get_type(),
 			array(
 				'label' => esc_html__( 'Layout', 'boostify' ),
-				'name'  => 'sgggs',
+				'name'  => 'post_group',
 			)
 		);
-
 
 		$this->add_responsive_control(
 			'columns',
@@ -1162,7 +1161,13 @@ class Post_Grid extends Base_Widget {
 			'boostify-grid-mobile-' . $settings['columns_mobile'],
 		);
 		$class      = implode( ' ', $classes );
-
+		$users = get_users();
+		echo "<pre>";
+			// $taxonomies = get_taxonomies();
+			// var_dump( $taxonomies );
+		$taxonomies = get_object_taxonomies( 'tour' );
+			var_dump( $taxonomies );
+		echo "</pre>";
 		if ( $posts->have_posts() ) {
 			?>
 			<div class="boostify-addon-widget boostify-post-grid-widget">

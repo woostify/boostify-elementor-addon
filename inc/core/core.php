@@ -155,3 +155,23 @@ function boostify_theme_post_type() {
 
 	return $options;
 }
+
+function boostify_user() {
+	$users     = get_users();
+	$list_user = array();
+	if ( ! empty( $users ) ) {
+		foreach ( $users as $user ) {
+			$list_user[ $user->ID ] = $user->user_login;
+		}
+	}
+
+	return $list_user;
+}
+
+function boostify_taxonomies() {
+	$post_type = boostify_theme_post_type();
+	$terms     = array();
+	foreach ( $post_type as $key => $value ) {
+		$taxonomies = get_object_taxonomies( $key );
+	}
+}
