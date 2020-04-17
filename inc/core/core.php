@@ -169,9 +169,55 @@ function boostify_user() {
 }
 
 function boostify_taxonomies() {
-	$post_type = boostify_theme_post_type();
-	$terms     = array();
-	foreach ( $post_type as $key => $value ) {
-		$taxonomies = get_object_taxonomies( $key );
+	$post_types = boostify_theme_post_type();
+	$list_term     = array();
+	foreach ( $post_types as $key => $post_type ) {
+		$taxonomies = get_object_taxonomies( $key, 'objects' );
+		foreach ( $taxonomies as $taxonomy => $object ) {
+			$name = $object->label . ': ';
+			$terms = get_terms( $taxonomy );
+			foreach ( $terms as $term ) {
+				$list_term[ $term->term_id ] = $name . $term->name;
+			}
+		}
 	}
+
+	return $list_term;
+}
+
+
+function boostify_taxonomies_by_post_type( $post_type ) {
+	$taxonomies = get_object_taxonomies( $post_type, 'objects' );
+	$list_term  = array();
+	foreach ( $taxonomies as $taxonomy => $object ) {
+		$name  = $object->label . ': ';
+		$terms = get_terms( $taxonomy );
+		foreach ( $terms as $term ) {
+			$list_term[ $term->term_id ] = $name . $term->name;
+		}
+	}
+
+	return $list_term;
+}
+
+function boostify_post( $post_type ) {
+	$args      = array(
+		'post_type'           => $post_type,
+		'post_status'         => 'publish',
+		'ignore_sticky_posts' => 1,
+		'posts_per_page'      => -1,
+	);
+	$posts     = new WP_Query( $args );
+	$list_post = array();
+
+	if ( $posts->have_posts() ) {
+		while ( $posts->have_posts() ) {
+			$posts->the_post();
+			$list_post[ get_the_ID() ] = get_the_title();
+		}
+
+		wp_reset_postdata();
+	}
+
+	return $list_post;
 }

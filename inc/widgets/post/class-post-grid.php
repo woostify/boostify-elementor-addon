@@ -293,15 +293,15 @@ class Post_Grid extends Base_Widget {
 				'label'     => __( 'Alignment', 'boostify' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => array(
-					'flex-start'   => array(
+					'flex-start' => array(
 						'title' => __( 'Left', 'boostify' ),
 						'icon'  => 'fa fa-align-left',
 					),
-					'center' => array(
+					'center'     => array(
 						'title' => __( 'Center', 'boostify' ),
 						'icon'  => 'fa fa-align-center',
 					),
-					'flex-end'  => array(
+					'flex-end'   => array(
 						'title' => __( 'Right', 'boostify' ),
 						'icon'  => 'fa fa-align-right',
 					),
@@ -1161,13 +1161,10 @@ class Post_Grid extends Base_Widget {
 			'boostify-grid-mobile-' . $settings['columns_mobile'],
 		);
 		$class      = implode( ' ', $classes );
-		$users = get_users();
 		echo "<pre>";
-			// $taxonomies = get_taxonomies();
-			// var_dump( $taxonomies );
-		$taxonomies = get_object_taxonomies( 'tour' );
-			var_dump( $taxonomies );
+		var_dump( $settings );
 		echo "</pre>";
+
 		if ( $posts->have_posts() ) {
 			?>
 			<div class="boostify-addon-widget boostify-post-grid-widget">
