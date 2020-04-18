@@ -193,7 +193,8 @@ function boostify_taxonomies_by_post_type( $post_type ) {
 		$name  = $object->label . ': ';
 		$terms = get_terms( $taxonomy );
 		foreach ( $terms as $term ) {
-			$list_term[ $term->term_id ] = $name . $term->name;
+			$key               = $taxonomy . '___' . $term->slug;
+			$list_term[ $key ] = $name . $term->name;
 		}
 	}
 

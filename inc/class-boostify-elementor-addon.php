@@ -52,11 +52,11 @@ class Boostify_Elementor_Addon {
 	}
 
 	private function setup_hooks() {
-		// Register custom widget categories.
+
 		add_action( 'elementor/elements/categories_registered', array( $this, 'add_elementor_widget_categories' ) );
-		// Register widget scripts
+
 		add_action( 'elementor/frontend/after_register_scripts', array( $this, 'widget_scripts' ) );
-		// Register widgets
+
 		add_action( 'elementor/widgets/widgets_registered', array( $this, 'init_widgets' ) );
 		add_action( 'elementor/init', array( $this, 'register_core' ) );
 
@@ -191,12 +191,12 @@ class Boostify_Elementor_Addon {
 
 	public function register_core() {
 		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/core/class-base-widget.php';
-		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/widgets/post/class-post-base.php';
+		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/widgets/post/base/class-posts.php';
+		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/widgets/post/base/class-post-base.php';
 	}
 
 	public function register_controls() {
 		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/control/class-group-control-post.php';
-
 		$control_manager = \Elementor\Plugin::instance()->controls_manager;
 		$control_manager->add_group_control( 'boostify-post', new Boostify_Elementor\Group_Control_Post() );
 	}

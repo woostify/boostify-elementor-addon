@@ -113,14 +113,19 @@ class Group_Control_Post extends Group_Control_Base {
 		);
 
 		$fields['include_authors'] = array(
-			'label'       => __( 'Include By', 'boostify' ),
-			'type'        => Controls_Manager::SELECT2,
-			'multiple'    => true,
-			'label_block' => true,
-			'inner_tab'   => $include_wrapper,
-			'options'     => boostify_user(),
-			'condition'   => array(
-				'include' => 'authors',
+			'label'        => __( 'Authors', 'boostify' ),
+			'type'         => Controls_Manager::SELECT2,
+			'multiple'     => true,
+			'label_block'  => true,
+			'tabs_wrapper' => $tabs_wrapper,
+			'inner_tab'    => $include_wrapper,
+			'options'      => boostify_user(),
+			'condition'    => array(
+				'include'    => 'authors',
+				'post_type!' => array(
+					'by_id',
+					'current_query',
+				),
 			),
 		);
 
@@ -157,10 +162,9 @@ class Group_Control_Post extends Group_Control_Base {
 			'tabs_wrapper' => $tabs_wrapper,
 			'inner_tab'    => $exclude_wrapper,
 			'options'      => array(
-				'current_post'     => __( 'Current Post', 'boostify' ),
-				'manual_selection' => __( 'Manual Selection', 'boostify' ),
-				'terms'            => __( 'Term', 'boostify' ),
-				'authors'          => __( 'Author', 'boostify' ),
+				'current_post' => __( 'Current Post', 'boostify' ),
+				'terms'        => __( 'Term', 'boostify' ),
+				'authors'      => __( 'Author', 'boostify' ),
 			),
 			'condition'    => array(
 				'post_type!' => array(

@@ -22,20 +22,40 @@ msgctxt "Post Control"
 msgid "Post Type"
 msgstr ""
 
-#: inc/control/class-group-control-post.php:88
+#: inc/control/class-group-control-post.php:92
 msgid "Include"
 msgstr ""
 
-#: inc/control/class-group-control-post.php:93, inc/control/class-group-control-post.php:105, inc/control/class-group-control-post.php:120
+#: inc/control/class-group-control-post.php:97
 msgid "Include By"
 msgstr ""
 
-#: inc/control/class-group-control-post.php:99, inc/control/class-group-control-post.php:111
+#: inc/control/class-group-control-post.php:104, inc/control/class-group-control-post.php:135, inc/control/class-group-control-post.php:166, inc/control/class-group-control-post.php:181
 msgid "Term"
 msgstr ""
 
-#: inc/control/class-group-control-post.php:100, inc/control/class-group-control-post.php:112, inc/widgets/post/class-post-grid.php:156, inc/widgets/post/class-post-grid.php:234
+#: inc/control/class-group-control-post.php:105, inc/control/class-group-control-post.php:167, inc/control/class-group-control-post.php:197, inc/widgets/post/class-post-grid.php:156, inc/widgets/post/class-post-grid.php:234
 msgid "Author"
+msgstr ""
+
+#: inc/control/class-group-control-post.php:116
+msgid "Authors"
+msgstr ""
+
+#: inc/control/class-group-control-post.php:153
+msgid "Exclude"
+msgstr ""
+
+#: inc/control/class-group-control-post.php:158
+msgid "Exclude By"
+msgstr ""
+
+#: inc/control/class-group-control-post.php:165
+msgid "Current Post"
+msgstr ""
+
+#: inc/control/class-group-control-post.php:212
+msgid "Post"
 msgstr ""
 
 #: inc/core/core.php:102
