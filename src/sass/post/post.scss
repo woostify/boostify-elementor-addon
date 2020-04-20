@@ -120,3 +120,47 @@
 		}
 	}
 }
+
+.boostify-widget-post-list-wrapper {
+
+	.boostify-post-item-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+
+		.boostify-post-thumbnail {
+			max-width: 500px;
+			margin-bottom: 0;
+			line-height: 0;
+		}
+
+		.boostify-post-info {
+			max-width: calc( 100% - 500px );
+			padding: 0 15px 0 45px;
+		}
+
+		.boostify-post-meta {
+			margin-bottom: 15px;
+			margin-top: 10px;
+		}
+
+		.boostify-post-title {
+			padding-bottom: 25px;
+		}
+	}
+
+	&.boostify-layout-zigzag {
+		.boostify-post-item {
+			&:nth-last-of-type(even) {
+				.boostify-post-item-wrapper {
+					flex-direction: row-reverse;
+				}
+			}
+		}
+	}
+
+	&.boostify-layout-image_right {
+		.boostify-post-item-wrapper {
+			flex-direction: row-reverse;
+		}
+	}
+}

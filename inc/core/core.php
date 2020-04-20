@@ -20,7 +20,6 @@ function boostify_post_class( $class = '' ) {
 }
 
 function boostify_post_thumbnail() {
-
 	if ( has_post_thumbnail() ) {
 		?>
 		<div class="boostify-post-thumbnail">
@@ -30,6 +29,28 @@ function boostify_post_thumbnail() {
 		</div>
 		<?php
 	}
+}
+
+function boostify_post_image() {
+	?>
+	<div class="boostify-post-thumbnail">
+		<?php
+		if ( has_post_thumbnail() ) {
+			?>
+				<a href="<?php echo esc_url( get_the_permalink() ); ?>">
+					<?php the_post_thumbnail(); ?>
+				</a>
+			<?php
+		} else {
+			?>
+				<a href="<?php echo esc_url( get_the_permalink() ); ?>">
+					<img src="<?php echo esc_url( BOOSTIFY_ELEMENTOR_URL . 'assets/images/placeholder.png' ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>">
+				</a>
+			<?php
+		}
+		?>
+	</div>
+	<?php
 }
 
 function boostify_post_meta() {

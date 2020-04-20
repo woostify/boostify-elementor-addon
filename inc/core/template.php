@@ -160,25 +160,45 @@ function boostify_button_load_more( $text ) {
 	<?php
 }
 
-
 function boostify_template_post_list( $settings ) {
 	$meta_data = $settings['meta_data'];
 	$tag       = $settings['title_tag'];
 	?>
-	<article id="post-<?php the_ID(); ?>" <?php boostify_post_class( 'boostify-grid-item' ); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php boostify_post_class( 'boostify-grid-item swiper-slide' ); ?>>
 		<div class="boostify-post-item-wrapper">
 			<?php
 			if ( 'yes' === $settings['image'] ) {
-				boostify_post_thumbnail();
+				boostify_post_image();
 			}
 			?>
 			<div class="boostify-post-info">
+				<div class="boostify-post-meta">
+					<?php
+					if ( in_array( 'author', $meta_data ) ) { //phpcs:ignore
+						boostify_post_author();
+					}
+					if ( in_array( 'date', $meta_data ) ) { //phpcs:ignore
+						boostify_post_date();
+					}
+					if ( in_array( 'time', $meta_data ) ) { //phpcs:ignore
+						boostify_post_time();
+					}
+					if ( in_array( 'category', $meta_data ) && 'post' === get_post_type() ) { //phpcs:ignore
+						boostify_post_category();
+					}
+					if ( in_array( 'comment', $meta_data ) ) { //phpcs:ignore
+						boostify_comment_count();
+					}
+
+					?>
+				</div>
 
 				<<?php echo esc_attr( $tag ); ?> class="boostify-post-title">
 					<a href="<?php echo esc_url( get_the_permalink() ); ?>">
 						<?php echo esc_html( get_the_title() ); ?>
 					</a>
 				</<?php echo esc_attr( $tag ); ?>>
+
 
 				<?php if ( 'yes' === $settings['excpert'] ) : ?>
 					<div class="boostify-post-excpert">
@@ -193,29 +213,8 @@ function boostify_template_post_list( $settings ) {
 						<?php echo esc_html( $settings['read_more'] ); ?>
 					</a>
 				<?php endif ?>
-				<div class="boostify-entry-footer">
-					<div class="boostify-post-meta">
-						<?php
-						if ( in_array( 'author', $meta_data ) ) { //phpcs:ignore
-							boostify_post_author();
-						}
-						if ( in_array( 'date', $meta_data ) ) { //phpcs:ignore
-							boostify_post_date();
-						}
-						if ( in_array( 'time', $meta_data ) ) { //phpcs:ignore
-							boostify_post_time();
-						}
-						if ( in_array( 'category', $meta_data ) && 'post' === get_post_type() ) { //phpcs:ignore
-							boostify_post_category();
-						}
-						if ( in_array( 'comment', $meta_data ) ) { //phpcs:ignore
-							boostify_comment_count();
-						}
-
-						?>
-					</div>
-				</div>
 			</div>
+
 		</div>
 	</article><!-- #post-<?php the_ID(); ?> -->
 	<?php

@@ -165,7 +165,11 @@ abstract class Post_Base extends Posts {
 					),
 				),
 				'selectors'  => array(
-					'{{WRAPPER}} .boostify-post-thumbnail' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .boostify-widget-post-grid-wrapper .boostify-post-thumbnail' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .boostify-layout-default .boostify-post-thumbnail' => 'padding-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .boostify-layout-zigzag .boostify-post-item:nth-last-of-type(even) .boostify-post-thumbnail' => 'padding-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .boostify-layout-zigzag .boostify-post-item:nth-last-of-type(odd) .boostify-post-thumbnail' => 'padding-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .boostify-layout-image_right .boostify-post-thumbnail' => 'padding-left: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);

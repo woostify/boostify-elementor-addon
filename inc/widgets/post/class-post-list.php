@@ -43,9 +43,9 @@ class Post_List extends Post_Base {
 
 	public function _register_controls() { //phpcs:ignore
 		$this->start_controls_section(
-			'section_post_grid',
+			'section_post_list',
 			array(
-				'label' => __( 'Post Grid', 'boostify' ),
+				'label' => __( 'Post List', 'boostify' ),
 			)
 		);
 		$this->layout_control();
@@ -88,18 +88,18 @@ class Post_List extends Post_Base {
 		$total_page = $posts->max_num_pages;
 		$action     = 'boostify_post_list_' . $settings['layout'];
 		$classes    = array(
-			'boostify-widget-post-grid-wrapper',
-			'boostify-grid',
-			'boostify-grid-' . $columns,
-			'boostify-grid-tablet-' . $settings['columns_tablet'],
-			'boostify-grid-mobile-' . $settings['columns_mobile'],
+			'boostify-widget-post-list-wrapper',
+			'boostify-list',
+			'boostify-list-' . $columns,
+			'boostify-list-tablet-' . $settings['columns_tablet'],
+			'boostify-list-mobile-' . $settings['columns_mobile'],
 			'boostify-layout-' . $settings['layout'],
 		);
 		$class      = implode( ' ', $classes );
 
 		if ( $posts->have_posts() ) {
 			?>
-			<div class="boostify-addon-widget boostify-post-grid-widget">
+			<div class="boostify-addon-widget boostify-post-list-widget">
 				<div class="<?php echo esc_attr( $class ); ?>">
 					<?php
 					while ( $posts->have_posts() ) {
@@ -124,8 +124,9 @@ class Post_List extends Post_Base {
 	public function layouts() {
 		$layout = new Layout();
 		$args   = array(
-			'default' => 'Default',
-			'zigzag'  => 'Zigzag',
+			'default'     => 'Default',
+			'zigzag'      => 'Zigzag',
+			'image_right' => 'Image Right',
 		);
 		$layout->add_layout_list( $args );
 		$layouts = Layout::$list_layouts;
@@ -141,24 +142,6 @@ class Post_List extends Post_Base {
 				'type'    => Controls_Manager::SELECT,
 				'options' => $this->layouts(),
 				'default' => 'default',
-			)
-		);
-
-		$this->add_responsive_control(
-			'columns',
-			array(
-				'label'          => esc_html__( 'Columns', 'boostify' ),
-				'type'           => Controls_Manager::SELECT,
-				'options'        => array(
-					'1' => esc_html__( '1', 'boostify' ),
-					'2' => esc_html__( '2', 'boostify' ),
-					'3' => esc_html__( '3', 'boostify' ),
-					'4' => esc_html__( '4', 'boostify' ),
-					'5' => esc_html__( '5', 'boostify' ),
-				),
-				'default'        => '3',
-				'tablet_default' => '2',
-				'mobile_default' => '1',
 			)
 		);
 	}
