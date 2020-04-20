@@ -12,7 +12,7 @@
 }
 
 .boostify-post-item-wrapper .boostify-post-title {
-  font-size: 18px;
+  font-size: 20px;
   text-transform: capitalize;
   padding-bottom: 15px;
 }
@@ -29,6 +29,10 @@
 
 .boostify-post-item-wrapper .boostify-meta-item:not(:last-child):after {
   content: '/';
+}
+
+.boostify-post-item-wrapper .boostify-post-excpert {
+  margin-bottom: 25px;
 }
 
 .elementor-widget-boostify-post-grid .boostify-post-item-wrapper .boostify-post-excpert .post-excpert,
@@ -96,4 +100,18 @@
 
 .boostify-pagination .page-numbers:not(:last-child) {
   margin-right: 8px;
+}
+
+.boostify-layout-masonry .boostify-post-item-wrapper {
+  border: 1px solid #ededed;
+}
+
+.boostify-layout-masonry .boostify-post-info {
+  padding: 20px 25px 0;
+}
+
+.boostify-layout-masonry .boostify-entry-footer .boostify-post-meta {
+  padding: 15px 0;
+  border-top: 2px solid #ededed;
+  margin-top: 20px;
 }

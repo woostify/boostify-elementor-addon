@@ -57,6 +57,8 @@ class Boostify_Elementor_Addon {
 
 		add_action( 'elementor/frontend/after_register_scripts', array( $this, 'widget_scripts' ) );
 
+		add_action( 'elementor/preview/enqueue_scripts', array( $this, 'scripts_in_preview_mode' ) );
+
 		add_action( 'elementor/widgets/widgets_registered', array( $this, 'init_widgets' ) );
 		add_action( 'elementor/init', array( $this, 'register_core' ) );
 
@@ -69,6 +71,7 @@ class Boostify_Elementor_Addon {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_icon' ) );
 
 		add_action( 'elementor/controls/controls_registered', array( $this, 'register_controls' ) );
+
 	}
 
 	/**
@@ -92,6 +95,7 @@ class Boostify_Elementor_Addon {
 			),
 			'post'  => array(
 				'Post_Grid',
+				'Post_List',
 			),
 		);
 		return $widgets;
@@ -107,7 +111,59 @@ class Boostify_Elementor_Addon {
 	 */
 	public function widget_scripts() {
 		$suffix = $this->suffix();
+
+		wp_register_script(
+			'isotope',
+			BOOSTIFY_ELEMENTOR_URL . 'assets/js/isotope' . $suffix . '.js',
+			array( 'jquery' ),
+			BOOSTIFY_HEADER_FOOTER_VER,
+			true
+		);
+
+		wp_register_script(
+			'masonry',
+			BOOSTIFY_ELEMENTOR_URL . 'assets/js/masonry' . $suffix . '.js',
+			array( 'jquery' ),
+			BOOSTIFY_HEADER_FOOTER_VER,
+			true
+		);
+
+		$admin_vars = array(
+			'url'   => admin_url( 'admin-ajax.php' ),
+			'nonce' => wp_create_nonce( 'boostify_post_nonce' ),
+		);
+
+		wp_localize_script(
+			'boostify-addon-post-grid',
+			'admin',
+			$admin_vars
+		);
+
+		wp_register_script(
+			'boostify-addon-post-grid',
+			BOOSTIFY_ELEMENTOR_URL . 'assets/js/posts/post-grid' . $suffix . '.js',
+			array( 'jquery', 'masonry' ),
+			BOOSTIFY_HEADER_FOOTER_VER,
+			true
+		);
 	}
+
+
+	public function scripts_in_preview_mode() {
+		$suffix = $this->suffix();
+		wp_enqueue_script(
+			'boostify-addon-elementor-preview',
+			BOOSTIFY_ELEMENTOR_URL . '/assets/js/preview' . $suffix . '.js',
+			array(
+				'jquery',
+				'masonry',
+			),
+			BOOSTIFY_HEADER_FOOTER_VER,
+			true
+		);
+
+	}
+
 	/**
 	 * Include Widgets files
 	 *

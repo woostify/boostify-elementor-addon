@@ -310,7 +310,8 @@ abstract class Post_Base extends Posts {
 					),
 				),
 				'selectors'  => array(
-					'{{WRAPPER}} .boostify-post-meta' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .boostify-layout-default .boostify-post-meta' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .boostify-layout-masonry .boostify-post-meta' => 'margin-top: {{SIZE}}{{UNIT}};',
 				),
 			)
 		);
@@ -403,7 +404,7 @@ abstract class Post_Base extends Posts {
 			array(
 				'label'     => __( 'Color', 'boostify' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#000',
+				'default'   => '#d53e3e',
 				'selectors' => array(
 					'{{WRAPPER}} .boostify-post-read-more' => 'color: {{VALUE}};',
 				),

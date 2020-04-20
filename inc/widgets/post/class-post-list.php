@@ -13,7 +13,7 @@ use Elementor\Controls_Manager;
  * Elementor widget for Post Grid.
  * Author: ptp
  */
-class Post_Grid extends Post_Base {
+class Post_List extends Post_Base {
 
 	/**
 	 * Retrieve the widget name.
@@ -25,7 +25,7 @@ class Post_Grid extends Post_Base {
 	 * @return string Widget name.
 	 */
 	public function name() {
-		return 'post-grid';
+		return 'post-list';
 	}
 
 	/**
@@ -38,11 +38,7 @@ class Post_Grid extends Post_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'boostify eicon-posts-grid';
-	}
-
-	public function get_script_depends() {
-		return array( 'boostify-addon-post-grid' );
+		return 'boostify eicon-post-list';
 	}
 
 	public function _register_controls() { //phpcs:ignore
@@ -90,7 +86,7 @@ class Post_Grid extends Post_Base {
 		$columns    = $settings['columns'];
 		$posts      = $this->query_args( $settings );
 		$total_page = $posts->max_num_pages;
-		$action     = 'boostify_post_grid_' . $settings['layout'];
+		$action     = 'boostify_post_list_' . $settings['layout'];
 		$classes    = array(
 			'boostify-widget-post-grid-wrapper',
 			'boostify-grid',
@@ -129,10 +125,10 @@ class Post_Grid extends Post_Base {
 		$layout = new Layout();
 		$args   = array(
 			'default' => 'Default',
-			'masonry' => 'Masonry',
+			'zigzag'  => 'Zigzag',
 		);
-		$layout->add_layout_grid( $args );
-		$layouts = Layout::$grid_layouts;
+		$layout->add_layout_list( $args );
+		$layouts = Layout::$list_layouts;
 
 		return $layouts;
 	}

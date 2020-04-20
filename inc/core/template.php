@@ -66,22 +66,60 @@ function boostify_template_post_grid( $settings ) {
 }
 
 
-function boostify_template_post_grid_box() {
+function boostify_template_post_grid_masonry( $settings ) {
+	$meta_data = $settings['meta_data'];
+	$tag       = $settings['title_tag'];
 	?>
 	<article id="post-<?php the_ID(); ?>" <?php boostify_post_class( 'boostify-grid-item' ); ?>>
 		<div class="boostify-post-item-wrapper">
-			<?php boostify_post_thumbnail(); ?>
+			<?php
+			if ( 'yes' === $settings['image'] ) {
+				boostify_post_thumbnail();
+			}
+			?>
 			<div class="boostify-post-info">
-				<h2 class="boostify-post-title">
+
+				<<?php echo esc_attr( $tag ); ?> class="boostify-post-title">
 					<a href="<?php echo esc_url( get_the_permalink() ); ?>">
 						<?php echo esc_html( get_the_title() ); ?>
 					</a>
-				</h2>
-			</div>
-			<div class="boostify-post-excpert">
-				<span class="post-excpert">
-					<?php the_excerpt(); ?>
-				</span>
+				</<?php echo esc_attr( $tag ); ?>>
+
+				<?php if ( 'yes' === $settings['excpert'] ) : ?>
+					<div class="boostify-post-excpert">
+						<span class="post-excpert">
+							<?php echo wp_trim_words( get_the_content( get_the_ID() ) , $settings['length'], null ); //phpcs:ignore ?>
+						</span>
+					</div>
+				<?php endif ?>
+
+				<?php if ( $settings['show_read_more'] ) : ?>
+					<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="boostify-post-read-more">
+						<?php echo esc_html( $settings['read_more'] ); ?>
+					</a>
+				<?php endif ?>
+				<div class="boostify-entry-footer">
+					<div class="boostify-post-meta">
+						<?php
+						if ( in_array( 'author', $meta_data ) ) { //phpcs:ignore
+							boostify_post_author();
+						}
+						if ( in_array( 'date', $meta_data ) ) { //phpcs:ignore
+							boostify_post_date();
+						}
+						if ( in_array( 'time', $meta_data ) ) { //phpcs:ignore
+							boostify_post_time();
+						}
+						if ( in_array( 'category', $meta_data ) && 'post' === get_post_type() ) { //phpcs:ignore
+							boostify_post_category();
+						}
+						if ( in_array( 'comment', $meta_data ) ) { //phpcs:ignore
+							boostify_comment_count();
+						}
+
+						?>
+					</div>
+				</div>
 			</div>
 		</div>
 	</article><!-- #post-<?php the_ID(); ?> -->
@@ -110,4 +148,75 @@ function boostify_pagination( $total_page ) {
 		</nav>
 		<?php
 	}
+}
+
+function boostify_button_load_more( $text ) {
+	?>
+	<div class="boostify-pagination load-more-pagination">
+		<button type="button" class="boostify-btn-load-more">
+			<span class="btn-text"><?php echo esc_html( $text ); ?></span>
+		</button>
+	</div>
+	<?php
+}
+
+
+function boostify_template_post_list( $settings ) {
+	$meta_data = $settings['meta_data'];
+	$tag       = $settings['title_tag'];
+	?>
+	<article id="post-<?php the_ID(); ?>" <?php boostify_post_class( 'boostify-grid-item' ); ?>>
+		<div class="boostify-post-item-wrapper">
+			<?php
+			if ( 'yes' === $settings['image'] ) {
+				boostify_post_thumbnail();
+			}
+			?>
+			<div class="boostify-post-info">
+
+				<<?php echo esc_attr( $tag ); ?> class="boostify-post-title">
+					<a href="<?php echo esc_url( get_the_permalink() ); ?>">
+						<?php echo esc_html( get_the_title() ); ?>
+					</a>
+				</<?php echo esc_attr( $tag ); ?>>
+
+				<?php if ( 'yes' === $settings['excpert'] ) : ?>
+					<div class="boostify-post-excpert">
+						<span class="post-excpert">
+							<?php echo wp_trim_words( get_the_content( get_the_ID() ) , $settings['length'], null ); //phpcs:ignore ?>
+						</span>
+					</div>
+				<?php endif ?>
+
+				<?php if ( $settings['show_read_more'] ) : ?>
+					<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="boostify-post-read-more">
+						<?php echo esc_html( $settings['read_more'] ); ?>
+					</a>
+				<?php endif ?>
+				<div class="boostify-entry-footer">
+					<div class="boostify-post-meta">
+						<?php
+						if ( in_array( 'author', $meta_data ) ) { //phpcs:ignore
+							boostify_post_author();
+						}
+						if ( in_array( 'date', $meta_data ) ) { //phpcs:ignore
+							boostify_post_date();
+						}
+						if ( in_array( 'time', $meta_data ) ) { //phpcs:ignore
+							boostify_post_time();
+						}
+						if ( in_array( 'category', $meta_data ) && 'post' === get_post_type() ) { //phpcs:ignore
+							boostify_post_category();
+						}
+						if ( in_array( 'comment', $meta_data ) ) { //phpcs:ignore
+							boostify_comment_count();
+						}
+
+						?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</article><!-- #post-<?php the_ID(); ?> -->
+	<?php
 }
