@@ -12,9 +12,9 @@
 }
 
 .boostify-post-item-wrapper .boostify-post-title {
-  font-size: 20px;
+  font-size: 24px;
   text-transform: capitalize;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
 }
 
 .boostify-post-item-wrapper .boostify-post-read-more {
@@ -22,9 +22,13 @@
   clear: both;
 }
 
+.boostify-post-item-wrapper .boostify-post-meta {
+  margin-bottom: 15px;
+}
+
 .boostify-post-item-wrapper .boostify-meta-item {
   text-transform: capitalize;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .boostify-post-item-wrapper .boostify-meta-item:not(:last-child):after {
@@ -33,6 +37,8 @@
 
 .boostify-post-item-wrapper .boostify-post-excpert {
   margin-bottom: 25px;
+  font-size: 15px;
+  line-height: 1.67;
 }
 
 .elementor-widget-boostify-post-grid .boostify-post-item-wrapper .boostify-post-excpert .post-excpert,
@@ -122,23 +128,43 @@
 }
 
 .boostify-widget-post-list-wrapper .boostify-post-item-wrapper .boostify-post-thumbnail {
-  max-width: 500px;
+  width: 500px;
   margin-bottom: 0;
   line-height: 0;
 }
 
+@media (max-width: 991px) {
+  .boostify-widget-post-list-wrapper .boostify-post-item-wrapper .boostify-post-thumbnail {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
 .boostify-widget-post-list-wrapper .boostify-post-item-wrapper .boostify-post-info {
-  max-width: calc( 100% - 500px);
+  width: calc( 100% - 500px);
   padding: 0 15px 0 45px;
 }
 
+@media (max-width: 991px) {
+  .boostify-widget-post-list-wrapper .boostify-post-item-wrapper .boostify-post-info {
+    width: 100%;
+    padding: 0;
+  }
+}
+
 .boostify-widget-post-list-wrapper .boostify-post-item-wrapper .boostify-post-meta {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   margin-top: 10px;
 }
 
 .boostify-widget-post-list-wrapper .boostify-post-item-wrapper .boostify-post-title {
   padding-bottom: 25px;
+}
+
+@media (max-width: 991px) {
+  .boostify-widget-post-list-wrapper .boostify-post-item-wrapper .boostify-post-item {
+    margin-bottom: 30px;
+  }
 }
 
 .boostify-widget-post-list-wrapper.boostify-layout-zigzag .boostify-post-item:nth-last-of-type(even) .boostify-post-item-wrapper {
@@ -186,4 +212,13 @@
 
 .boostify-widget-post-slider-wrapper {
   z-index: 1;
+}
+
+.elementor-widget-boostify-post-slider .boostify-widget-post-slider-wrapper .boostify-meta-item,
+.elementor-widget-boostify-post-slider .boostify-widget-post-slider-wrapper .boostify-post-excpert .post-excpert,
+.elementor-widget-boostify-post-slider .boostify-widget-post-slider-wrapper .boostify-post-read-more,
+.elementor-widget-boostify-post-list .boostify-widget-post-list-wrapper .boostify-meta-item,
+.elementor-widget-boostify-post-list .boostify-widget-post-list-wrapper .boostify-post-excpert .post-excpert,
+.elementor-widget-boostify-post-list .boostify-widget-post-list-wrapper .boostify-post-read-more {
+  font-weight: normal;
 }

@@ -83,16 +83,12 @@ class Post_List extends Post_Base {
 	 */
 	protected function render() {
 		$settings   = $this->get_settings_for_display();
-		$columns    = $settings['columns'];
 		$posts      = $this->query_args( $settings );
 		$total_page = $posts->max_num_pages;
 		$action     = 'boostify_post_list_' . $settings['layout'];
 		$classes    = array(
 			'boostify-widget-post-list-wrapper',
 			'boostify-list',
-			'boostify-list-' . $columns,
-			'boostify-list-tablet-' . $settings['columns_tablet'],
-			'boostify-list-mobile-' . $settings['columns_mobile'],
 			'boostify-layout-' . $settings['layout'],
 		);
 		$class      = implode( ' ', $classes );

@@ -11,9 +11,9 @@
 	}
 
 	.boostify-post-title {
-		font-size: 20px;
+		font-size: 24px;
 		text-transform: capitalize;
-		padding-bottom: 15px;
+		padding-bottom: 5px;
 	}
 
 	.boostify-post-read-more {
@@ -21,9 +21,14 @@
 		clear: both;
 	}
 
+	.boostify-post-meta {
+		margin-bottom: 15px;
+	}
+
 	.boostify-meta-item {
 		text-transform: capitalize;
-		font-size: 13px;
+		font-size: 14px;
+
 		&:not(:last-child) {
 			&:after {
 				content: '/';
@@ -33,7 +38,13 @@
 
 	.boostify-post-excpert {
 		margin-bottom: 25px;
+		font-size: 15px;
+		line-height: 1.67;
 	}
+
+}
+
+.boostify-widget-post-grid-wrapper {
 
 }
 
@@ -128,23 +139,39 @@
 		flex-wrap: wrap;
 
 		.boostify-post-thumbnail {
-			max-width: 500px;
+			width: 500px;
 			margin-bottom: 0;
 			line-height: 0;
+
+			@media ( max-width: 991px ) {
+				width: 100%;
+				margin-bottom: 20px;
+			}
 		}
 
 		.boostify-post-info {
-			max-width: calc( 100% - 500px );
+			width: calc( 100% - 500px );
 			padding: 0 15px 0 45px;
+
+			@media ( max-width: 991px ) {
+				width: 100%;
+				padding: 0;
+			}
 		}
 
 		.boostify-post-meta {
-			margin-bottom: 15px;
+			margin-bottom: 10px;
 			margin-top: 10px;
 		}
 
 		.boostify-post-title {
 			padding-bottom: 25px;
+		}
+
+		@media ( max-width: 991px ) {
+			.boostify-post-item {
+				margin-bottom: 30px;
+			}
 		}
 	}
 
@@ -203,4 +230,13 @@
 
 .boostify-widget-post-slider-wrapper {
 	z-index: 1;
+}
+
+.elementor-widget-boostify-post-slider .boostify-widget-post-slider-wrapper,
+.elementor-widget-boostify-post-list .boostify-widget-post-list-wrapper {
+	.boostify-meta-item,
+	.boostify-post-excpert .post-excpert,
+	.boostify-post-read-more {
+		font-weight: normal;
+	}
 }
