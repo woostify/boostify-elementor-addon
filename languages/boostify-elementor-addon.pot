@@ -210,11 +210,11 @@ msgstr ""
 msgid "Thumbnail"
 msgstr ""
 
-#: inc/widgets/post/base/class-post-base.php:24, inc/widgets/post/base/class-post-base.php:53, inc/widgets/post/base/class-post-base.php:111, inc/widgets/post/base/class-posts.php:29
+#: inc/widgets/post/base/class-post-base.php:24, inc/widgets/post/base/class-post-base.php:53, inc/widgets/post/base/class-post-base.php:111, inc/widgets/post/base/class-posts.php:29, inc/widgets/post/class-post-slider.php:180, inc/widgets/post/class-post-slider.php:192
 msgid "Show"
 msgstr ""
 
-#: inc/widgets/post/base/class-post-base.php:25, inc/widgets/post/base/class-post-base.php:54, inc/widgets/post/base/class-post-base.php:112, inc/widgets/post/base/class-posts.php:30
+#: inc/widgets/post/base/class-post-base.php:25, inc/widgets/post/base/class-post-base.php:54, inc/widgets/post/base/class-post-base.php:112, inc/widgets/post/base/class-posts.php:30, inc/widgets/post/class-post-slider.php:181, inc/widgets/post/class-post-slider.php:193
 msgid "Hide"
 msgstr ""
 
@@ -282,7 +282,7 @@ msgstr ""
 msgid "Read More Button"
 msgstr ""
 
-#: inc/widgets/post/base/class-post-base.php:527, inc/widgets/post/class-post-grid.php:144, inc/widgets/post/class-post-list.php:141, inc/widgets/post/class-post-slider.php:144
+#: inc/widgets/post/base/class-post-base.php:527, inc/widgets/post/class-post-grid.php:144, inc/widgets/post/class-post-list.php:141, inc/widgets/post/class-post-slider.php:141
 msgid "Layout"
 msgstr ""
 
@@ -362,27 +362,27 @@ msgstr ""
 msgid "Post Grid"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:154, inc/widgets/post/class-post-slider.php:154
+#: inc/widgets/post/class-post-grid.php:154, inc/widgets/post/class-post-slider.php:151
 msgid "Columns"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:157, inc/widgets/post/class-post-slider.php:157
+#: inc/widgets/post/class-post-grid.php:157, inc/widgets/post/class-post-slider.php:154, inc/widgets/post/class-post-slider.php:229
 msgid "1"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:158, inc/widgets/post/class-post-slider.php:158
+#: inc/widgets/post/class-post-grid.php:158, inc/widgets/post/class-post-slider.php:155, inc/widgets/post/class-post-slider.php:230
 msgid "2"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:159, inc/widgets/post/class-post-slider.php:159
+#: inc/widgets/post/class-post-grid.php:159, inc/widgets/post/class-post-slider.php:156, inc/widgets/post/class-post-slider.php:231
 msgid "3"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:160, inc/widgets/post/class-post-slider.php:160
+#: inc/widgets/post/class-post-grid.php:160, inc/widgets/post/class-post-slider.php:157, inc/widgets/post/class-post-slider.php:232
 msgid "4"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:161, inc/widgets/post/class-post-slider.php:161
+#: inc/widgets/post/class-post-grid.php:161, inc/widgets/post/class-post-slider.php:158, inc/widgets/post/class-post-slider.php:233
 msgid "5"
 msgstr ""
 
@@ -392,4 +392,40 @@ msgstr ""
 
 #: inc/widgets/post/class-post-slider.php:52
 msgid "Post Slider"
+msgstr ""
+
+#: inc/widgets/post/class-post-slider.php:171
+msgid "Slider Pagination"
+msgstr ""
+
+#: inc/widgets/post/class-post-slider.php:178
+msgid "Arrow"
+msgstr ""
+
+#: inc/widgets/post/class-post-slider.php:190
+msgid "Dots"
+msgstr ""
+
+#: inc/widgets/post/class-post-slider.php:202
+msgid "Autoplay"
+msgstr ""
+
+#: inc/widgets/post/class-post-slider.php:204, inc/widgets/post/class-post-slider.php:244
+msgid "True"
+msgstr ""
+
+#: inc/widgets/post/class-post-slider.php:205, inc/widgets/post/class-post-slider.php:245
+msgid "False"
+msgstr ""
+
+#: inc/widgets/post/class-post-slider.php:214
+msgid "Speed"
+msgstr ""
+
+#: inc/widgets/post/class-post-slider.php:226
+msgid "Slide To Scroll"
+msgstr ""
+
+#: inc/widgets/post/class-post-slider.php:242
+msgid "Loop"
 msgstr ""

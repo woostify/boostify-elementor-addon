@@ -148,3 +148,42 @@
 .boostify-widget-post-list-wrapper.boostify-layout-image_right .boostify-post-item-wrapper {
   flex-direction: row-reverse;
 }
+
+.boostify-post-slider-widget .swiper-button-next,
+.boostify-post-slider-widget .swiper-button-prev {
+  top: calc( ( 100% - 35px )/2);
+  background-image: none;
+  height: 35px;
+  width: 35px;
+  z-index: 999;
+  font-weight: 900;
+  background-color: #fff;
+  border: 1px solid #eee;
+}
+
+.boostify-post-slider-widget .swiper-button-next:after,
+.boostify-post-slider-widget .swiper-button-prev:after {
+  font-size: 18px;
+}
+
+.boostify-post-slider-widget .swiper-button-next.swiper-button-disabled,
+.boostify-post-slider-widget .swiper-button-prev.swiper-button-disabled {
+  cursor: no-drop;
+  pointer-events: auto;
+}
+
+.boostify-post-slider-widget .swiper-button-prev {
+  left: 0;
+}
+
+.boostify-post-slider-widget .swiper-button-next {
+  right: 0;
+}
+
+.boostify-post-slider-widget .boostify-grid {
+  flex-wrap: nowrap;
+}
+
+.boostify-widget-post-slider-wrapper {
+  z-index: 1;
+}

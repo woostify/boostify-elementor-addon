@@ -117,7 +117,7 @@ class Boostify_Elementor_Addon {
 			'isotope',
 			BOOSTIFY_ELEMENTOR_URL . 'assets/js/isotope' . $suffix . '.js',
 			array( 'jquery' ),
-			BOOSTIFY_HEADER_FOOTER_VER,
+			BOOSTIFY_ELEMENTOR_VER,
 			true
 		);
 
@@ -125,7 +125,7 @@ class Boostify_Elementor_Addon {
 			'masonry',
 			BOOSTIFY_ELEMENTOR_URL . 'assets/js/masonry' . $suffix . '.js',
 			array( 'jquery' ),
-			BOOSTIFY_HEADER_FOOTER_VER,
+			BOOSTIFY_ELEMENTOR_VER,
 			true
 		);
 
@@ -144,7 +144,7 @@ class Boostify_Elementor_Addon {
 			'boostify-addon-post-grid',
 			BOOSTIFY_ELEMENTOR_URL . 'assets/js/posts/post-grid' . $suffix . '.js',
 			array( 'jquery', 'masonry' ),
-			BOOSTIFY_HEADER_FOOTER_VER,
+			BOOSTIFY_ELEMENTOR_VER,
 			true
 		);
 
@@ -152,7 +152,7 @@ class Boostify_Elementor_Addon {
 			'slick',
 			BOOSTIFY_ELEMENTOR_URL . 'assets/js/slick' . $suffix . '.js',
 			array( 'jquery' ),
-			BOOSTIFY_HEADER_FOOTER_VER,
+			BOOSTIFY_ELEMENTOR_VER,
 			true
 		);
 
@@ -160,7 +160,7 @@ class Boostify_Elementor_Addon {
 			'swiper',
 			BOOSTIFY_ELEMENTOR_URL . 'assets/js/swiper.min.js',
 			array(),
-			BOOSTIFY_HEADER_FOOTER_VER,
+			BOOSTIFY_ELEMENTOR_VER,
 			true
 		);
 
@@ -168,7 +168,7 @@ class Boostify_Elementor_Addon {
 		// 	'boostify-addon-post-slider',
 		// 	BOOSTIFY_ELEMENTOR_URL . 'assets/js/posts/post-slider' . $suffix . '.js',
 		// 	array( 'jquery', 'slick' ),
-		// 	BOOSTIFY_HEADER_FOOTER_VER,
+		// 	BOOSTIFY_ELEMENTOR_VER,
 		// 	true
 		// );
 
@@ -176,7 +176,7 @@ class Boostify_Elementor_Addon {
 			'boostify-addon-post-slider',
 			BOOSTIFY_ELEMENTOR_URL . 'assets/js/posts/post-slider' . $suffix . '.js',
 			array( 'jquery', 'swiper' ),
-			BOOSTIFY_HEADER_FOOTER_VER,
+			BOOSTIFY_ELEMENTOR_VER,
 			true
 		);
 	}
@@ -191,7 +191,7 @@ class Boostify_Elementor_Addon {
 				'jquery',
 				'masonry',
 			),
-			BOOSTIFY_HEADER_FOOTER_VER,
+			BOOSTIFY_ELEMENTOR_VER,
 			true
 		);
 

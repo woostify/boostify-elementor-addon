@@ -19,4 +19,4 @@ add_action( 'boostify_post_list_image_right', 'boostify_template_post_list', 10,
 
 add_action( 'boostify_post_list_zigzag', 'boostify_template_post_list', 10, 1 );
 
-add_action( 'boostify_post_slider_default', 'boostify_template_post_list', 10, 1 );
+add_action( 'boostify_post_slider_default', 'boostify_template_post_slider', 10, 1 );

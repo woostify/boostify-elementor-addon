@@ -6,11 +6,11 @@
  * @since 1.0.0
  */
 
-function boostify_template_post_grid( $settings ) {
+function boostify_default_template( $settings, $class = '' ) {
 	$meta_data = $settings['meta_data'];
 	$tag       = $settings['title_tag'];
 	?>
-	<article id="post-<?php the_ID(); ?>" <?php boostify_post_class( 'boostify-grid-item' ); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php boostify_post_class( $class ); ?>>
 		<div class="boostify-post-item-wrapper">
 			<?php
 			if ( 'yes' === $settings['image'] ) {
@@ -63,6 +63,10 @@ function boostify_template_post_grid( $settings ) {
 		</div>
 	</article><!-- #post-<?php the_ID(); ?> -->
 	<?php
+}
+
+function boostify_template_post_grid( $settings ) {
+	boostify_default_template( $settings, 'boostify-grid-item' );
 }
 
 
@@ -164,7 +168,7 @@ function boostify_template_post_list( $settings ) {
 	$meta_data = $settings['meta_data'];
 	$tag       = $settings['title_tag'];
 	?>
-	<article id="post-<?php the_ID(); ?>" <?php boostify_post_class( 'boostify-grid-item swiper-slide' ); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php boostify_post_class( 'boostify-grid-item' ); ?>>
 		<div class="boostify-post-item-wrapper">
 			<?php
 			if ( 'yes' === $settings['image'] ) {
@@ -218,4 +222,9 @@ function boostify_template_post_list( $settings ) {
 		</div>
 	</article><!-- #post-<?php the_ID(); ?> -->
 	<?php
+}
+
+
+function boostify_template_post_slider( $settings ) {
+	boostify_default_template( $settings, 'swiper-slide' );
 }

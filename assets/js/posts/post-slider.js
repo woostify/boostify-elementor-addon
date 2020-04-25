@@ -22,14 +22,17 @@
 		var slidesPerGroup = slide.attr( 'slide-scroll' );
 		slidesPerGroup     = parseInt( slidesPerGroup );
 		speed              = parseInt( speed );
-		var loop           = slide.attr( 'loop' );
+		var loop           = slide.attr( 'slider-loop' );
+		var space          = slide.attr( 'column-space' );
+		space              = parseInt( space );
 		var arrows         = false;
 		var dots           = false;
 		var data           = {};
 		data               = {
-			speed: speed,
+
 			slidesPerView: column,
 			slidesPerGroup: slidesPerGroup,
+			spaceBetween: space,
 			breakpoints: {
 				640: {
 					slidesPerView: columnsMobile,
@@ -43,7 +46,8 @@
 			}
 		}
 		if ( loop == 'yes' ) {
-			data.loop = true;
+			data.loop                   = true;
+			data.loopFillGroupWithBlank = true;
 		}
 		if ( arrow == 'yes' ) {
 			data.navigation = {
@@ -61,9 +65,9 @@
 
 		if ( autoplay == 'yes' ) {
 			data.autoplay = {
-				delay: 2500,
-				disableOnInteraction: false,
+				delay: 100
 			}
+			data.speed    = speed;
 		}
 
 		var swiper = new Swiper(

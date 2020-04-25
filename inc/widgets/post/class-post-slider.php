@@ -60,7 +60,7 @@ class Post_Slider extends Post_Base {
 
 		$this->slider_pagination();
 
-		$this->layout_style_control();
+		$this->slider_style_control();
 
 		$this->box_style_control();
 
@@ -97,11 +97,10 @@ class Post_Slider extends Post_Base {
 			'swiper-wrapper',
 		);
 		$class      = implode( ' ', $classes );
-
 		if ( $posts->have_posts() ) {
 			?>
-			<div class="boostify-addon-widget swiper-container boostify-post-slider-widget" columns="<?php echo esc_attr( $columns ); ?>" columns-tablet="<?php echo esc_attr( $settings['columns_tablet'] ); ?>" columns-mobile="<?php echo esc_attr( $settings['columns_mobile'] ); ?>" arrow="<?php echo esc_attr( $settings['arrow'] ); ?>" dots="<?php echo esc_attr( $settings['dot'] ); ?>" slider-autoplay="<?php echo esc_attr( $settings['autoplay'] ); ?>">
-				<div class="<?php echo esc_attr( $class ); ?>" slide-speed="<?php echo esc_attr( $settings['speed'] ); ?>" slide-scroll="<?php echo esc_attr( $settings['slide_scroll'] ); ?>" loop="<?php echo esc_attr( $settings['loop'] ); ?>">
+			<div class="boostify-addon-widget swiper-container boostify-post-slider-widget" columns="<?php echo esc_attr( $columns ); ?>" columns-tablet="<?php echo esc_attr( $settings['columns_tablet'] ); ?>" columns-mobile="<?php echo esc_attr( $settings['columns_mobile'] ); ?>" arrow="<?php echo esc_attr( $settings['arrow'] ); ?>" dots="<?php echo esc_attr( $settings['dot'] ); ?>" slider-autoplay="<?php echo esc_attr( $settings['autoplay'] ); ?>" data-space-between="20">
+				<div class="<?php echo esc_attr( $class ); ?>" slide-speed="<?php echo esc_attr( $settings['speed'] ); ?>" slide-scroll="<?php echo esc_attr( $settings['slide_scroll'] ); ?>" slider-loop="<?php echo esc_attr( $settings['loop'] ); ?>" column-space="<?php echo esc_attr( $settings['columns_space']['size'] ); ?>">
 					<?php
 					while ( $posts->have_posts() ) {
 						$posts->the_post();
@@ -213,7 +212,7 @@ class Post_Slider extends Post_Base {
 			array(
 				'label'     => esc_html__( 'Speed', 'boostify' ),
 				'type'      => Controls_Manager::TEXT,
-				'default'   => '2500',
+				'default'   => '3500',
 				'condition' => array(
 					'autoplay' => 'yes',
 				),
@@ -245,6 +244,248 @@ class Post_Slider extends Post_Base {
 				'label_off'    => __( 'False', 'boostify' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
+			)
+		);
+
+		$this->end_controls_section();
+	}
+
+	protected function slider_style_control() {
+		$this->start_controls_section(
+			'style_post',
+			array(
+				'label' => __( 'Slider', 'boostify' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			)
+		);
+
+		$this->add_control(
+			'columns_space',
+			array(
+				'label'      => __( 'Columns Space', 'boostify' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'row_space',
+			array(
+				'label'      => __( 'Dots Space', 'boostify' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => 15,
+				),
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .boostify-post-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'padding',
+			array(
+				'label'      => __( 'Padding', 'boostify' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .boostify-post-item-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'align',
+			array(
+				'label'     => __( 'Alignment', 'boostify' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => array(
+					'left'   => array(
+						'title' => __( 'Left', 'boostify' ),
+						'icon'  => 'fa fa-align-left',
+					),
+					'center' => array(
+						'title' => __( 'Center', 'boostify' ),
+						'icon'  => 'fa fa-align-center',
+					),
+					'right'  => array(
+						'title' => __( 'Right', 'boostify' ),
+						'icon'  => 'fa fa-align-right',
+					),
+				),
+				'default'   => 'left',
+				'selectors' => array(
+					'{{WRAPPER}} .boostify-post-item-wrapper' => 'text-align: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'arrow_heading',
+			array(
+				'label'     => __( 'Arrow', 'boostify' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => array(
+					'arrow' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'arrow_color',
+			array(
+				'label'     => __( 'Color', 'boostify' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#000',
+				'selectors' => array(
+					'{{WRAPPER}} .swiper-button-prev' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .swiper-button-next' => 'color: {{VALUE}};',
+				),
+				'condition' => array(
+					'arrow' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'arrow_backgroud_color',
+			array(
+				'label'     => __( 'Backgroud Color', 'boostify' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#fff',
+				'selectors' => array(
+					'{{WRAPPER}} .swiper-button-prev' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .swiper-button-next' => 'background-color: {{VALUE}};',
+				),
+				'condition' => array(
+					'arrow' => 'yes',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'arrow_size',
+			array(
+				'label'      => __( 'Font Size', 'boostify' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 50,
+						'step' => 1,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .swiper-button-next:after' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .swiper-button-prev:after' => 'font-size: {{SIZE}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'arrow' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'dots_heading',
+			array(
+				'label'     => __( 'Dots', 'boostify' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => array(
+					'dot' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'dot_color',
+			array(
+				'label'     => __( 'Color', 'boostify' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#000',
+				'selectors' => array(
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'color: {{VALUE}};',
+				),
+				'condition' => array(
+					'dot' => 'yes',
+				),
+			)
+		);
+
+		$this->add_control(
+			'dot_backgroud_color',
+			array(
+				'label'     => __( 'Color Active', 'boostify' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#CC3366',
+				'selectors' => array(
+					'{{WRAPPER}} .swiper-pagination-bullet-active' => 'background-color: {{VALUE}};',
+				),
+				'condition' => array(
+					'dot' => 'yes',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'dot_size',
+			array(
+				'label'      => __( 'Width', 'boostify' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 50,
+						'step' => 1,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .swiper-pagination-bullet' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}',
+				),
+				'condition'  => array(
+					'dot' => 'yes',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'dot_space',
+			array(
+				'label'      => __( 'Space', 'boostify' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 50,
+						'step' => 1,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .swiper-container-horizontal .swiper-pagination-bullet:not(last-child)' => 'margin: 0 {{SIZE}}{{UNIT}} 0 0',
+				),
+				'condition'  => array(
+					'dot' => 'yes',
+				),
 			)
 		);
 
