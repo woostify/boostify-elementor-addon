@@ -112,14 +112,6 @@ class Widgets {
 		$suffix = $this->suffix();
 
 		wp_register_script(
-			'isotope',
-			BOOSTIFY_ELEMENTOR_JS . 'isotope' . $suffix . '.js',
-			array( 'jquery' ),
-			BOOSTIFY_ELEMENTOR_VER,
-			true
-		);
-
-		wp_register_script(
 			'masonry',
 			BOOSTIFY_ELEMENTOR_JS . 'masonry' . $suffix . '.js',
 			array( 'jquery' ),
@@ -243,12 +235,6 @@ class Widgets {
 			BOOSTIFY_ELEMENTOR_VER
 		);
 
-		wp_enqueue_style(
-			'slick-theme',
-			BOOSTIFY_ELEMENTOR_CSS . 'slick-theme.css',
-			array(),
-			BOOSTIFY_ELEMENTOR_VER
-		);
 
 		wp_enqueue_style(
 			'swiper',
