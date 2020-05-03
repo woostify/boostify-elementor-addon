@@ -282,7 +282,7 @@ msgstr ""
 msgid "Read More Button"
 msgstr ""
 
-#: inc/widgets/post/base/class-post-base.php:527, inc/widgets/post/class-post-grid.php:144, inc/widgets/post/class-post-list.php:141, inc/widgets/post/class-post-slider.php:140
+#: inc/widgets/post/base/class-post-base.php:527, inc/widgets/post/class-post-grid.php:144, inc/widgets/post/class-post-list.php:137, inc/widgets/post/class-post-slider.php:140
 msgid "Layout"
 msgstr ""
 

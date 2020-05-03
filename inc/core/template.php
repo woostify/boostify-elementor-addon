@@ -6,6 +6,13 @@
  * @since 1.0.0
  */
 
+
+/**
+ * Default Post Template
+ *
+ * @param string    $settings  Setting in elemetor.
+ * @param string    $class  custom class.
+ */
 function boostify_default_template( $settings, $class = '' ) {
 	$meta_data = $settings['meta_data'];
 	$tag       = $settings['title_tag'];
@@ -65,11 +72,23 @@ function boostify_default_template( $settings, $class = '' ) {
 	<?php
 }
 
+
+/**
+ * Post Grid Default Template
+ *
+ * @param string    $settings  Setting in elemetor.
+ * @param string    $class  custom class.
+ */
 function boostify_template_post_grid( $settings ) {
 	boostify_default_template( $settings, 'boostify-grid-item' );
 }
 
-
+/**
+ * Post Grid Masonry Template
+ *
+ * @param string    $settings  Setting in elemetor.
+ * @param string    $class  custom class.
+ */
 function boostify_template_post_grid_masonry( $settings ) {
 	$meta_data = $settings['meta_data'];
 	$tag       = $settings['title_tag'];
@@ -130,6 +149,11 @@ function boostify_template_post_grid_masonry( $settings ) {
 	<?php
 }
 
+/**
+ * Pagination
+ *
+ * @param int    $total_page .
+ */
 function boostify_pagination( $total_page ) {
 	if ( $total_page > 1 ) {
 		$current_page = max( 1, get_query_var( 'paged' ) );
@@ -164,6 +188,13 @@ function boostify_button_load_more( $text ) {
 	<?php
 }
 
+
+/**
+ * Post List Template
+ *
+ * @param string    $settings  Setting in elemetor.
+ * @param string    $class  custom class.
+ */
 function boostify_template_post_list( $settings ) {
 	$meta_data = $settings['meta_data'];
 	$tag       = $settings['title_tag'];

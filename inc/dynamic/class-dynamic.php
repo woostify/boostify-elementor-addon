@@ -6,7 +6,9 @@
  * @since 1.0.0
  */
 
-class Boostify_Elementor_Addon {
+namespace Boostify_Elementor;
+
+class Dynamic {
 	/**
 	 * Instance
 	 *
@@ -18,12 +20,13 @@ class Boostify_Elementor_Addon {
 	 */
 	private static $instance = null;
 
+
 	/**
 	 * Instance
 	 *
 	 * Ensures only one instance of the class is loaded or can be loaded.
 	 *
-	 * @since 1.2.0
+	 * @since 1.0.0
 	 * @access public
 	 *
 	 * @return Plugin An instance of the class.
@@ -40,32 +43,31 @@ class Boostify_Elementor_Addon {
 	 *
 	 * Register plugin action hooks and filters
 	 *
-	 * @since 1.2.0
+	 * @since 1.1.0
 	 * @access public
 	 */
 	public function __construct() {
 		$this->setup_hooks();
-
-		$this->include_files();
 	}
 
 	private function setup_hooks() {
-
+		add_action( 'elementor/dynamic_tags/register_tags', array( $this, 'register_dymanic_tags' ) );
 	}
 
-	protected function include_files() {
-		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'post/skin/class-layout.php';
-		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'class-widgets.php';
-		include_once BOOSTIFY_ELEMENTOR_CONTROL . 'class-controls.php';
-		include_once BOOSTIFY_ELEMENTOR_DYNAMIC . 'class-dynamic.php';
-		include_once BOOSTIFY_ELEMENTOR_CORE . 'core.php';
-		include_once BOOSTIFY_ELEMENTOR_CORE . 'hook.php';
-		include_once BOOSTIFY_ELEMENTOR_CORE . 'template.php';
+	public function register_dymanic_tags( $dynamic_tags ) {
+		\Elementor\Plugin::$instance->dynamic_tags->register_group(
+			'boostify_addon',
+			array(
+				'title' => 'Boostify Addon',
+			)
+		);
+
+		include BOOSTIFY_ELEMENTOR_DYNAMIC . 'tags/class-featured-image.php';
+
+		$dynamic_tags->register_tag( 'Boostify_Elementor\Featured_Image' );
 	}
-
-
 
 }
-// Instantiate Boostify_Elementor_Addon Class
-Boostify_Elementor_Addon::instance();
+// Instantiate Dynamic Class
+Dynamic::instance();
 

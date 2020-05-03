@@ -2,8 +2,7 @@
 
 namespace Boostify_Elementor\Widgets;
 
-use Boostify_Elementor\Base_Widget;
-use Boostify_Elementor\Posts\Layout as Layout;
+use Boostify_Elementor\Posts\Skin\Layout as Layout;
 use Boostify_Elementor\Group_Control_Post;
 use Boostify_Elementor\Posts\Base\Post_Base;
 use Elementor\Controls_Manager;
@@ -118,14 +117,7 @@ class Post_List extends Post_Base {
 	}
 
 	public function layouts() {
-		$layout = new Layout();
-		$args   = array(
-			'default'     => 'Default',
-			'zigzag'      => 'Zigzag',
-			'image_right' => 'Image Right',
-		);
-		$layout->add_layout_list( $args );
-		$layouts = Layout::$list_layouts;
+		$layouts = Layout::post_list();
 
 		return $layouts;
 	}

@@ -1,6 +1,5 @@
 .sublime-gulp.cache
 .sublime-gulp-tmp.js
-node_modules/.bin/autoprefixer
 node_modules/
 package-lock.json
 project.json

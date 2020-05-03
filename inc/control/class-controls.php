@@ -6,7 +6,9 @@
  * @since 1.0.0
  */
 
-class Boostify_Elementor_Addon {
+namespace Boostify_Elementor;
+
+class Controls {
 	/**
 	 * Instance
 	 *
@@ -18,6 +20,8 @@ class Boostify_Elementor_Addon {
 	 */
 	private static $instance = null;
 
+
+	private $modules_manager;
 	/**
 	 * Instance
 	 *
@@ -45,27 +49,19 @@ class Boostify_Elementor_Addon {
 	 */
 	public function __construct() {
 		$this->setup_hooks();
-
-		$this->include_files();
 	}
 
 	private function setup_hooks() {
-
+		add_action( 'elementor/controls/controls_registered', array( $this, 'register_controls' ) );
 	}
 
-	protected function include_files() {
-		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'post/skin/class-layout.php';
-		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'class-widgets.php';
-		include_once BOOSTIFY_ELEMENTOR_CONTROL . 'class-controls.php';
-		include_once BOOSTIFY_ELEMENTOR_DYNAMIC . 'class-dynamic.php';
-		include_once BOOSTIFY_ELEMENTOR_CORE . 'core.php';
-		include_once BOOSTIFY_ELEMENTOR_CORE . 'hook.php';
-		include_once BOOSTIFY_ELEMENTOR_CORE . 'template.php';
+	public function register_controls() {
+		include_once BOOSTIFY_ELEMENTOR_CONTROL . 'class-group-control-post.php';
+		$control_manager = \Elementor\Plugin::instance()->controls_manager;
+		$control_manager->add_group_control( 'boostify-post', new Group_Control_Post() );
 	}
-
-
 
 }
 // Instantiate Boostify_Elementor_Addon Class
-Boostify_Elementor_Addon::instance();
+Controls::instance();
 

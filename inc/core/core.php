@@ -133,6 +133,11 @@ function boostify_comment_count() {
 	<?php
 }
 
+/**
+ * Return All Post Type
+ *
+ * @return array    $options  List post type in theme.
+ */
 function boostify_theme_post_type() {
 	$post_types       = get_post_types();
 	$post_types_unset = array(
@@ -177,6 +182,12 @@ function boostify_theme_post_type() {
 	return $options;
 }
 
+
+/**
+ * Return User
+ *
+ * @return array    $list_user  List user in Site.
+ */
 function boostify_user() {
 	$users     = get_users();
 	$list_user = array();
@@ -189,13 +200,18 @@ function boostify_user() {
 	return $list_user;
 }
 
+/**
+ * Return List Term
+ *
+ * @return array    $list_term  List Term in Site.
+ */
 function boostify_taxonomies() {
 	$post_types = boostify_theme_post_type();
-	$list_term     = array();
+	$list_term  = array();
 	foreach ( $post_types as $key => $post_type ) {
 		$taxonomies = get_object_taxonomies( $key, 'objects' );
 		foreach ( $taxonomies as $taxonomy => $object ) {
-			$name = $object->label . ': ';
+			$name  = $object->label . ': ';
 			$terms = get_terms( $taxonomy );
 			foreach ( $terms as $term ) {
 				$list_term[ $term->term_id ] = $name . $term->name;
@@ -207,6 +223,12 @@ function boostify_taxonomies() {
 }
 
 
+/**
+ * Return List Term
+ *
+ * @param string    $post_type  Post Type.
+ * @return array    $list_term  List Term of Post Type.
+ */
 function boostify_taxonomies_by_post_type( $post_type ) {
 	$taxonomies = get_object_taxonomies( $post_type, 'objects' );
 	$list_term  = array();
@@ -222,6 +244,12 @@ function boostify_taxonomies_by_post_type( $post_type ) {
 	return $list_term;
 }
 
+/**
+ * Return All Post of Post Type
+ *
+ * @param string    $post_type  Post Type.
+ * @return array    $list_post  List Post of Post Type.
+ */
 function boostify_post( $post_type ) {
 	$args      = array(
 		'post_type'           => $post_type,
