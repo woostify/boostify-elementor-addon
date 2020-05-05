@@ -51,6 +51,7 @@ class Boostify_Elementor_Addon {
 
 	private function setup_hooks() {
 
+
 	}
 
 	protected function include_files() {
@@ -61,9 +62,8 @@ class Boostify_Elementor_Addon {
 		include_once BOOSTIFY_ELEMENTOR_CORE . 'core.php';
 		include_once BOOSTIFY_ELEMENTOR_CORE . 'hook.php';
 		include_once BOOSTIFY_ELEMENTOR_CORE . 'template.php';
+		include_once BOOSTIFY_ELEMENTOR_CORE . 'modules/class-global-breadcrumb.php';
 	}
-
-
 
 }
 // Instantiate Boostify_Elementor_Addon Class

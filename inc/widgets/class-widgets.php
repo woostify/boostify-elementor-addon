@@ -264,7 +264,6 @@ class Widgets {
 		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'class-base-widget.php';
 		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'post/base/class-posts.php';
 		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'post/base/class-post-base.php';
-		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'post/base/class-global-breadcrumb.php';
 	}
 
 

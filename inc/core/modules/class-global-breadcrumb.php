@@ -1,6 +1,6 @@
 <?php
 
-namespace Boostify_Elementor\Posts\Base;
+namespace Boostify_Elementor\Core;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -93,13 +93,12 @@ class Global_Breadcrumb {
 		}
 
 		if ( class_exists( 'Woocommerce' ) && 'product' === get_post_type( $post ) ) {
-			$this->prepend_shop_page();
 
 			$terms = wc_get_product_terms(
 				$post->ID,
 				'product_cat',
 				apply_filters(
-					'woocommerce_breadcrumb_product_terms_args',
+					'boostify_breadcrumb_product_terms_args',
 					array(
 						'orderby' => 'parent',
 						'order'   => 'DESC',
@@ -108,7 +107,7 @@ class Global_Breadcrumb {
 			);
 
 			if ( $terms ) {
-				$main_term = apply_filters( 'woocommerce_breadcrumb_main_term', $terms[0], $terms );
+				$main_term = apply_filters( 'boostify_breadcrumb_main_term', $terms[0], $terms );
 				$this->term_ancestors( $main_term->term_id, 'product_cat' );
 				$this->add_crumb( $main_term->name, get_term_link( $main_term ) );
 			}
@@ -167,10 +166,11 @@ class Global_Breadcrumb {
 			'is_404',
 			'is_attachment',
 			'is_single',
+			'is_page',
 			// 'is_product_category',
 			// 'is_product_tag',
 			// 'is_shop',
-			// 'is_page',
+			
 			// 'is_post_type_archive',
 			// 'is_category',
 			// 'is_tag',

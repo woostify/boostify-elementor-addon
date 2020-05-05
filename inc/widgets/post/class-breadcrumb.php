@@ -3,7 +3,7 @@
 namespace Boostify_Elementor\Widgets;
 
 use Boostify_Elementor\Base_Widget;
-use Boostify_Elementor\Posts\Base\Global_Breadcrumb;
+use Boostify_Elementor\Core\Global_Breadcrumb as BoostifyBreadcrumb;
 use Elementor\Controls_Manager;
 /**
  * Breadcrumb
@@ -61,6 +61,14 @@ class Breadcrumb extends Base_Widget {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		bcn_display();
+		$crumb = new BoostifyBreadcrumb();
+		// if ( ! empty( $args['home'] ) ) {
+		// 	$crumb->add_crumb( $args['home'], apply_filters( 'boostify_breadcrumb_home_url', home_url() ) );
+		// }
+		$crumb->add_crumb( 'home', home_url() );
+
+		$list_crumb = $crumb->generate();
+		var_dump( $list_crumb );
 		?>
 		<div class="boostify-addon-breadcrumb widget-breadcrumb">
 			<div class="widget-breadcrumb--wrapper">
