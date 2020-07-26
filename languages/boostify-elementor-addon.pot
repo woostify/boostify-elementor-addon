@@ -54,8 +54,19 @@ msgstr ""
 msgid "Post"
 msgstr ""
 
+#. translators: 1: comment count number, 2: title.
+#: inc/core/core.php:127
+msgid "%1$s Comment"
+msgid_plural "%1$s Comments"
+msgstr[0] ""
+msgstr[1] ""
+
 #: inc/core/core.php:123
 msgid "No Comments"
+msgstr ""
+
+#: inc/core/modules/class-global-breadcrumb.php:65, inc/widgets/post/base/class-global-breadcrumb.php:65
+msgid "Error 404"
 msgstr ""
 
 #: inc/core/template.php:169
@@ -208,10 +219,6 @@ msgstr ""
 
 #: inc/widgets/class-widgets.php:81
 msgid "Boostify"
-msgstr ""
-
-#: inc/widgets/post/base/class-global-breadcrumb.php:65
-msgid "Error 404"
 msgstr ""
 
 #: inc/widgets/post/base/class-post-base.php:22
@@ -370,16 +377,16 @@ msgstr ""
 msgid "Breadcrumb"
 msgstr ""
 
-#: inc/widgets/post/class-breadcrumb.php:73
+#: inc/widgets/post/class-breadcrumb.php:78
 msgid "Home"
 msgstr ""
 
-#: inc/widgets/post/class-breadcrumb.php:127
-msgid "Search Results for: %s"
+#: inc/widgets/post/class-breadcrumb.php:96, inc/widgets/post/class-breadcrumb.php:116, inc/widgets/post/class-breadcrumb.php:146
+msgid "Shop"
 msgstr ""
 
-#: inc/widgets/post/class-breadcrumb.php:141
-msgid "Shop"
+#: inc/widgets/post/class-breadcrumb.php:92, inc/widgets/post/class-breadcrumb.php:112, inc/widgets/post/class-breadcrumb.php:132
+msgid "Search Results for: %s"
 msgstr ""
 
 #: inc/widgets/post/class-post-grid.php:51

@@ -63,6 +63,7 @@ class Boostify_Elementor_Addon {
 		include_once BOOSTIFY_ELEMENTOR_CORE . 'hook.php';
 		include_once BOOSTIFY_ELEMENTOR_CORE . 'template.php';
 		include_once BOOSTIFY_ELEMENTOR_CORE . 'modules/class-global-breadcrumb.php';
+		include_once BOOSTIFY_ELEMENTOR_PATH . 'inc/admin/class-admin.php';
 	}
 
 }

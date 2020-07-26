@@ -16,5 +16,6 @@ define( 'BOOSTIFY_ELEMENTOR_CONTROL', BOOSTIFY_ELEMENTOR_PATH . 'inc/control/' )
 define( 'BOOSTIFY_ELEMENTOR_DYNAMIC', BOOSTIFY_ELEMENTOR_PATH . 'inc/dynamic/' );
 define( 'BOOSTIFY_ELEMENTOR_CSS', BOOSTIFY_ELEMENTOR_URL . 'assets/css/' );
 define( 'BOOSTIFY_ELEMENTOR_JS', BOOSTIFY_ELEMENTOR_URL . 'assets/js/' );
+define( 'BOOSTIFY_ELEMENTOR_IMG', BOOSTIFY_ELEMENTOR_URL . 'assets/images/' );
 
 require_once BOOSTIFY_ELEMENTOR_PATH . 'inc/class-boostify-elementor-addon.php';
