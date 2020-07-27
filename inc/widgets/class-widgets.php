@@ -86,17 +86,27 @@ class Widgets {
 	 * Widget Class
 	 */
 	public function get_widgets() {
-		$widgets = array(
-			'basic' => array(
-				'Button',
-			),
-			'post'  => array(
-				'Post_Grid',
-				'Post_List',
-				'Post_Slider',
-				'Breadcrumb',
-			),
-		);
+		$list_widget = boostify_list_widget();
+		$widgets      = array();
+		foreach ( $list_widget as $folder => $widget_group ) {
+			foreach ( $widget_group['widget'] as $widget ) {
+				$active = get_option( $widget['name'] );
+				if ( 'on' == $active ) {
+					$widgets[ $folder ][] = $widget['key'];
+				}
+			}
+		}
+		// $widgets = array(
+		// 	'basic' => array(
+		// 		'Button',
+		// 	),
+		// 	'post'  => array(
+		// 		'Post_Grid',
+		// 		'Post_List',
+		// 		'Post_Slider',
+		// 		'Breadcrumb',
+		// 	),
+		// );
 		return $widgets;
 	}
 

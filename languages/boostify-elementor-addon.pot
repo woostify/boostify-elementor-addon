@@ -13,6 +13,42 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: inc/admin/class-admin.php:109
+msgid "General"
+msgstr ""
+
+#: inc/admin/class-admin.php:115, inc/widgets/basic/class-button.php:51, inc/widgets/basic/class-button.php:247
+msgid "Button"
+msgstr ""
+
+#: inc/admin/class-admin.php:120, inc/control/class-group-control-post.php:212
+msgid "Post"
+msgstr ""
+
+#: inc/admin/class-admin.php:126, inc/widgets/post/class-post-grid.php:51
+msgid "Post Grid"
+msgstr ""
+
+#: inc/admin/class-admin.php:131, inc/widgets/post/class-post-list.php:47
+msgid "Post List"
+msgstr ""
+
+#: inc/admin/class-admin.php:136, inc/widgets/post/class-post-slider.php:51
+msgid "Post Slider"
+msgstr ""
+
+#: inc/admin/class-admin.php:141, inc/widgets/post/class-breadcrumb.php:46
+msgid "Breadcrumb"
+msgstr ""
+
+#: inc/admin/class-admin.php:162
+msgid "Boostify Elementor Addons Settings"
+msgstr ""
+
+#: inc/admin/class-admin.php:172
+msgid "GLOBAL CONTROL"
+msgstr ""
+
 #: inc/control/class-group-control-post.php:80
 msgctxt "Post Control"
 msgid "Post Type"
@@ -50,10 +86,6 @@ msgstr ""
 msgid "Current Post"
 msgstr ""
 
-#: inc/control/class-group-control-post.php:212
-msgid "Post"
-msgstr ""
-
 #. translators: 1: comment count number, 2: title.
 #: inc/core/core.php:127
 msgid "%1$s Comment"
@@ -79,10 +111,6 @@ msgstr ""
 
 #: inc/dynamic/tags/class-featured-image.php:27
 msgid "Featured Image"
-msgstr ""
-
-#: inc/widgets/basic/class-button.php:51, inc/widgets/basic/class-button.php:247
-msgid "Button"
 msgstr ""
 
 #: inc/widgets/basic/class-button.php:58, inc/widgets/basic/class-button.php:353
@@ -373,10 +401,6 @@ msgstr ""
 msgid "Active"
 msgstr ""
 
-#: inc/widgets/post/class-breadcrumb.php:46
-msgid "Breadcrumb"
-msgstr ""
-
 #: inc/widgets/post/class-breadcrumb.php:78
 msgid "Home"
 msgstr ""
@@ -387,10 +411,6 @@ msgstr ""
 
 #: inc/widgets/post/class-breadcrumb.php:92, inc/widgets/post/class-breadcrumb.php:112, inc/widgets/post/class-breadcrumb.php:132
 msgid "Search Results for: %s"
-msgstr ""
-
-#: inc/widgets/post/class-post-grid.php:51
-msgid "Post Grid"
 msgstr ""
 
 #: inc/widgets/post/class-post-grid.php:155, inc/widgets/post/class-post-slider.php:144
@@ -415,14 +435,6 @@ msgstr ""
 
 #: inc/widgets/post/class-post-grid.php:162, inc/widgets/post/class-post-slider.php:151, inc/widgets/post/class-post-slider.php:226
 msgid "5"
-msgstr ""
-
-#: inc/widgets/post/class-post-list.php:47
-msgid "Post List"
-msgstr ""
-
-#: inc/widgets/post/class-post-slider.php:51
-msgid "Post Slider"
 msgstr ""
 
 #: inc/widgets/post/class-post-slider.php:164

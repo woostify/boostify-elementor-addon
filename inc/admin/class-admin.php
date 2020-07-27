@@ -62,8 +62,8 @@ class Admin {
 		);
 
 		wp_enqueue_script(
-			'boostify-admin-child-theme-generator',
-			BOOSTIFY_ELEMENTOR_CSS . 'admin/js/generator' . $suffix . '.js',
+			'boostify-elementor-addon-admin',
+			BOOSTIFY_ELEMENTOR_JS . 'admin/admin' . $suffix . '.js',
 			array( 'jquery' ),
 			BOOSTIFY_ELEMENTOR_VER,
 			true
@@ -82,78 +82,31 @@ class Admin {
 	}
 
 	public function register_settings() {
-		register_setting(
-			'boostify_elementor_addon',
-			'list_theme',
-			array(
-				'type'              => 'string',
-				'show_in_rest'      => true,
-				'sanitize_callback' => 'sanitize_text_field',
-			)
-		);
-
-		register_setting(
-			'boostify_elementor_addon',
-			'show_list_theme',
-			array(
-				'type'              => 'string',
-				'show_in_rest'      => true,
-				'sanitize_callback' => 'sanitize_text_field',
-			)
-		);
+		$data = boostify_list_widget();
+		foreach ( $data as $widget_group ) {
+			foreach ( $widget_group['widget'] as $widget ) {
+				register_setting(
+					'boostify_elementor_addon',
+					$widget['name'],
+					array(
+						'type'              => 'string',
+						'show_in_rest'      => true,
+						'sanitize_callback' => 'sanitize_text_field',
+					)
+				);
+			}
+		}
 	}
 
-	public function list_widget() {
-		$list_widget = array(
-			'basic' => array(
-				'label'  => __( 'General', 'boostify' ),
-				'value'  => 'base',
-				'widget' => array(
-					array(
-						'key'   => 'Button',
-						'name'  => 'button',
-						'label' => __( 'Button', 'boostify' ),
-					),
-				)
-			),
-			'post' => array(
-				'label'  => __( 'Post', 'boostify' ),
-				'value'  => 'post',
-				'widget' => array(
-					array(
-						'key'   => 'Post_Grid',
-						'name'  => 'Post_Grid',
-						'label' => __( 'Post Grid', 'boostify' ),
-					),
-					array(
-						'key'   => 'Post_List',
-						'name'  => 'button',
-						'label' => __( 'Post List', 'boostify' ),
-					),
-					array(
-						'key'   => 'Post_Slider',
-						'name'  => 'button',
-						'label' => __( 'Post Slider', 'boostify' ),
-					),
-					array(
-						'key'   => 'Breadcrumb',
-						'name'  => 'button',
-						'label' => __( 'Breadcrumb', 'boostify' ),
-					),
-				)
-			),
-		);
-
-		return $list_widget;
-	}
 
 	public function setting_page() {
-		$data = $this->list_widget();
+		$data = boostify_list_widget();
 		?>
 
 		<div class="boostify-elementor-addon-settings">
 			<div class="boostify-elementor-settings-wrapper">
 				<form method="post" action="options.php">
+					<?php settings_fields( 'boostify_elementor_addon' ); ?>
 					<div class="form-setting-header">
 						<div class="header-left">
 							<div class="logo">
@@ -170,6 +123,11 @@ class Admin {
 						<div class="form-content-wrapper">
 							<div class="form-content-header">
 								<h2 class="title-content-header"><?php echo esc_html__( 'GLOBAL CONTROL', 'boostify' ); ?></h2>
+
+								<div class="lis-action-togle">
+									<button class="btn-enable-widget btn-action"><?php echo esc_html__( 'Enable All', 'boostify' ); ?></button>
+									<button class="btn-disable-widget btn-action"><?php echo esc_html__( 'Disable All', 'boostify' ); ?></button>
+								</div>
 							</div>
 							<div class="form-content-setting">
 								<div class="list-widget-setting">
@@ -180,10 +138,13 @@ class Admin {
 											</div>
 											<div class="form-widget-group">
 												<?php foreach ( $widget_group['widget'] as $widget ) : ?>
+													<?php
+														$check = ( 'on' == get_option( $widget['name'] ) ) ? 'checked' : '';
+													?>
 													<div class="widget-item">
 														<label><?php echo esc_html( $widget['label'] ); ?></label>
 														<label class="widget-switch">
-															<input type="checkbox" class="widget-check" name="<?php echo esc_attr( $widget['name'] ); ?>">
+															<input type="checkbox" class="widget-check" name="<?php echo esc_attr( $widget['name'] ); ?>" <?php echo esc_attr( $check ); ?>>
 															<span class="widget-slider round"></span>
 														</label>
 													</div>
@@ -194,6 +155,10 @@ class Admin {
 								</div>
 							</div>
 						</div>
+					</div>
+
+					<div class="form-button">
+						<?php submit_button(); ?>
 					</div>
 				</form>
 			</div>
