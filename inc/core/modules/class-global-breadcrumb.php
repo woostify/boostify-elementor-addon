@@ -29,7 +29,7 @@ class Global_Breadcrumb {
 	 * @return array
 	 */
 	public function get_breadcrumb() {
-		return apply_filters( 'boostify_get_breadcrumb', $this->crumbs, $this );
+		return apply_filters( 'travelcations_get_breadcrumb', $this->crumbs, $this );
 	}
 
 	/**
@@ -62,7 +62,7 @@ class Global_Breadcrumb {
 	 * 404 trail.
 	 */
 	protected function add_crumbs_404() {
-		$this->add_crumb( __( 'Error 404', 'boostify' ) );
+		$this->add_crumb( __( 'Error 404', 'travelcations' ) );
 	}
 
 	/**
@@ -98,7 +98,7 @@ class Global_Breadcrumb {
 				$post->ID,
 				'product_cat',
 				apply_filters(
-					'boostify_breadcrumb_product_terms_args',
+					'travelcations_breadcrumb_product_terms_args',
 					array(
 						'orderby' => 'parent',
 						'order'   => 'DESC',
@@ -107,7 +107,7 @@ class Global_Breadcrumb {
 			);
 
 			if ( $terms ) {
-				$main_term = apply_filters( 'boostify_breadcrumb_main_term', $terms[0], $terms );
+				$main_term = apply_filters( 'travelcations_breadcrumb_main_term', $terms[0], $terms );
 				$this->term_ancestors( $main_term->term_id, 'product_cat' );
 				$this->add_crumb( $main_term->name, get_term_link( $main_term ) );
 			}
@@ -156,6 +156,94 @@ class Global_Breadcrumb {
 	}
 
 	/**
+	 * Post type archive trail.
+	 */
+	protected function add_crumbs_post_type_archive() {
+		$post_type = get_post_type_object( get_post_type() );
+
+		if ( $post_type ) {
+			$this->add_crumb( $post_type->labels->name, get_post_type_archive_link( get_post_type() ) );
+		}
+	}
+
+	/**
+	 * Category trail.
+	 */
+	protected function add_crumbs_category() {
+		$this_category = get_category( $GLOBALS['wp_query']->get_queried_object() );
+
+		if ( 0 !== intval( $this_category->parent ) ) {
+			$this->term_ancestors( $this_category->term_id, 'category' );
+		}
+
+		$this->add_crumb( single_cat_title( '', false ), get_category_link( $this_category->term_id ) );
+	}
+
+	/**
+	 * Tag trail.
+	 */
+	protected function add_crumbs_tag() {
+		$queried_object = $GLOBALS['wp_query']->get_queried_object();
+
+		/* translators: %s: tag name */
+		$this->add_crumb( sprintf( __( 'Posts tagged &ldquo;%s&rdquo;', 'travelcations' ), single_tag_title( '', false ) ), get_tag_link( $queried_object->term_id ) );
+	}
+
+	/**
+	 * Search trail.
+	 */
+	protected function add_crumbs_search() {
+		$queried_object = get_search_query();
+
+		/* translators: %s: tag name */
+		$this->add_crumb( sprintf( __( 'Search For &ldquo;%s&rdquo;', 'travelcations' ), $queried_object ), '' );
+	}
+
+	/**
+	 * Add crumbs for date based archives.
+	 */
+	protected function add_crumbs_date() {
+		if ( is_year() || is_month() || is_day() ) {
+			$this->add_crumb( get_the_time( 'Y' ), get_year_link( get_the_time( 'Y' ) ) );
+		}
+		if ( is_month() || is_day() ) {
+			$this->add_crumb( get_the_time( 'F' ), get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ) );
+		}
+		if ( is_day() ) {
+			$this->add_crumb( get_the_time( 'd' ) );
+		}
+	}
+
+	/**
+	 * Add crumbs for taxonomies
+	 */
+	protected function add_crumbs_tax() {
+		$this_term = $GLOBALS['wp_query']->get_queried_object();
+		$taxonomy  = get_taxonomy( $this_term->taxonomy );
+
+		$this->add_crumb( $taxonomy->labels->name );
+
+		if ( 0 !== intval( $this_term->parent ) ) {
+			$this->term_ancestors( $this_term->term_id, $this_term->taxonomy );
+		}
+
+		$this->add_crumb( single_term_title( '', false ), get_term_link( $this_term->term_id, $this_term->taxonomy ) );
+	}
+
+	/**
+	 * Add a breadcrumb for author archives.
+	 */
+	protected function add_crumbs_author() {
+		global $author;
+
+		$userdata = get_userdata( $author );
+
+		/* translators: %s: author name */
+		$this->add_crumb( sprintf( __( 'Author: %s', 'travelcations' ), $userdata->display_name ) );
+	}
+
+
+	/**
 	 * Generate breadcrumb trail.
 	 *
 	 * @return array of breadcrumbs
@@ -167,16 +255,13 @@ class Global_Breadcrumb {
 			'is_attachment',
 			'is_single',
 			'is_page',
-			// 'is_product_category',
-			// 'is_product_tag',
-			// 'is_shop',
-			
-			// 'is_post_type_archive',
-			// 'is_category',
-			// 'is_tag',
-			// 'is_author',
-			// 'is_date',
-			// 'is_tax',
+			'is_post_type_archive',
+			'is_category',
+			'is_tag',
+			'is_author',
+			'is_date',
+			'is_tax',
+			'is_search',
 		);
 		if ( ( ! is_front_page() ) || is_page() ) {
 			foreach ( $conditionals as $conditional ) {

@@ -483,6 +483,22 @@
   transform: translateY(-12px);
 }
 
+.widget-breadcrumb--wrapper .list-breadcrumb-item {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.widget-breadcrumb--wrapper .list-breadcrumb-item .boostify-item-breadcrumb {
+  margin: 0;
+}
+
+.widget-breadcrumb--wrapper .default-separator .boostify-item-breadcrumb:not(:last-child) .item-title:after {
+  content: '\203A';
+}
+
 .boostify-post-item-wrapper {
   overflow: hidden;
 }

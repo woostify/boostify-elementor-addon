@@ -13,40 +13,20 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: inc/admin/class-admin.php:109
-msgid "General"
-msgstr ""
-
-#: inc/admin/class-admin.php:115, inc/widgets/basic/class-button.php:51, inc/widgets/basic/class-button.php:247
-msgid "Button"
-msgstr ""
-
-#: inc/admin/class-admin.php:120, inc/control/class-group-control-post.php:212
-msgid "Post"
-msgstr ""
-
-#: inc/admin/class-admin.php:126, inc/widgets/post/class-post-grid.php:51
-msgid "Post Grid"
-msgstr ""
-
-#: inc/admin/class-admin.php:131, inc/widgets/post/class-post-list.php:47
-msgid "Post List"
-msgstr ""
-
-#: inc/admin/class-admin.php:136, inc/widgets/post/class-post-slider.php:51
-msgid "Post Slider"
-msgstr ""
-
-#: inc/admin/class-admin.php:141, inc/widgets/post/class-breadcrumb.php:46
-msgid "Breadcrumb"
-msgstr ""
-
-#: inc/admin/class-admin.php:162
+#: inc/admin/class-admin.php:115
 msgid "Boostify Elementor Addons Settings"
 msgstr ""
 
-#: inc/admin/class-admin.php:172
+#: inc/admin/class-admin.php:125
 msgid "GLOBAL CONTROL"
+msgstr ""
+
+#: inc/admin/class-admin.php:128
+msgid "Enable All"
+msgstr ""
+
+#: inc/admin/class-admin.php:129
+msgid "Disable All"
 msgstr ""
 
 #: inc/control/class-group-control-post.php:80
@@ -86,6 +66,10 @@ msgstr ""
 msgid "Current Post"
 msgstr ""
 
+#: inc/control/class-group-control-post.php:212, inc/core/widget.php:17
+msgid "Post"
+msgstr ""
+
 #. translators: 1: comment count number, 2: title.
 #: inc/core/core.php:127
 msgid "%1$s Comment"
@@ -97,16 +81,36 @@ msgstr[1] ""
 msgid "No Comments"
 msgstr ""
 
-#: inc/core/modules/class-global-breadcrumb.php:65, inc/widgets/post/base/class-global-breadcrumb.php:65
-msgid "Error 404"
-msgstr ""
-
 #: inc/core/template.php:169
 msgid "Prev"
 msgstr ""
 
 #: inc/core/template.php:170
 msgid "Next"
+msgstr ""
+
+#: inc/core/widget.php:6
+msgid "General"
+msgstr ""
+
+#: inc/core/widget.php:12, inc/widgets/basic/class-button.php:51, inc/widgets/basic/class-button.php:247
+msgid "Button"
+msgstr ""
+
+#: inc/core/widget.php:23, inc/widgets/post/class-post-grid.php:51
+msgid "Post Grid"
+msgstr ""
+
+#: inc/core/widget.php:28, inc/widgets/post/class-post-list.php:47
+msgid "Post List"
+msgstr ""
+
+#: inc/core/widget.php:33, inc/widgets/post/class-post-slider.php:51
+msgid "Post Slider"
+msgstr ""
+
+#: inc/core/widget.php:38, inc/widgets/post/class-breadcrumb.php:46
+msgid "Breadcrumb"
 msgstr ""
 
 #: inc/dynamic/tags/class-featured-image.php:27
@@ -125,7 +129,7 @@ msgstr ""
 msgid "Enter button label"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:72
+#: inc/widgets/basic/class-button.php:72, inc/widgets/post/class-breadcrumb.php:90
 msgid "Link"
 msgstr ""
 
@@ -157,7 +161,7 @@ msgstr ""
 msgid "Effect"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:116, inc/widgets/post/skin/class-layout.php:40, inc/widgets/post/skin/class-layout.php:49, inc/widgets/post/skin/class-layout.php:59
+#: inc/widgets/basic/class-button.php:116, inc/widgets/post/class-breadcrumb.php:81, inc/widgets/post/skin/class-layout.php:40, inc/widgets/post/skin/class-layout.php:49, inc/widgets/post/skin/class-layout.php:59
 msgid "Default"
 msgstr ""
 
@@ -247,6 +251,10 @@ msgstr ""
 
 #: inc/widgets/class-widgets.php:81
 msgid "Boostify"
+msgstr ""
+
+#: inc/widgets/post/base/class-global-breadcrumb.php:65
+msgid "Error 404"
 msgstr ""
 
 #: inc/widgets/post/base/class-post-base.php:22
@@ -401,16 +409,36 @@ msgstr ""
 msgid "Active"
 msgstr ""
 
-#: inc/widgets/post/class-breadcrumb.php:78
-msgid "Home"
+#: inc/widgets/post/class-breadcrumb.php:53
+msgid "Custom Separator"
 msgstr ""
 
-#: inc/widgets/post/class-breadcrumb.php:96, inc/widgets/post/class-breadcrumb.php:116, inc/widgets/post/class-breadcrumb.php:146
-msgid "Shop"
+#: inc/widgets/post/class-breadcrumb.php:55, inc/widgets/post/class-breadcrumb.php:92
+msgid "Yes"
 msgstr ""
 
-#: inc/widgets/post/class-breadcrumb.php:92, inc/widgets/post/class-breadcrumb.php:112, inc/widgets/post/class-breadcrumb.php:132
-msgid "Search Results for: %s"
+#: inc/widgets/post/class-breadcrumb.php:56, inc/widgets/post/class-breadcrumb.php:93
+msgid "No"
+msgstr ""
+
+#: inc/widgets/post/class-breadcrumb.php:65
+msgid "Separator"
+msgstr ""
+
+#: inc/widgets/post/class-breadcrumb.php:77
+msgid "Home Label"
+msgstr ""
+
+#: inc/widgets/post/class-breadcrumb.php:82
+msgid "Site"
+msgstr ""
+
+#: inc/widgets/post/class-breadcrumb.php:102
+msgid "Custom Class"
+msgstr ""
+
+#: inc/widgets/post/class-breadcrumb.php:114
+msgid "Style"
 msgstr ""
 
 #: inc/widgets/post/class-post-grid.php:155, inc/widgets/post/class-post-slider.php:144

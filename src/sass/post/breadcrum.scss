@@ -1,0 +1,21 @@
+.widget-breadcrumb--wrapper {
+	.list-breadcrumb-item {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+
+		.boostify-item-breadcrumb {
+			margin: 0;
+		}
+	}
+
+	.default-separator {
+		.boostify-item-breadcrumb:not( :last-child ) {
+			.item-title:after {
+				content: '\203A'
+			}
+		}
+	}
+}
