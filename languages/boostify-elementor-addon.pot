@@ -66,7 +66,7 @@ msgstr ""
 msgid "Current Post"
 msgstr ""
 
-#: inc/control/class-group-control-post.php:212, inc/core/widget.php:17
+#: inc/control/class-group-control-post.php:212, inc/core/widget.php:27
 msgid "Post"
 msgstr ""
 
@@ -93,23 +93,31 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: inc/core/widget.php:12, inc/widgets/basic/class-button.php:51, inc/widgets/basic/class-button.php:247
+#: inc/core/widget.php:12
+msgid "Video Popup"
+msgstr ""
+
+#: inc/core/widget.php:17, inc/widgets/basic/class-button.php:51, inc/widgets/basic/class-button.php:247, inc/widgets/basic/class-video-popup.php:247
 msgid "Button"
 msgstr ""
 
-#: inc/core/widget.php:23, inc/widgets/post/class-post-grid.php:51
+#: inc/core/widget.php:22, inc/widgets/basic/class-count-down.php:59
+msgid "Count Down"
+msgstr ""
+
+#: inc/core/widget.php:33, inc/widgets/post/class-post-grid.php:51
 msgid "Post Grid"
 msgstr ""
 
-#: inc/core/widget.php:28, inc/widgets/post/class-post-list.php:47
+#: inc/core/widget.php:38, inc/widgets/post/class-post-list.php:47
 msgid "Post List"
 msgstr ""
 
-#: inc/core/widget.php:33, inc/widgets/post/class-post-slider.php:51
+#: inc/core/widget.php:43, inc/widgets/post/class-post-slider.php:51
 msgid "Post Slider"
 msgstr ""
 
-#: inc/core/widget.php:38, inc/widgets/post/class-breadcrumb.php:46
+#: inc/core/widget.php:48, inc/widgets/post/class-breadcrumb.php:46
 msgid "Breadcrumb"
 msgstr ""
 
@@ -121,11 +129,11 @@ msgstr ""
 msgid "Label"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:60
+#: inc/widgets/basic/class-button.php:60, inc/widgets/basic/class-video-popup.php:72
 msgid "Click Me"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:61, inc/widgets/basic/class-button.php:236
+#: inc/widgets/basic/class-button.php:61, inc/widgets/basic/class-button.php:236, inc/widgets/basic/class-count-down.php:151, inc/widgets/basic/class-count-down.php:160, inc/widgets/basic/class-count-down.php:169, inc/widgets/basic/class-count-down.php:178, inc/widgets/basic/class-video-popup.php:73
 msgid "Enter button label"
 msgstr ""
 
@@ -137,19 +145,19 @@ msgstr ""
 msgid "https://your-link.com"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:84, inc/widgets/post/base/class-post-base.php:590, inc/widgets/post/base/class-posts.php:39, inc/widgets/post/class-post-slider.php:310
+#: inc/widgets/basic/class-button.php:84, inc/widgets/basic/class-count-down.php:322, inc/widgets/post/base/class-post-base.php:590, inc/widgets/post/base/class-posts.php:39, inc/widgets/post/class-post-slider.php:310
 msgid "Alignment"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:89, inc/widgets/basic/class-button.php:143, inc/widgets/post/base/class-post-base.php:594, inc/widgets/post/base/class-posts.php:43, inc/widgets/post/class-post-slider.php:314
+#: inc/widgets/basic/class-button.php:89, inc/widgets/basic/class-button.php:143, inc/widgets/basic/class-count-down.php:88, inc/widgets/basic/class-count-down.php:298, inc/widgets/basic/class-count-down.php:327, inc/widgets/basic/class-video-popup.php:448, inc/widgets/post/base/class-post-base.php:594, inc/widgets/post/base/class-posts.php:43, inc/widgets/post/class-post-slider.php:314
 msgid "Left"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:93, inc/widgets/post/base/class-post-base.php:598, inc/widgets/post/base/class-posts.php:47, inc/widgets/post/class-post-slider.php:318
+#: inc/widgets/basic/class-button.php:93, inc/widgets/basic/class-count-down.php:117, inc/widgets/basic/class-count-down.php:135, inc/widgets/basic/class-count-down.php:331, inc/widgets/basic/class-video-popup.php:84, inc/widgets/basic/class-video-popup.php:100, inc/widgets/basic/class-video-popup.php:477, inc/widgets/basic/class-video-popup.php:493, inc/widgets/post/base/class-post-base.php:598, inc/widgets/post/base/class-posts.php:47, inc/widgets/post/class-post-slider.php:318
 msgid "Center"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:97, inc/widgets/basic/class-button.php:147, inc/widgets/post/base/class-post-base.php:602, inc/widgets/post/base/class-posts.php:51, inc/widgets/post/class-post-slider.php:322
+#: inc/widgets/basic/class-button.php:97, inc/widgets/basic/class-button.php:147, inc/widgets/basic/class-count-down.php:100, inc/widgets/basic/class-count-down.php:310, inc/widgets/basic/class-count-down.php:335, inc/widgets/basic/class-video-popup.php:460, inc/widgets/post/base/class-post-base.php:602, inc/widgets/post/base/class-posts.php:51, inc/widgets/post/class-post-slider.php:322
 msgid "Right"
 msgstr ""
 
@@ -193,11 +201,11 @@ msgstr ""
 msgid "Push"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:131
+#: inc/widgets/basic/class-button.php:131, inc/widgets/basic/class-video-popup.php:114, inc/widgets/basic/class-video-popup.php:118
 msgid "Icon"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:139
+#: inc/widgets/basic/class-button.php:139, inc/widgets/basic/class-video-popup.php:443
 msgid "Icon Position"
 msgstr ""
 
@@ -217,23 +225,23 @@ msgstr ""
 msgid "Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows A-z 0-9 & underscore chars without spaces."
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:255, inc/widgets/post/base/class-post-base.php:493, inc/widgets/post/base/class-post-base.php:578, inc/widgets/post/base/class-post-base.php:652, inc/widgets/post/class-post-slider.php:298
+#: inc/widgets/basic/class-button.php:255, inc/widgets/basic/class-count-down.php:219, inc/widgets/basic/class-video-popup.php:300, inc/widgets/post/base/class-post-base.php:493, inc/widgets/post/base/class-post-base.php:578, inc/widgets/post/base/class-post-base.php:652, inc/widgets/post/class-post-slider.php:298
 msgid "Padding"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:268
+#: inc/widgets/basic/class-button.php:268, inc/widgets/basic/class-count-down.php:242, inc/widgets/basic/class-video-popup.php:349, inc/widgets/basic/class-video-popup.php:405
 msgid "Border"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:277, inc/widgets/post/base/class-post-base.php:685, inc/widgets/post/base/class-post-base.php:725
+#: inc/widgets/basic/class-button.php:277, inc/widgets/basic/class-count-down.php:261, inc/widgets/basic/class-video-popup.php:368, inc/widgets/basic/class-video-popup.php:424, inc/widgets/basic/class-video-popup.php:591, inc/widgets/basic/class-video-popup.php:625, inc/widgets/post/base/class-post-base.php:685, inc/widgets/post/base/class-post-base.php:725
 msgid "Box Shadow"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:287, inc/widgets/basic/class-button.php:363, inc/widgets/post/base/class-post-base.php:182, inc/widgets/post/base/class-post-base.php:402, inc/widgets/post/base/class-post-base.php:666, inc/widgets/post/base/class-posts.php:214
+#: inc/widgets/basic/class-button.php:287, inc/widgets/basic/class-button.php:363, inc/widgets/basic/class-video-popup.php:321, inc/widgets/basic/class-video-popup.php:576, inc/widgets/post/base/class-post-base.php:182, inc/widgets/post/base/class-post-base.php:402, inc/widgets/post/base/class-post-base.php:666, inc/widgets/post/base/class-posts.php:214
 msgid "Normal"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:294, inc/widgets/basic/class-button.php:325, inc/widgets/post/base/class-post-base.php:145, inc/widgets/post/base/class-post-base.php:508, inc/widgets/post/base/class-post-base.php:640, inc/widgets/post/base/class-posts.php:200
+#: inc/widgets/basic/class-button.php:294, inc/widgets/basic/class-button.php:325, inc/widgets/basic/class-count-down.php:249, inc/widgets/basic/class-video-popup.php:356, inc/widgets/basic/class-video-popup.php:412, inc/widgets/basic/class-video-popup.php:598, inc/widgets/basic/class-video-popup.php:632, inc/widgets/post/base/class-post-base.php:145, inc/widgets/post/base/class-post-base.php:508, inc/widgets/post/base/class-post-base.php:640, inc/widgets/post/base/class-posts.php:200
 msgid "Border Radius"
 msgstr ""
 
@@ -241,12 +249,204 @@ msgstr ""
 msgid "Background"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:318, inc/widgets/basic/class-button.php:385, inc/widgets/post/base/class-post-base.php:199, inc/widgets/post/base/class-post-base.php:440, inc/widgets/post/base/class-post-base.php:706, inc/widgets/post/base/class-posts.php:302
+#: inc/widgets/basic/class-button.php:318, inc/widgets/basic/class-button.php:385, inc/widgets/basic/class-video-popup.php:312, inc/widgets/basic/class-video-popup.php:378, inc/widgets/basic/class-video-popup.php:610, inc/widgets/post/base/class-post-base.php:199, inc/widgets/post/base/class-post-base.php:440, inc/widgets/post/base/class-post-base.php:706, inc/widgets/post/base/class-posts.php:302
 msgid "Hover"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:370, inc/widgets/basic/class-button.php:392, inc/widgets/post/base/class-post-base.php:230, inc/widgets/post/base/class-post-base.php:283, inc/widgets/post/base/class-post-base.php:338, inc/widgets/post/base/class-post-base.php:409, inc/widgets/post/base/class-post-base.php:447, inc/widgets/post/base/class-posts.php:221, inc/widgets/post/base/class-posts.php:266, inc/widgets/post/base/class-posts.php:309, inc/widgets/post/class-post-slider.php:348, inc/widgets/post/class-post-slider.php:415
+#: inc/widgets/basic/class-button.php:370, inc/widgets/basic/class-button.php:392, inc/widgets/basic/class-count-down.php:199, inc/widgets/basic/class-count-down.php:283, inc/widgets/basic/class-video-popup.php:327, inc/widgets/basic/class-video-popup.php:384, inc/widgets/post/base/class-post-base.php:230, inc/widgets/post/base/class-post-base.php:283, inc/widgets/post/base/class-post-base.php:338, inc/widgets/post/base/class-post-base.php:409, inc/widgets/post/base/class-post-base.php:447, inc/widgets/post/base/class-posts.php:221, inc/widgets/post/base/class-posts.php:266, inc/widgets/post/base/class-posts.php:309, inc/widgets/post/class-breadcrumb.php:122, inc/widgets/post/class-breadcrumb.php:139, inc/widgets/post/class-post-slider.php:348, inc/widgets/post/class-post-slider.php:415
 msgid "Color"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:65
+msgid "Due Date"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:72
+msgid "Zero Digit"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:75, inc/widgets/basic/class-video-popup.php:171, inc/widgets/basic/class-video-popup.php:228, inc/widgets/post/class-breadcrumb.php:55, inc/widgets/post/class-breadcrumb.php:92
+msgid "Yes"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:76, inc/widgets/basic/class-video-popup.php:172, inc/widgets/basic/class-video-popup.php:229, inc/widgets/post/class-breadcrumb.php:56, inc/widgets/post/class-breadcrumb.php:93
+msgid "No"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:83, inc/widgets/basic/class-count-down.php:293
+msgid "Direction"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:92, inc/widgets/basic/class-count-down.php:302, inc/widgets/basic/class-video-popup.php:452
+msgid "Bottom"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:96, inc/widgets/basic/class-count-down.php:306, inc/widgets/basic/class-video-popup.php:456
+msgid "Top"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:112, inc/widgets/basic/class-video-popup.php:79, inc/widgets/basic/class-video-popup.php:472
+msgid "Verticle Align"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:116, inc/widgets/basic/class-count-down.php:134, inc/widgets/basic/class-video-popup.php:83, inc/widgets/basic/class-video-popup.php:99, inc/widgets/basic/class-video-popup.php:476, inc/widgets/basic/class-video-popup.php:492
+msgid "Start"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:118, inc/widgets/basic/class-count-down.php:136, inc/widgets/basic/class-video-popup.php:85, inc/widgets/basic/class-video-popup.php:101, inc/widgets/basic/class-video-popup.php:478, inc/widgets/basic/class-video-popup.php:494
+msgid "End"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:119, inc/widgets/basic/class-count-down.php:137
+msgid "Space Around"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:120, inc/widgets/basic/class-count-down.php:138
+msgid "Space Between"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:130, inc/widgets/basic/class-video-popup.php:95, inc/widgets/basic/class-video-popup.php:488
+msgid "Horizontal Align"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:148
+msgid "Day Text"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:150
+msgid "Days"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:157
+msgid "Hour Text"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:159
+msgid "Hours"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:166
+msgid "Minute Text"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:168
+msgid "Minutes"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:175
+msgid "Second Text"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:177
+msgid "Seconds"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:185
+msgid "Number Block"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:209
+msgid "Background Color"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:230, inc/widgets/basic/class-count-down.php:347, inc/widgets/basic/class-video-popup.php:554
+msgid "Margin"
+msgstr ""
+
+#: inc/widgets/basic/class-count-down.php:269, inc/widgets/basic/class-video-popup.php:70
+msgid "Text"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:64
+msgid "Play Button"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:119, inc/widgets/post/base/class-post-base.php:137
+msgid "Image"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:126
+msgid "Choose from library"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:138
+msgid "Your Image"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:151
+msgid "Video URL"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:154
+msgid "Enter URL Video"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:162
+msgid "Image Overlay"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:168
+msgid "Enable"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:179
+msgid "Choose Image"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:194, inc/widgets/basic/class-video-popup.php:543, inc/widgets/post/base/class-post-base.php:22
+msgid "Thumbnail"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:195, inc/widgets/basic/class-video-popup.php:544
+msgid "Custom thumbnail size."
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:204
+msgid "Height "
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:225
+msgid "Hide Play Button"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:254, inc/widgets/post/base/class-posts.php:169, inc/widgets/post/class-post-slider.php:445
+msgid "Width"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:258
+msgid "Full"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:259
+msgid "Custom"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:260
+msgid "Inline"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:267
+msgid "Size"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:337, inc/widgets/basic/class-video-popup.php:394
+msgid "Background color"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:436
+msgid "Icon Play"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:505
+msgid "Icon Font Size "
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:526
+msgid "Icon Magin"
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:583, inc/widgets/basic/class-video-popup.php:617
+msgid "Fiter"
 msgstr ""
 
 #: inc/widgets/class-widgets.php:81
@@ -255,10 +455,6 @@ msgstr ""
 
 #: inc/widgets/post/base/class-global-breadcrumb.php:65
 msgid "Error 404"
-msgstr ""
-
-#: inc/widgets/post/base/class-post-base.php:22
-msgid "Thumbnail"
 msgstr ""
 
 #: inc/widgets/post/base/class-post-base.php:24, inc/widgets/post/base/class-post-base.php:53, inc/widgets/post/base/class-post-base.php:111, inc/widgets/post/base/class-posts.php:29, inc/widgets/post/class-post-slider.php:173, inc/widgets/post/class-post-slider.php:185
@@ -315,10 +511,6 @@ msgstr ""
 
 #: inc/widgets/post/base/class-post-base.php:125
 msgid "Enter Read More Text"
-msgstr ""
-
-#: inc/widgets/post/base/class-post-base.php:137
-msgid "Image"
 msgstr ""
 
 #: inc/widgets/post/base/class-post-base.php:222, inc/widgets/post/base/class-posts.php:89
@@ -397,10 +589,6 @@ msgstr ""
 msgid "Space Top"
 msgstr ""
 
-#: inc/widgets/post/base/class-posts.php:169, inc/widgets/post/class-post-slider.php:445
-msgid "Width"
-msgstr ""
-
 #: inc/widgets/post/base/class-posts.php:235, inc/widgets/post/base/class-posts.php:278, inc/widgets/post/base/class-posts.php:323
 msgid "Color Border"
 msgstr ""
@@ -411,14 +599,6 @@ msgstr ""
 
 #: inc/widgets/post/class-breadcrumb.php:53
 msgid "Custom Separator"
-msgstr ""
-
-#: inc/widgets/post/class-breadcrumb.php:55, inc/widgets/post/class-breadcrumb.php:92
-msgid "Yes"
-msgstr ""
-
-#: inc/widgets/post/class-breadcrumb.php:56, inc/widgets/post/class-breadcrumb.php:93
-msgid "No"
 msgstr ""
 
 #: inc/widgets/post/class-breadcrumb.php:65
@@ -439,6 +619,10 @@ msgstr ""
 
 #: inc/widgets/post/class-breadcrumb.php:114
 msgid "Style"
+msgstr ""
+
+#: inc/widgets/post/class-breadcrumb.php:155
+msgid "Separator Space"
 msgstr ""
 
 #: inc/widgets/post/class-post-grid.php:155, inc/widgets/post/class-post-slider.php:144
