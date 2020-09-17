@@ -11,7 +11,12 @@ function boostify_list_widget() {
 					'name'  => 'button',
 					'label' => __( 'Button', 'boostify' ),
 				),
-			)
+				array(
+					'key'   => 'Video_Popup',
+					'name'  => 'video_popup',
+					'label' => __( 'Video Popup', 'boostify' ),
+				),
+			),
 		),
 		'post' => array(
 			'label'  => __( 'Post', 'boostify' ),
