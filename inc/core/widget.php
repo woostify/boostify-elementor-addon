@@ -7,13 +7,23 @@ function boostify_list_widget() {
 			'value'  => 'base',
 			'widget' => array(
 				array(
+					'key'   => 'Video_Popup',
+					'name'  => 'video_popup',
+					'label' => __( 'Video Popup', 'boostify' ),
+				),
+				array(
 					'key'   => 'Button',
 					'name'  => 'button',
 					'label' => __( 'Button', 'boostify' ),
 				),
-			)
+				array(
+					'key'   => 'Count_Down',
+					'name'  => 'count_down',
+					'label' => __( 'Count Down', 'boostify' ),
+				),
+			),
 		),
-		'post' => array(
+		'post'  => array(
 			'label'  => __( 'Post', 'boostify' ),
 			'value'  => 'post',
 			'widget' => array(
@@ -37,7 +47,7 @@ function boostify_list_widget() {
 					'name'  => 'breadcrumb',
 					'label' => __( 'Breadcrumb', 'boostify' ),
 				),
-			)
+			),
 		),
 	);
 

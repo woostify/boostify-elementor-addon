@@ -1,0 +1,34 @@
+.video-popup-wrapper {
+    display: flex;
+    .width {
+        &--full {
+            display: flex;
+            width: 100%;
+        }
+        &--custom {
+            display: flex;
+        }
+        &--inline {
+            display: inline-flex;
+        }
+    }
+}
+.boostify-popup-btn {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.4s ease;
+}
+.video-popup-has-thumbnail {
+    position: relative;
+    &:hover {
+        .boostify-popup-btn {
+            opacity: 1 !important;
+        }
+    }
+    &__img {
+        position: absolute;
+        width: 100%;
+        height: 100% !important;
+        vertical-align: middle;
+        object-fit: cover;
+    }
+}

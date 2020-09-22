@@ -1,0 +1,14 @@
+.boostify-count-down {
+    ul {
+        padding: 0;
+        list-style-type: none;
+        margin: 0;
+        display: flex;
+        li {
+            display: inline-flex;
+            & > div {
+                display: inline-block;
+            }
+        }
+    }
+}

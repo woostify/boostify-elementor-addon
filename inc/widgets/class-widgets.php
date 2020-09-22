@@ -129,6 +129,14 @@ class Widgets {
 			true
 		);
 
+		wp_register_script(
+			'video-popup-lib',
+			BOOSTIFY_ELEMENTOR_JS . 'modalvideo' . $suffix . '.js',
+			array( 'jquery' ),
+			BOOSTIFY_ELEMENTOR_VER,
+			true
+		);
+
 		$admin_vars = array(
 			'url'   => admin_url( 'admin-ajax.php' ),
 			'nonce' => wp_create_nonce( 'boostify_post_nonce' ),
@@ -163,8 +171,26 @@ class Widgets {
 			BOOSTIFY_ELEMENTOR_VER,
 			true
 		);
-	}
 
+		wp_register_script(
+			'boostify-addon-video-popup',
+			BOOSTIFY_ELEMENTOR_JS . 'video-popup' . $suffix . '.js',
+			array(
+				'jquery',
+				'video-popup-lib',
+			),
+			BOOSTIFY_ELEMENTOR_VER,
+			true
+		);
+
+		wp_register_script(
+			'boostify-addon-countdown',
+			BOOSTIFY_ELEMENTOR_JS . 'countdown' . $suffix . '.js',
+			array( 'jquery' ),
+			BOOSTIFY_ELEMENTOR_VER,
+			true
+		);
+	}
 
 	public function scripts_in_preview_mode() {
 		$suffix = $this->suffix();
@@ -249,6 +275,13 @@ class Widgets {
 		wp_enqueue_style(
 			'swiper',
 			BOOSTIFY_ELEMENTOR_CSS . 'swiper.min.css',
+			array(),
+			BOOSTIFY_ELEMENTOR_VER
+		);
+
+		wp_enqueue_style(
+			'magnificpopup',
+			BOOSTIFY_ELEMENTOR_CSS . 'magnific-popup.css',
 			array(),
 			BOOSTIFY_ELEMENTOR_VER
 		);
