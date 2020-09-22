@@ -259,3 +259,55 @@ function boostify_template_post_list( $settings ) {
 function boostify_template_post_slider( $settings ) {
 	boostify_default_template( $settings, 'swiper-slide' );
 }
+
+function boostify_template_testimonial_default( $settings ) {
+	$list        = $settings['testi'];
+	$layout      = $settings['layout'];
+	$show_avatar = $settings['show_avatar'];
+	$col         = $settings['column'];
+	$arrow       = $settings['arrow'];
+	$dot         = $settings['dot'];
+	?>
+	<div class="boostify-addon-widget widget-testimonial">
+		<div class="widget-testimonial--wrapper swiper-container" data-col="<?php echo esc_attr( $col ); ?>" data-arrow="<?php echo esc_attr( $arrow ); ?>" data-arrow="<?php echo esc_attr( $dot ); ?>">
+			<div class="testimonial-list swiper-wrapper">
+			<?php foreach ( $list as $item ) : ?>
+				<div class="testimonial-item swiper-slide">
+					<div class="testimonial-item--wrapper">
+						<?php if ( $show_avatar ) : ?>
+							<div class="avatar">
+								<?php
+									if ( empty( $item['image']['id'] ) ) {
+
+											?>
+											<img src="<?php echo esc_url( $item['image']['url'] ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>">
+											<?php
+
+									} else {
+										$url = \Elementor\Group_Control_Image_Size::get_attachment_image_src( $item['image']['id'], 'thumbnail', $settings );
+										?>
+										<img src="<?php echo esc_url( $url ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>">
+										<?php
+									}
+								?>
+							</div>
+						<?php endif ?>
+						<span class="content">
+							<?php echo esc_html( $item['content'] ); ?>
+						</span>
+						<span class="name"><?php echo esc_html( $item['name'] ); ?></span>
+					</div>
+				</div>
+			<?php endforeach ?>
+			</div>
+			<?php if ( $dot == 'yes' ): ?>
+				<div class="swiper-pagination"></div>
+			<?php endif ?>
+			<?php if ( $arrow == 'yes' ): ?>
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			<?php endif ?>
+		</div>
+	</div>
+	<?php
+}

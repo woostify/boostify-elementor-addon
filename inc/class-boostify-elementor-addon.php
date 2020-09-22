@@ -56,6 +56,7 @@ class Boostify_Elementor_Addon {
 
 	protected function include_files() {
 		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'post/skin/class-layout.php';
+		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'basic/skin/class-layout.php';
 		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'class-widgets.php';
 		include_once BOOSTIFY_ELEMENTOR_CONTROL . 'class-controls.php';
 		include_once BOOSTIFY_ELEMENTOR_DYNAMIC . 'class-dynamic.php';

@@ -271,3 +271,13 @@ function boostify_post( $post_type ) {
 
 	return $list_post;
 }
+
+
+function test_layout($layout)
+{
+	$layout['test'] = 'test';
+
+	return $layout;
+}
+
+add_filter( 'boostify_testimonial_layout', 'test_layout', 10, 2 );

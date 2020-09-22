@@ -96,17 +96,7 @@ class Widgets {
 				}
 			}
 		}
-		// $widgets = array(
-		// 	'basic' => array(
-		// 		'Button',
-		// 	),
-		// 	'post'  => array(
-		// 		'Post_Grid',
-		// 		'Post_List',
-		// 		'Post_Slider',
-		// 		'Breadcrumb',
-		// 	),
-		// );
+
 		return $widgets;
 	}
 
@@ -163,6 +153,24 @@ class Widgets {
 			BOOSTIFY_ELEMENTOR_VER,
 			true
 		);
+
+
+		wp_register_script(
+			'boostify-addon-faq',
+			BOOSTIFY_ELEMENTOR_JS . 'base/faq' . $suffix . '.js',
+			array( 'jquery' ),
+			BOOSTIFY_ELEMENTOR_VER,
+			true
+		);
+
+		wp_register_script(
+			'boostify-addon-testimonial',
+			BOOSTIFY_ELEMENTOR_JS . 'base/testimonial' . $suffix . '.js',
+			array( 'jquery', 'swiper' ),
+			BOOSTIFY_ELEMENTOR_VER,
+			true
+		);
+
 	}
 
 
@@ -268,6 +276,13 @@ class Widgets {
 			array(),
 			BOOSTIFY_ELEMENTOR_VER
 		);
+
+		wp_enqueue_style(
+			'ionicons',
+			BOOSTIFY_ELEMENTOR_CSS . 'ionicons.css',
+			array(),
+			BOOSTIFY_ELEMENTOR_VER
+		);
 	}
 
 	public function register_core() {
@@ -279,6 +294,7 @@ class Widgets {
 
 	public function elementor_loaded() {
 		new \Boostify_Elementor\Posts\Skin\Layout();
+		new \Boostify_Elementor\Basic\Skin\Layout();
 	}
 
 }

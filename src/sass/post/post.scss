@@ -204,9 +204,13 @@
 		font-weight: 900;
 		background-color: #fff;
 		border: 1px solid #eee;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-		&:after {
-			font-size: 18px;
+		&:before {
+			font-size: 24px;
+			font-family: "Ionicons"
 		}
 
 		&.swiper-button-disabled {
@@ -217,10 +221,18 @@
 
 	.swiper-button-prev {
 		left: 0;
+
+		&:before {
+			content: '\f3cf';
+		}
 	}
 
 	.swiper-button-next {
 		right: 0;
+
+		&:before {
+			content: '\f3d1';
+		}
 	}
 
 	.boostify-grid {

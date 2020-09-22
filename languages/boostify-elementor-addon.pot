@@ -66,7 +66,7 @@ msgstr ""
 msgid "Current Post"
 msgstr ""
 
-#: inc/control/class-group-control-post.php:212, inc/core/widget.php:17
+#: inc/control/class-group-control-post.php:212, inc/core/widget.php:27
 msgid "Post"
 msgstr ""
 
@@ -97,19 +97,27 @@ msgstr ""
 msgid "Button"
 msgstr ""
 
-#: inc/core/widget.php:23, inc/widgets/post/class-post-grid.php:51
+#: inc/core/widget.php:17
+msgid "FAQs"
+msgstr ""
+
+#: inc/core/widget.php:22, inc/widgets/basic/class-testimonial.php:48, inc/widgets/basic/class-testimonial.php:92, inc/widgets/basic/class-testimonial.php:132
+msgid "Testimonial"
+msgstr ""
+
+#: inc/core/widget.php:33, inc/widgets/post/class-post-grid.php:51
 msgid "Post Grid"
 msgstr ""
 
-#: inc/core/widget.php:28, inc/widgets/post/class-post-list.php:47
+#: inc/core/widget.php:38, inc/widgets/post/class-post-list.php:47
 msgid "Post List"
 msgstr ""
 
-#: inc/core/widget.php:33, inc/widgets/post/class-post-slider.php:51
+#: inc/core/widget.php:43, inc/widgets/post/class-post-slider.php:51
 msgid "Post Slider"
 msgstr ""
 
-#: inc/core/widget.php:38, inc/widgets/post/class-breadcrumb.php:46
+#: inc/core/widget.php:48, inc/widgets/post/class-breadcrumb.php:46
 msgid "Breadcrumb"
 msgstr ""
 
@@ -161,7 +169,7 @@ msgstr ""
 msgid "Effect"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:116, inc/widgets/post/class-breadcrumb.php:81, inc/widgets/post/skin/class-layout.php:40, inc/widgets/post/skin/class-layout.php:49, inc/widgets/post/skin/class-layout.php:59
+#: inc/widgets/basic/class-button.php:116, inc/widgets/basic/skin/class-layout.php:15, inc/widgets/post/class-breadcrumb.php:81, inc/widgets/post/skin/class-layout.php:40, inc/widgets/post/skin/class-layout.php:49, inc/widgets/post/skin/class-layout.php:59
 msgid "Default"
 msgstr ""
 
@@ -205,7 +213,7 @@ msgstr ""
 msgid "Font Size"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:182, inc/widgets/basic/class-button.php:208, inc/widgets/post/base/class-post-base.php:157, inc/widgets/post/base/class-post-base.php:252, inc/widgets/post/base/class-post-base.php:306, inc/widgets/post/base/class-post-base.php:366, inc/widgets/post/class-post-slider.php:467
+#: inc/widgets/basic/class-button.php:182, inc/widgets/basic/class-button.php:208, inc/widgets/basic/class-testimonial.php:203, inc/widgets/basic/class-testimonial.php:286, inc/widgets/post/base/class-post-base.php:157, inc/widgets/post/base/class-post-base.php:252, inc/widgets/post/base/class-post-base.php:306, inc/widgets/post/base/class-post-base.php:366, inc/widgets/post/class-post-slider.php:467
 msgid "Space"
 msgstr ""
 
@@ -217,7 +225,7 @@ msgstr ""
 msgid "Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows A-z 0-9 & underscore chars without spaces."
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:255, inc/widgets/post/base/class-post-base.php:493, inc/widgets/post/base/class-post-base.php:578, inc/widgets/post/base/class-post-base.php:652, inc/widgets/post/class-post-slider.php:298
+#: inc/widgets/basic/class-button.php:255, inc/widgets/basic/class-faqs.php:227, inc/widgets/basic/class-faqs.php:286, inc/widgets/post/base/class-post-base.php:493, inc/widgets/post/base/class-post-base.php:578, inc/widgets/post/base/class-post-base.php:652, inc/widgets/post/class-post-slider.php:298
 msgid "Padding"
 msgstr ""
 
@@ -245,8 +253,128 @@ msgstr ""
 msgid "Hover"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:370, inc/widgets/basic/class-button.php:392, inc/widgets/post/base/class-post-base.php:230, inc/widgets/post/base/class-post-base.php:283, inc/widgets/post/base/class-post-base.php:338, inc/widgets/post/base/class-post-base.php:409, inc/widgets/post/base/class-post-base.php:447, inc/widgets/post/base/class-posts.php:221, inc/widgets/post/base/class-posts.php:266, inc/widgets/post/base/class-posts.php:309, inc/widgets/post/class-post-slider.php:348, inc/widgets/post/class-post-slider.php:415
+#: inc/widgets/basic/class-button.php:370, inc/widgets/basic/class-button.php:392, inc/widgets/basic/class-faqs.php:205, inc/widgets/basic/class-faqs.php:264, inc/widgets/basic/class-testimonial.php:181, inc/widgets/basic/class-testimonial.php:231, inc/widgets/basic/class-testimonial.php:262, inc/widgets/post/base/class-post-base.php:230, inc/widgets/post/base/class-post-base.php:283, inc/widgets/post/base/class-post-base.php:338, inc/widgets/post/base/class-post-base.php:409, inc/widgets/post/base/class-post-base.php:447, inc/widgets/post/base/class-posts.php:221, inc/widgets/post/base/class-posts.php:266, inc/widgets/post/base/class-posts.php:309, inc/widgets/post/class-breadcrumb.php:122, inc/widgets/post/class-breadcrumb.php:139, inc/widgets/post/class-post-slider.php:348, inc/widgets/post/class-post-slider.php:415
 msgid "Color"
+msgstr ""
+
+#: inc/widgets/basic/class-faqs.php:47, inc/widgets/basic/class-faqs.php:91
+msgid "Faqs"
+msgstr ""
+
+#: inc/widgets/basic/class-faqs.php:101, inc/widgets/basic/class-faqs.php:197
+msgid "Question"
+msgstr ""
+
+#: inc/widgets/basic/class-faqs.php:104
+msgid "Lorem Ipsum"
+msgstr ""
+
+#: inc/widgets/basic/class-faqs.php:105
+msgid "Enter Question"
+msgstr ""
+
+#: inc/widgets/basic/class-faqs.php:112, inc/widgets/basic/class-faqs.php:256
+msgid "Answer"
+msgstr ""
+
+#: inc/widgets/basic/class-faqs.php:115
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices lectus at odio laoreet rutrum. Integer risus quam, euismod vitae lacus in, tempor efficitur orci."
+msgstr ""
+
+#: inc/widgets/basic/class-faqs.php:116
+msgid "Enter Answer"
+msgstr ""
+
+#: inc/widgets/basic/class-faqs.php:124, inc/widgets/basic/class-faqs.php:142
+msgid "FAQS"
+msgstr ""
+
+#: inc/widgets/basic/class-faqs.php:129
+msgid "Can "
+msgstr ""
+
+#: inc/widgets/basic/class-faqs.php:130
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+msgstr ""
+
+#: inc/widgets/basic/class-faqs.php:150, inc/widgets/post/base/class-post-base.php:628, inc/widgets/post/base/class-posts.php:188
+msgid "Border Width"
+msgstr ""
+
+#: inc/widgets/basic/class-faqs.php:171, inc/widgets/post/base/class-post-base.php:693, inc/widgets/post/base/class-post-base.php:733
+msgid "Border Color"
+msgstr ""
+
+#: inc/widgets/basic/class-faqs.php:183
+msgid "Icon Color"
+msgstr ""
+
+#: inc/widgets/basic/class-faqs.php:217, inc/widgets/basic/class-faqs.php:276, inc/widgets/basic/class-testimonial.php:194, inc/widgets/basic/class-testimonial.php:244, inc/widgets/post/base/class-post-base.php:243, inc/widgets/post/base/class-post-base.php:297, inc/widgets/post/base/class-post-base.php:354, inc/widgets/post/base/class-post-base.php:481, inc/widgets/post/base/class-posts.php:160
+msgid "Typography"
+msgstr ""
+
+#: inc/widgets/basic/class-testimonial.php:101, inc/widgets/basic/class-testimonial.php:222
+msgid "Content"
+msgstr ""
+
+#: inc/widgets/basic/class-testimonial.php:104
+msgid "Me and my travel buddy decided to book a tour on boostify, and that is the best decision we’ve ever made. The tour itself is full  excitement activities, but the staff are also kind & helpful. I’d love  to recommend this agent for all travel lovers"
+msgstr ""
+
+#: inc/widgets/basic/class-testimonial.php:111, inc/widgets/basic/class-testimonial.php:173
+msgid "Name"
+msgstr ""
+
+#: inc/widgets/basic/class-testimonial.php:113
+msgid "Megan lynch"
+msgstr ""
+
+#: inc/widgets/basic/class-testimonial.php:114
+msgid "Enter Name"
+msgstr ""
+
+#: inc/widgets/basic/class-testimonial.php:165, inc/widgets/post/class-breadcrumb.php:114
+msgid "Style"
+msgstr ""
+
+#: inc/widgets/basic/class-testimonial.php:253, inc/widgets/post/class-post-slider.php:183, inc/widgets/post/class-post-slider.php:403
+msgid "Dots"
+msgstr ""
+
+#: inc/widgets/basic/class-testimonial.php:274, inc/widgets/post/class-post-slider.php:430
+msgid "Color Active"
+msgstr ""
+
+#: inc/widgets/basic/class-testimonial.php:308, inc/widgets/basic/class-testimonial.php:315, inc/widgets/post/base/class-post-base.php:527, inc/widgets/post/class-post-grid.php:138, inc/widgets/post/class-post-list.php:129, inc/widgets/post/class-post-slider.php:134
+msgid "Layout"
+msgstr ""
+
+#: inc/widgets/basic/class-testimonial.php:325
+msgid "Show Avatar"
+msgstr ""
+
+#: inc/widgets/basic/class-testimonial.php:327, inc/widgets/basic/class-testimonial.php:348, inc/widgets/basic/class-testimonial.php:360, inc/widgets/post/base/class-post-base.php:24, inc/widgets/post/base/class-post-base.php:53, inc/widgets/post/base/class-post-base.php:111, inc/widgets/post/base/class-posts.php:29, inc/widgets/post/class-post-slider.php:173, inc/widgets/post/class-post-slider.php:185
+msgid "Show"
+msgstr ""
+
+#: inc/widgets/basic/class-testimonial.php:328, inc/widgets/basic/class-testimonial.php:349, inc/widgets/basic/class-testimonial.php:361, inc/widgets/post/base/class-post-base.php:25, inc/widgets/post/base/class-post-base.php:54, inc/widgets/post/base/class-post-base.php:112, inc/widgets/post/base/class-posts.php:30, inc/widgets/post/class-post-slider.php:174, inc/widgets/post/class-post-slider.php:186
+msgid "Hide"
+msgstr ""
+
+#: inc/widgets/basic/class-testimonial.php:337
+msgid "Column"
+msgstr ""
+
+#: inc/widgets/basic/class-testimonial.php:346
+msgid "Show Arrow"
+msgstr ""
+
+#: inc/widgets/basic/class-testimonial.php:358
+msgid "Show Dots"
+msgstr ""
+
+#: inc/widgets/basic/skin/class-layout.php:16, inc/widgets/post/skin/class-layout.php:41
+msgid "Masonry"
 msgstr ""
 
 #: inc/widgets/class-widgets.php:81
@@ -259,14 +387,6 @@ msgstr ""
 
 #: inc/widgets/post/base/class-post-base.php:22
 msgid "Thumbnail"
-msgstr ""
-
-#: inc/widgets/post/base/class-post-base.php:24, inc/widgets/post/base/class-post-base.php:53, inc/widgets/post/base/class-post-base.php:111, inc/widgets/post/base/class-posts.php:29, inc/widgets/post/class-post-slider.php:173, inc/widgets/post/class-post-slider.php:185
-msgid "Show"
-msgstr ""
-
-#: inc/widgets/post/base/class-post-base.php:25, inc/widgets/post/base/class-post-base.php:54, inc/widgets/post/base/class-post-base.php:112, inc/widgets/post/base/class-posts.php:30, inc/widgets/post/class-post-slider.php:174, inc/widgets/post/class-post-slider.php:186
-msgid "Hide"
 msgstr ""
 
 #: inc/widgets/post/base/class-post-base.php:34
@@ -325,16 +445,8 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: inc/widgets/post/base/class-post-base.php:243, inc/widgets/post/base/class-post-base.php:297, inc/widgets/post/base/class-post-base.php:354, inc/widgets/post/base/class-post-base.php:481, inc/widgets/post/base/class-posts.php:160
-msgid "Typography"
-msgstr ""
-
 #: inc/widgets/post/base/class-post-base.php:392
 msgid "Read More Button"
-msgstr ""
-
-#: inc/widgets/post/base/class-post-base.php:527, inc/widgets/post/class-post-grid.php:145, inc/widgets/post/class-post-list.php:129, inc/widgets/post/class-post-slider.php:134
-msgid "Layout"
 msgstr ""
 
 #: inc/widgets/post/base/class-post-base.php:535, inc/widgets/post/class-post-slider.php:259
@@ -347,14 +459,6 @@ msgstr ""
 
 #: inc/widgets/post/base/class-post-base.php:620
 msgid "Box"
-msgstr ""
-
-#: inc/widgets/post/base/class-post-base.php:628, inc/widgets/post/base/class-posts.php:188
-msgid "Border Width"
-msgstr ""
-
-#: inc/widgets/post/base/class-post-base.php:693, inc/widgets/post/base/class-post-base.php:733
-msgid "Border Color"
 msgstr ""
 
 #: inc/widgets/post/base/class-posts.php:20, inc/widgets/post/base/class-posts.php:27, inc/widgets/post/base/class-posts.php:133
@@ -437,31 +541,31 @@ msgstr ""
 msgid "Custom Class"
 msgstr ""
 
-#: inc/widgets/post/class-breadcrumb.php:114
-msgid "Style"
+#: inc/widgets/post/class-breadcrumb.php:155
+msgid "Separator Space"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:155, inc/widgets/post/class-post-slider.php:144
+#: inc/widgets/post/class-post-grid.php:148, inc/widgets/post/class-post-slider.php:144
 msgid "Columns"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:158, inc/widgets/post/class-post-slider.php:147, inc/widgets/post/class-post-slider.php:222
+#: inc/widgets/post/class-post-grid.php:151, inc/widgets/post/class-post-slider.php:147, inc/widgets/post/class-post-slider.php:222
 msgid "1"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:159, inc/widgets/post/class-post-slider.php:148, inc/widgets/post/class-post-slider.php:223
+#: inc/widgets/post/class-post-grid.php:152, inc/widgets/post/class-post-slider.php:148, inc/widgets/post/class-post-slider.php:223
 msgid "2"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:160, inc/widgets/post/class-post-slider.php:149, inc/widgets/post/class-post-slider.php:224
+#: inc/widgets/post/class-post-grid.php:153, inc/widgets/post/class-post-slider.php:149, inc/widgets/post/class-post-slider.php:224
 msgid "3"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:161, inc/widgets/post/class-post-slider.php:150, inc/widgets/post/class-post-slider.php:225
+#: inc/widgets/post/class-post-grid.php:154, inc/widgets/post/class-post-slider.php:150, inc/widgets/post/class-post-slider.php:225
 msgid "4"
 msgstr ""
 
-#: inc/widgets/post/class-post-grid.php:162, inc/widgets/post/class-post-slider.php:151, inc/widgets/post/class-post-slider.php:226
+#: inc/widgets/post/class-post-grid.php:155, inc/widgets/post/class-post-slider.php:151, inc/widgets/post/class-post-slider.php:226
 msgid "5"
 msgstr ""
 
@@ -471,10 +575,6 @@ msgstr ""
 
 #: inc/widgets/post/class-post-slider.php:171, inc/widgets/post/class-post-slider.php:336
 msgid "Arrow"
-msgstr ""
-
-#: inc/widgets/post/class-post-slider.php:183, inc/widgets/post/class-post-slider.php:403
-msgid "Dots"
 msgstr ""
 
 #: inc/widgets/post/class-post-slider.php:195
@@ -511,14 +611,6 @@ msgstr ""
 
 #: inc/widgets/post/class-post-slider.php:364
 msgid "Backgroud Color"
-msgstr ""
-
-#: inc/widgets/post/class-post-slider.php:430
-msgid "Color Active"
-msgstr ""
-
-#: inc/widgets/post/skin/class-layout.php:41
-msgid "Masonry"
 msgstr ""
 
 #: inc/widgets/post/skin/class-layout.php:50

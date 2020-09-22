@@ -177,6 +177,7 @@ class Breadcrumb extends Base_Widget {
 	 * @access protected
 	 */
 	protected function render() {
+
 		$settings        = $this->get_settings_for_display();
 		$class_custom    = ( ! empty( $settings['custom_class'] ) ? $settings['custom_class'] : '' );
 		$crumb           = new BoostifyBreadcrumb();

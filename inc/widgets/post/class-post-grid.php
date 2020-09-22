@@ -125,13 +125,6 @@ class Post_Grid extends Post_Base {
 	}
 
 	public function layouts() {
-		// $layout = new Layout();
-		// $args   = array(
-		// 	'default' => 'Default',
-		// 	'masonry' => 'Masonry',
-		// );
-		// $layout->add_layout_grid( $args );
-		// $layouts = Layout::$grid_layouts;
 
 		$layouts = Layout::post_grid();
 

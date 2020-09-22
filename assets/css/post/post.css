@@ -185,11 +185,15 @@
   font-weight: 900;
   background-color: #fff;
   border: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.boostify-post-slider-widget .swiper-button-next:after,
-.boostify-post-slider-widget .swiper-button-prev:after {
-  font-size: 18px;
+.boostify-post-slider-widget .swiper-button-next:before,
+.boostify-post-slider-widget .swiper-button-prev:before {
+  font-size: 24px;
+  font-family: "Ionicons";
 }
 
 .boostify-post-slider-widget .swiper-button-next.swiper-button-disabled,
@@ -202,8 +206,16 @@
   left: 0;
 }
 
+.boostify-post-slider-widget .swiper-button-prev:before {
+  content: '\f3cf';
+}
+
 .boostify-post-slider-widget .swiper-button-next {
   right: 0;
+}
+
+.boostify-post-slider-widget .swiper-button-next:before {
+  content: '\f3d1';
 }
 
 .boostify-post-slider-widget .boostify-grid {

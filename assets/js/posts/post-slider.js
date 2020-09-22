@@ -7,8 +7,8 @@
 	 */
 	var WidgetPostSlider = function ($scope, $) {
 
-		var slider         = $scope.find( '.boostify-post-slider-widget' );
-		var slide          = slider.find( '.boostify-widget-post-slider-wrapper' );
+		var slider         = $scope.find( '.swiper-container' );
+		var slide          = slider.find( '.swiper-wrapper' );
 		var column         = slider.attr( 'columns' );
 		column             = parseInt( column );
 		var columnsTablet  = slider.attr( 'columns-tablet' );
@@ -24,6 +24,11 @@
 		speed              = parseInt( speed );
 		var loop           = slide.attr( 'slider-loop' );
 		var space          = slide.attr( 'column-space' );
+		var btnNext = $scope.find( '.swiper-button-next' );
+		var btnPrev = $scope.find( '.swiper-button-prev' );
+		if ( space == 'undefined' || space == '' ) {
+			space = 0;
+		}
 		space              = parseInt( space );
 		var arrows         = false;
 		var dots           = false;
@@ -44,15 +49,15 @@
 					slidesPerView: column,
 				},
 			}
-		}
+		};
 		if ( loop == 'yes' ) {
 			data.loop                   = true;
 			data.loopFillGroupWithBlank = true;
 		}
 		if ( arrow == 'yes' ) {
 			data.navigation = {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
+				nextEl: btnNext,
+				prevEl: btnPrev,
 			}
 		}
 
@@ -65,13 +70,14 @@
 
 		if ( autoplay == 'yes' ) {
 			data.autoplay = {
-				delay: 100
+				delay: 3000
 			}
 			data.speed    = speed;
 		}
+		console.log( data );
 
 		var swiper = new Swiper(
-			'.swiper-container',
+			slider,
 			data
 		);
 	};

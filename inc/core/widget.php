@@ -11,6 +11,16 @@ function boostify_list_widget() {
 					'name'  => 'button',
 					'label' => __( 'Button', 'boostify' ),
 				),
+				array(
+					'key'   => 'Faqs',
+					'name'  => 'faqs',
+					'label' => __( 'FAQs', 'boostify' ),
+				),
+				array(
+					'key'   => 'Testimonial',
+					'name'  => 'testimonial',
+					'label' => __( 'Testimonial', 'boostify' ),
+				),
 			)
 		),
 		'post' => array(
@@ -42,4 +52,19 @@ function boostify_list_widget() {
 	);
 
 	return $list_widget;
+}
+
+function boostify_get_widget() {
+	$list_widget = boostify_list_widget();
+	$widgets = array();
+	if ( ! empty( $list_widget ) ) {
+		foreach ( $list_widget as $folder => $wids ) {
+			foreach ( $wids['widget'] as $widget ) {
+				$widgets[ $folder ][] = $widget['key'];
+			}
+		}
+	}
+
+
+	return $widgets;
 }

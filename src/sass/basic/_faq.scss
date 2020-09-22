@@ -1,0 +1,38 @@
+.boostify-faq{
+	border-bottom: 2px solid;
+}
+
+.boostify-question{
+
+	cursor: pointer;
+	width: 100%;
+	&:after{
+		content: '\f123';
+		margin-left: 7px;
+		font-size: 16px;
+		font-family: "Ionicons";
+		font-weight: 900;
+	}
+}
+
+.boostify-answer{
+
+	overflow: hidden;
+	display: none;
+
+	.answer-content{
+		display: block;
+	}
+}
+
+
+.boostify-faq.active{
+	.boostify-question{
+
+	&:after{
+		content: '\f0aa';
+
+	}
+}
+}
+
