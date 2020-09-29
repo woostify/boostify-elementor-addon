@@ -62,8 +62,9 @@ class Count_Down extends Base_Widget {
 		$this->add_control(
 			'due_date',
 			array(
-				'label' => __( 'Due Date', 'boostify' ),
-				'type'  => Controls_Manager::DATE_TIME,
+				'label'   => __( 'Due Date', 'boostify' ),
+				'type'    => Controls_Manager::DATE_TIME,
+				'default' => '2025-12-12 00:00',
 			),
 		);
 		$this->add_control(

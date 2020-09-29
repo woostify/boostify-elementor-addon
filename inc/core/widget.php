@@ -21,6 +21,11 @@ function boostify_list_widget() {
 					'name'  => 'count_down',
 					'label' => __( 'Count Down', 'boostify' ),
 				),
+				array(
+					'key'   => 'Time_Line',
+					'name'  => 'time_line',
+					'label' => __( 'Time Line', 'boostify' ),
+				),
 			),
 		),
 		'post'  => array(

@@ -113,7 +113,7 @@ class Video_Popup extends Base_Widget {
 			array(
 				'label'   => __( 'Icon', 'boostify' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'default',
+				'default' => 'common',
 				'options' => array(
 					'common' => __( 'Icon', 'boostify' ),
 					'custom' => __( 'Image', 'boostify' ),
@@ -125,7 +125,10 @@ class Video_Popup extends Base_Widget {
 			array(
 				'label'     => __( 'Choose from library', 'boostify' ),
 				'type'      => Controls_Manager::ICONS,
-				'default'   => 'fas fa-play-circle',
+				'default'   => array(
+					'value'   => 'fas fa-play',
+					'library' => 'fa-solid',
+				),
 				'condition' => array(
 					'icon_play' => 'common',
 				),
