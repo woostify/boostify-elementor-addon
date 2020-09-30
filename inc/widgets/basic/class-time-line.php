@@ -59,18 +59,6 @@ class Time_Line extends Base_Widget {
 			)
 		);
 		$this->add_control(
-			'tl_direct',
-			array(
-				'label'   => esc_html__( 'Direction', 'boostify' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'vertical',
-				'options' => array(
-					'vertical'   => esc_html__( 'Vertical', 'boostify' ),
-					'horizontal' => esc_html__( 'Horizontal', 'boostify' ),
-				),
-			),
-		);
-		$this->add_control(
 			'tl_type',
 			array(
 				'label'   => esc_html__( 'Timeline Type', 'boostify' ),
@@ -83,7 +71,40 @@ class Time_Line extends Base_Widget {
 				),
 			),
 		);
+		$this->add_control(
+			'enable_image',
+			array(
+				'label'        => esc_html__( 'Show Image', 'boostify' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
+				'label_on'     => esc_html__( 'Yes', 'boostify' ),
+				'label_off'    => esc_html__( 'No', 'boostify' ),
+				'return_value' => 'yes',
+			)
+		);
+		$this->add_control(
+			'enable_date',
+			array(
+				'label'        => esc_html__( 'Show Date', 'boostify' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
+				'label_on'     => esc_html__( 'Yes', 'boostify' ),
+				'label_off'    => esc_html__( 'No', 'boostify' ),
+				'return_value' => 'yes',
+			)
+		);
 		$repeater = new \Elementor\Repeater();
+		$repeater->add_control(
+			'tl_icon',
+			array(
+				'label'   => __( 'Choose Icon', 'boostify' ),
+				'type'    => Controls_Manager::ICONS,
+				'default' => array(
+					'value'   => 'fas fa-plus',
+					'library' => 'fa-solid',
+				),
+			),
+		);
 		$repeater->add_control(
 			'tl_image',
 			array(
@@ -135,10 +156,71 @@ class Time_Line extends Base_Widget {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'time_line_style',
+			'tl_gen_style',
 			array(
-				'label' => __( 'Item', 'boostify' ),
+				'label' => __( 'General', 'boostify' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
+			)
+		);
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'     => 'tl_gen_border',
+				'label'    => __( 'Border', 'boostify' ),
+				'selector' => '{{WRAPPER}} .btf-time-line__item',
+			)
+		);
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'     => 'tl_gen_boxshadow',
+				'label'    => __( 'Box Shadow', 'boostify' ),
+				'selector' => '{{WRAPPER}} .btf-time-line__item',
+			)
+		);
+		$this->add_responsive_control(
+			'tl_gen_padding',
+			array(
+				'label'      => __( 'Padding', 'boostify' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .btf-time-line__item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+		$this->add_responsive_control(
+			'tl_gen_margin',
+			array(
+				'label'      => __( 'Magin', 'boostify' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .btf-time-line-wrap' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+		$this->add_control(
+			'tl_line_color',
+			array(
+				'label'     => __( 'Time Line Color', 'boostify' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#999999',
+				'selectors' => array(
+					'{{WRAPPER}} .btf-time-line::before' => 'background-color: {{VALUE}};',
+				),
+			)
+		);
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'tl_image_style',
+			array(
+				'label'     => __( 'Image', 'boostify' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => array(
+					'enable_image' => 'yes',
+				),
 			)
 		);
 		$this->add_group_control(
@@ -148,6 +230,149 @@ class Time_Line extends Base_Widget {
 				'default'     => 'medium_large',
 				'label'       => esc_html__( 'Image Size', 'boostify' ),
 				'description' => esc_html__( 'Custom thumbnail size.', 'boostify' ),
+			)
+		);
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'tl_date_style',
+			array(
+				'label'     => __( 'Date', 'boostify' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => array(
+					'enable_date' => 'yes',
+				),
+			)
+		);
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'tl_date_typography',
+				'selector' => '{{WRAPPER}} .btf-time-line__item__date',
+			)
+		);
+		$this->add_control(
+			'tl_date_color',
+			array(
+				'label'     => __( 'Color', 'boostify' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .btf-time-line__item__date' => 'color: {{VALUE}};',
+				),
+			)
+		);
+		$this->add_control(
+			'tl_date_brg_color',
+			array(
+				'label'     => esc_html__( 'Background color', 'boostify' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .btf-time-line__item__date' => 'background-color: {{VALUE}}',
+				),
+			)
+		);
+		$this->add_responsive_control(
+			'tl_date_padding',
+			array(
+				'label'      => __( 'Padding', 'boostify' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .btf-time-line__item__date' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+		$this->add_responsive_control(
+			'tl_date_margin',
+			array(
+				'label'      => __( 'Margin', 'boostify' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .btf-time-line__item__date' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'     => 'tl_date_border',
+				'label'    => __( 'Border', 'boostify' ),
+				'selector' => '{{WRAPPER}} .btf-time-line__item__date',
+			)
+		);
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'tl_title_style',
+			array(
+				'label' => __( 'Title', 'boostify' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			)
+		);
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'tl_title_typography',
+				'selector' => '{{WRAPPER}} .btf-time-line__item__title',
+			)
+		);
+		$this->add_control(
+			'tl_title_color',
+			array(
+				'label'     => __( 'Color', 'boostify' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .btf-time-line__item__title' => 'color: {{VALUE}};',
+				),
+			)
+		);
+		$this->add_responsive_control(
+			'tl_title_margin',
+			array(
+				'label'      => __( 'Margin', 'boostify' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .btf-time-line__item__title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'tl_content_style',
+			array(
+				'label' => __( 'Content', 'boostify' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			)
+		);
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'tl_content_typography',
+				'selector' => '{{WRAPPER}} .btf-time-line__item__content',
+			)
+		);
+		$this->add_control(
+			'tl_content_color',
+			array(
+				'label'     => __( 'Color', 'boostify' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .btf-time-line__item__content' => 'color: {{VALUE}};',
+				),
+			)
+		);
+		$this->add_responsive_control(
+			'tl_content_margin',
+			array(
+				'label'      => __( 'Margin', 'boostify' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .btf-time-line__item__content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
 			)
 		);
 		$this->end_controls_section();
@@ -161,22 +386,32 @@ class Time_Line extends Base_Widget {
 	 * @access protected
 	 */
 	protected function render() {
-		$settings  = $this->get_settings_for_display();
-		$direction = $settings['tl_direct'];
-		$tl_type   = $settings['tl_type'];
-		$items     = $settings['tl_items'];
+		$settings = $this->get_settings_for_display();
+		$tl_type  = $settings['tl_type'];
+		$items    = $settings['tl_items'];
+		$en_image = ( 'yes' === $settings['enable_image'] ) ? true : false;
+		$en_date  = ( 'yes' === $settings['enable_date'] ) ? true : false;
 		?>
-			<div class="btf-time-line">
+			<div class="btf-time-line tl-<?php echo esc_attr( $tl_type ); ?>">
 				<?php
 				foreach ( $items as $item ) {
 					$item_img_url = Group_Control_Image_Size::get_attachment_image_src( $item['tl_image']['id'], 'item_thumb_size', $settings );
-					$item_date    = date_i18n( apply_filters( 'wpb_ea_timeline_date_format', get_option( 'date_format' ) ) , strtotime( $item['tl_due_date'] ) );
+					$item_date    = date_i18n( apply_filters( 'wpb_ea_timeline_date_format', get_option( 'date_format' ) ), strtotime( $item['tl_due_date'] ) );
 					?>
-					<div class="btf-time-line__item">
-						<div class="btf-time-line__item__image"><img src="<?php echo esc_url( $item_img_url ); ?>" alt="item-img"></div>
-						<div class="btf-time-line__item__date"><?php echo esc_html( $item_date ); ?></div>
-						<div class="btf-time-line__item__title"><?php echo esc_html( $item['tl_title'] ); ?></div>
-						<div class="btf-time-line__item__content"><?php echo esc_html( $item['tl_content'] ); ?></div>
+					<div class="btf-time-line-wrap">
+						<div class="btf-time-line__item">
+							<div class="btf-time-line__item__icon">
+								<?php $this->icon_play( $item['tl_icon'] ); ?>
+							</div>
+							<?php if ( $en_image ) : ?>
+							<div class="btf-time-line__item__image"><img src="<?php echo esc_url( $item_img_url ); ?>" alt="item-img"></div>
+							<?php endif; ?>
+							<?php if ( $en_date ) : ?>
+							<div class="btf-time-line__item__date"><?php echo esc_html( $item_date ); ?></div>
+							<?php endif; ?>
+							<div class="btf-time-line__item__title"><?php echo esc_html( $item['tl_title'] ); ?></div>
+							<div class="btf-time-line__item__content"><?php echo esc_html( $item['tl_content'] ); ?></div>
+						</div>
 					</div>
 					<?php
 				}
@@ -188,19 +423,19 @@ class Time_Line extends Base_Widget {
 	/**
 	 * Get btn icon.
 	 *
-	 * @param string $icon_common settting of icon default.
+	 * @param string $icon settting of icon default.
 	 */
-	public function icon_play( $icon_common ) {
-		if ( empty( $icon_common['library'] ) ) {
+	public function icon_play( $icon ) {
+		if ( empty( $icon['library'] ) ) {
 			return;
 		}
 		if ( 'svg' === $icon_common['library'] ) {
 			?>
-			<img src="<?php echo esc_url( $icon_common['value']['url'] ); ?>" alt="play-icon">
+			<img src="<?php echo esc_url( $icon['value']['url'] ); ?>" alt="play-icon">
 			<?php
 		} else {
 			?>
-			<i class="<?php echo esc_attr( $icon_common['value'] ); ?>"></i>
+			<i class="<?php echo esc_attr( $icon['value'] ); ?>"></i>
 			<?php
 		}
 	}

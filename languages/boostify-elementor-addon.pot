@@ -261,7 +261,7 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: inc/widgets/basic/class-count-down.php:65
+#: inc/widgets/basic/class-count-down.php:65, inc/widgets/basic/class-time-line.php:100
 msgid "Due Date"
 msgstr ""
 
@@ -277,7 +277,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: inc/widgets/basic/class-count-down.php:84, inc/widgets/basic/class-count-down.php:294
+#: inc/widgets/basic/class-count-down.php:84, inc/widgets/basic/class-count-down.php:294, inc/widgets/basic/class-time-line.php:64
 msgid "Direction"
 msgstr ""
 
@@ -361,12 +361,76 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
-#: inc/widgets/basic/class-video-popup.php:64
-msgid "Play Button"
+#: inc/widgets/basic/class-time-line.php:68
+msgid "Vertical"
 msgstr ""
 
-#: inc/widgets/basic/class-video-popup.php:119, inc/widgets/post/base/class-post-base.php:137
+#: inc/widgets/basic/class-time-line.php:69
+msgid "Horizontal"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:76
+msgid "Timeline Type"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:80
+msgid "Left and Right"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:81
+msgid "Left Side Only"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:82
+msgid "Right Side Only"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:90, inc/widgets/basic/class-video-popup.php:119, inc/widgets/post/base/class-post-base.php:137
 msgid "Image"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:108, inc/widgets/post/base/class-post-base.php:222, inc/widgets/post/base/class-posts.php:89
+msgid "Title"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:110
+msgid "Enter Title"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:111
+msgid "Elit eros tincidunt sem"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:117
+msgid "Content"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:119
+msgid "Enter Content"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:120
+msgid "Fusce cursus, elit quis imperdiet ullamcorper, elit eros tincidunt sem, non rhoncus massa elit eget. Nam interdum sed quam amet accumsan. Donec non molestie nisi, id sollicitudin dui. Fusce tempus sapien. Praesent quis pellentesque metus dunt."
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:126
+msgid "Items"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:140
+msgid "Item"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:149
+msgid "Image Size"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:150, inc/widgets/basic/class-video-popup.php:198, inc/widgets/basic/class-video-popup.php:547
+msgid "Custom thumbnail size."
+msgstr ""
+
+#: inc/widgets/basic/class-video-popup.php:64
+msgid "Play Button"
 msgstr ""
 
 #: inc/widgets/basic/class-video-popup.php:126
@@ -399,10 +463,6 @@ msgstr ""
 
 #: inc/widgets/basic/class-video-popup.php:197, inc/widgets/basic/class-video-popup.php:546, inc/widgets/post/base/class-post-base.php:22
 msgid "Thumbnail"
-msgstr ""
-
-#: inc/widgets/basic/class-video-popup.php:198, inc/widgets/basic/class-video-popup.php:547
-msgid "Custom thumbnail size."
 msgstr ""
 
 #: inc/widgets/basic/class-video-popup.php:207
@@ -515,10 +575,6 @@ msgstr ""
 
 #: inc/widgets/post/base/class-post-base.php:125
 msgid "Enter Read More Text"
-msgstr ""
-
-#: inc/widgets/post/base/class-post-base.php:222, inc/widgets/post/base/class-posts.php:89
-msgid "Title"
 msgstr ""
 
 #: inc/widgets/post/base/class-post-base.php:243, inc/widgets/post/base/class-post-base.php:297, inc/widgets/post/base/class-post-base.php:354, inc/widgets/post/base/class-post-base.php:481, inc/widgets/post/base/class-posts.php:160
