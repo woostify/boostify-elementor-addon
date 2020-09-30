@@ -16,18 +16,9 @@
 
 .btf-time-line .btf-time-line-wrap .btf-time-line__item__icon {
   position: absolute;
-  padding: 1em;
-  border-radius: 50%;
-  background-color: lightgreen;
-  width: 46px;
-  height: 46px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.btf-time-line .btf-time-line-wrap .btf-time-line__item__icon i {
-  font-size: 22px;
 }
 
 .btf-time-line.tl-left-right .btf-time-line__item {

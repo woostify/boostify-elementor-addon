@@ -89,7 +89,7 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: inc/core/widget.php:6
+#: inc/core/widget.php:6, inc/widgets/basic/class-time-line.php:161
 msgid "General"
 msgstr ""
 
@@ -229,15 +229,15 @@ msgstr ""
 msgid "Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows A-z 0-9 & underscore chars without spaces."
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:255, inc/widgets/basic/class-count-down.php:220, inc/widgets/basic/class-video-popup.php:303, inc/widgets/post/base/class-post-base.php:493, inc/widgets/post/base/class-post-base.php:578, inc/widgets/post/base/class-post-base.php:652, inc/widgets/post/class-post-slider.php:298
+#: inc/widgets/basic/class-button.php:255, inc/widgets/basic/class-count-down.php:220, inc/widgets/basic/class-time-line.php:184, inc/widgets/basic/class-time-line.php:277, inc/widgets/basic/class-video-popup.php:303, inc/widgets/post/base/class-post-base.php:493, inc/widgets/post/base/class-post-base.php:578, inc/widgets/post/base/class-post-base.php:652, inc/widgets/post/class-post-slider.php:298
 msgid "Padding"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:268, inc/widgets/basic/class-count-down.php:243, inc/widgets/basic/class-video-popup.php:352, inc/widgets/basic/class-video-popup.php:408
+#: inc/widgets/basic/class-button.php:268, inc/widgets/basic/class-count-down.php:243, inc/widgets/basic/class-time-line.php:169, inc/widgets/basic/class-time-line.php:300, inc/widgets/basic/class-video-popup.php:352, inc/widgets/basic/class-video-popup.php:408
 msgid "Border"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:277, inc/widgets/basic/class-count-down.php:262, inc/widgets/basic/class-video-popup.php:371, inc/widgets/basic/class-video-popup.php:427, inc/widgets/basic/class-video-popup.php:594, inc/widgets/basic/class-video-popup.php:628, inc/widgets/post/base/class-post-base.php:685, inc/widgets/post/base/class-post-base.php:725
+#: inc/widgets/basic/class-button.php:277, inc/widgets/basic/class-count-down.php:262, inc/widgets/basic/class-time-line.php:177, inc/widgets/basic/class-video-popup.php:371, inc/widgets/basic/class-video-popup.php:427, inc/widgets/basic/class-video-popup.php:594, inc/widgets/basic/class-video-popup.php:628, inc/widgets/post/base/class-post-base.php:685, inc/widgets/post/base/class-post-base.php:725
 msgid "Box Shadow"
 msgstr ""
 
@@ -257,11 +257,11 @@ msgstr ""
 msgid "Hover"
 msgstr ""
 
-#: inc/widgets/basic/class-button.php:370, inc/widgets/basic/class-button.php:392, inc/widgets/basic/class-count-down.php:200, inc/widgets/basic/class-count-down.php:284, inc/widgets/basic/class-video-popup.php:330, inc/widgets/basic/class-video-popup.php:387, inc/widgets/post/base/class-post-base.php:230, inc/widgets/post/base/class-post-base.php:283, inc/widgets/post/base/class-post-base.php:338, inc/widgets/post/base/class-post-base.php:409, inc/widgets/post/base/class-post-base.php:447, inc/widgets/post/base/class-posts.php:221, inc/widgets/post/base/class-posts.php:266, inc/widgets/post/base/class-posts.php:309, inc/widgets/post/class-breadcrumb.php:122, inc/widgets/post/class-breadcrumb.php:139, inc/widgets/post/class-post-slider.php:348, inc/widgets/post/class-post-slider.php:415
+#: inc/widgets/basic/class-button.php:370, inc/widgets/basic/class-button.php:392, inc/widgets/basic/class-count-down.php:200, inc/widgets/basic/class-count-down.php:284, inc/widgets/basic/class-time-line.php:257, inc/widgets/basic/class-time-line.php:323, inc/widgets/basic/class-time-line.php:360, inc/widgets/basic/class-video-popup.php:330, inc/widgets/basic/class-video-popup.php:387, inc/widgets/post/base/class-post-base.php:230, inc/widgets/post/base/class-post-base.php:283, inc/widgets/post/base/class-post-base.php:338, inc/widgets/post/base/class-post-base.php:409, inc/widgets/post/base/class-post-base.php:447, inc/widgets/post/base/class-posts.php:221, inc/widgets/post/base/class-posts.php:266, inc/widgets/post/base/class-posts.php:309, inc/widgets/post/class-breadcrumb.php:122, inc/widgets/post/class-breadcrumb.php:139, inc/widgets/post/class-post-slider.php:348, inc/widgets/post/class-post-slider.php:415
 msgid "Color"
 msgstr ""
 
-#: inc/widgets/basic/class-count-down.php:65, inc/widgets/basic/class-time-line.php:100
+#: inc/widgets/basic/class-count-down.php:65, inc/widgets/basic/class-time-line.php:121
 msgid "Due Date"
 msgstr ""
 
@@ -269,15 +269,15 @@ msgstr ""
 msgid "Zero Digit"
 msgstr ""
 
-#: inc/widgets/basic/class-count-down.php:76, inc/widgets/basic/class-video-popup.php:174, inc/widgets/basic/class-video-popup.php:231, inc/widgets/post/class-breadcrumb.php:55, inc/widgets/post/class-breadcrumb.php:92
+#: inc/widgets/basic/class-count-down.php:76, inc/widgets/basic/class-time-line.php:80, inc/widgets/basic/class-time-line.php:91, inc/widgets/basic/class-video-popup.php:174, inc/widgets/basic/class-video-popup.php:231, inc/widgets/post/class-breadcrumb.php:55, inc/widgets/post/class-breadcrumb.php:92
 msgid "Yes"
 msgstr ""
 
-#: inc/widgets/basic/class-count-down.php:77, inc/widgets/basic/class-video-popup.php:175, inc/widgets/basic/class-video-popup.php:232, inc/widgets/post/class-breadcrumb.php:56, inc/widgets/post/class-breadcrumb.php:93
+#: inc/widgets/basic/class-count-down.php:77, inc/widgets/basic/class-time-line.php:81, inc/widgets/basic/class-time-line.php:92, inc/widgets/basic/class-video-popup.php:175, inc/widgets/basic/class-video-popup.php:232, inc/widgets/post/class-breadcrumb.php:56, inc/widgets/post/class-breadcrumb.php:93
 msgid "No"
 msgstr ""
 
-#: inc/widgets/basic/class-count-down.php:84, inc/widgets/basic/class-count-down.php:294, inc/widgets/basic/class-time-line.php:64
+#: inc/widgets/basic/class-count-down.php:84, inc/widgets/basic/class-count-down.php:294
 msgid "Direction"
 msgstr ""
 
@@ -353,7 +353,7 @@ msgstr ""
 msgid "Background Color"
 msgstr ""
 
-#: inc/widgets/basic/class-count-down.php:231, inc/widgets/basic/class-count-down.php:348, inc/widgets/basic/class-video-popup.php:557
+#: inc/widgets/basic/class-count-down.php:231, inc/widgets/basic/class-count-down.php:348, inc/widgets/basic/class-time-line.php:288, inc/widgets/basic/class-time-line.php:333, inc/widgets/basic/class-time-line.php:370, inc/widgets/basic/class-video-popup.php:557
 msgid "Margin"
 msgstr ""
 
@@ -361,72 +361,88 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
-#: inc/widgets/basic/class-time-line.php:68
-msgid "Vertical"
-msgstr ""
-
-#: inc/widgets/basic/class-time-line.php:69
-msgid "Horizontal"
-msgstr ""
-
-#: inc/widgets/basic/class-time-line.php:76
+#: inc/widgets/basic/class-time-line.php:64
 msgid "Timeline Type"
 msgstr ""
 
-#: inc/widgets/basic/class-time-line.php:80
+#: inc/widgets/basic/class-time-line.php:68
 msgid "Left and Right"
 msgstr ""
 
-#: inc/widgets/basic/class-time-line.php:81
+#: inc/widgets/basic/class-time-line.php:69
 msgid "Left Side Only"
 msgstr ""
 
-#: inc/widgets/basic/class-time-line.php:82
+#: inc/widgets/basic/class-time-line.php:70
 msgid "Right Side Only"
 msgstr ""
 
-#: inc/widgets/basic/class-time-line.php:90, inc/widgets/basic/class-video-popup.php:119, inc/widgets/post/base/class-post-base.php:137
+#: inc/widgets/basic/class-time-line.php:77
+msgid "Show Image"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:88
+msgid "Show Date"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:100
+msgid "Choose Icon"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:111, inc/widgets/basic/class-time-line.php:219, inc/widgets/basic/class-video-popup.php:119, inc/widgets/post/base/class-post-base.php:137
 msgid "Image"
 msgstr ""
 
-#: inc/widgets/basic/class-time-line.php:108, inc/widgets/post/base/class-post-base.php:222, inc/widgets/post/base/class-posts.php:89
+#: inc/widgets/basic/class-time-line.php:129, inc/widgets/basic/class-time-line.php:309, inc/widgets/post/base/class-post-base.php:222, inc/widgets/post/base/class-posts.php:89
 msgid "Title"
 msgstr ""
 
-#: inc/widgets/basic/class-time-line.php:110
+#: inc/widgets/basic/class-time-line.php:131
 msgid "Enter Title"
 msgstr ""
 
-#: inc/widgets/basic/class-time-line.php:111
+#: inc/widgets/basic/class-time-line.php:132
 msgid "Elit eros tincidunt sem"
 msgstr ""
 
-#: inc/widgets/basic/class-time-line.php:117
+#: inc/widgets/basic/class-time-line.php:138, inc/widgets/basic/class-time-line.php:346
 msgid "Content"
 msgstr ""
 
-#: inc/widgets/basic/class-time-line.php:119
+#: inc/widgets/basic/class-time-line.php:140
 msgid "Enter Content"
 msgstr ""
 
-#: inc/widgets/basic/class-time-line.php:120
+#: inc/widgets/basic/class-time-line.php:141
 msgid "Fusce cursus, elit quis imperdiet ullamcorper, elit eros tincidunt sem, non rhoncus massa elit eget. Nam interdum sed quam amet accumsan. Donec non molestie nisi, id sollicitudin dui. Fusce tempus sapien. Praesent quis pellentesque metus dunt."
 msgstr ""
 
-#: inc/widgets/basic/class-time-line.php:126
+#: inc/widgets/basic/class-time-line.php:147
 msgid "Items"
 msgstr ""
 
-#: inc/widgets/basic/class-time-line.php:140
-msgid "Item"
+#: inc/widgets/basic/class-time-line.php:195
+msgid "Magin"
 msgstr ""
 
-#: inc/widgets/basic/class-time-line.php:149
+#: inc/widgets/basic/class-time-line.php:206
+msgid "Time Line Color"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:231
 msgid "Image Size"
 msgstr ""
 
-#: inc/widgets/basic/class-time-line.php:150, inc/widgets/basic/class-video-popup.php:198, inc/widgets/basic/class-video-popup.php:547
+#: inc/widgets/basic/class-time-line.php:232, inc/widgets/basic/class-video-popup.php:198, inc/widgets/basic/class-video-popup.php:547
 msgid "Custom thumbnail size."
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:240, inc/widgets/post/base/class-post-base.php:83, inc/widgets/post/base/class-posts.php:88
+msgid "Date"
+msgstr ""
+
+#: inc/widgets/basic/class-time-line.php:267, inc/widgets/basic/class-video-popup.php:340, inc/widgets/basic/class-video-popup.php:397
+msgid "Background color"
 msgstr ""
 
 #: inc/widgets/basic/class-video-popup.php:64
@@ -493,10 +509,6 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
-#: inc/widgets/basic/class-video-popup.php:340, inc/widgets/basic/class-video-popup.php:397
-msgid "Background color"
-msgstr ""
-
 #: inc/widgets/basic/class-video-popup.php:439
 msgid "Icon Play"
 msgstr ""
@@ -543,10 +555,6 @@ msgstr ""
 
 #: inc/widgets/post/base/class-post-base.php:76, inc/widgets/post/base/class-post-base.php:275
 msgid "Meta Data"
-msgstr ""
-
-#: inc/widgets/post/base/class-post-base.php:83, inc/widgets/post/base/class-posts.php:88
-msgid "Date"
 msgstr ""
 
 #: inc/widgets/post/base/class-post-base.php:84

@@ -214,6 +214,112 @@ class Time_Line extends Base_Widget {
 		$this->end_controls_section();
 
 		$this->start_controls_section(
+			'tl_icon_style',
+			array(
+				'label' => __( 'Icon', 'boostify' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			)
+		);
+		$this->add_control(
+			'tl_icon_color',
+			array(
+				'label'     => __( 'Color', 'boostify' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .btf-time-line__item__icon i' => 'color: {{VALUE}};',
+				),
+			)
+		);
+		$this->add_control(
+			'tl_icon_brg_color',
+			array(
+				'label'     => esc_html__( 'Background color', 'boostify' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .btf-time-line__item__icon' => 'background-color: {{VALUE}}',
+				),
+			)
+		);
+		$this->add_responsive_control(
+			'tl_icon_width',
+			array(
+				'label'      => __( 'Width ', 'boostify' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => 46,
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .btf-time-line__item__icon' => 'width: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+		$this->add_responsive_control(
+			'tl_icon_height',
+			array(
+				'label'      => __( 'Height ', 'boostify' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => 46,
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .btf-time-line__item__icon' => 'height: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+		$this->add_responsive_control(
+			'tl_icon_border_radius',
+			array(
+				'label'      => __( 'Border Radius', 'boostify' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', '%' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .btf-time-line__item__icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+		$this->add_responsive_control(
+			'tl_icon_size',
+			array(
+				'label'      => __( 'Size ', 'boostify' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 50,
+						'step' => 1,
+					),
+				),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => 22,
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .btf-time-line__item__icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+		$this->end_controls_section();
+
+		$this->start_controls_section(
 			'tl_image_style',
 			array(
 				'label'     => __( 'Image', 'boostify' ),
