@@ -51,7 +51,7 @@ function boostify_list_widget() {
 		),
 	);
 
-	return $list_widget;
+	return apply_filters( 'boostify_addon_widgets', $list_widget );
 }
 
 function boostify_get_widget() {
@@ -64,7 +64,5 @@ function boostify_get_widget() {
 			}
 		}
 	}
-
-
 	return $widgets;
 }

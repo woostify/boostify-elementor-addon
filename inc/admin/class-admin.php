@@ -149,9 +149,11 @@ class Admin {
 														</label>
 													</div>
 												<?php endforeach ?>
+
 											</div>
 										</div>
 									<?php endforeach ?>
+									<?php do_action('boostify_addons_toggle'); ?>
 								</div>
 							</div>
 						</div>
