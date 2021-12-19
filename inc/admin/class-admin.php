@@ -1,21 +1,35 @@
 <?php
+/**
+ * Admin Space.
+ *
+ * @since 1.0.0
+ * @package Boostify Addon
+ */
 
 namespace Boostify_Elementor;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Main Boostify Elementor Admin Class.
+ * Main Admin Boostify Elementor Admin Class.
  *
  * @class Admin
  */
-
 class Admin {
 
-
+	/**
+	 * Instance Class
+	 *
+	 * @var instance
+	 */
 	private static $instance;
 
-
+	/**
+	 * Class Boostify Elementor Addon Instance
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
 	public static function instance() {
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new self();
@@ -24,12 +38,21 @@ class Admin {
 	}
 
 	/**
-	 * Wanderlust Constructor.
+	 * Admin Constructor.
+	 *
+	 * @since 1.0.0
+	 * @access public
 	 */
 	public function __construct() {
 		$this->hooks();
 	}
 
+	/**
+	 * Register plugin action hooks and filters
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
 	public function hooks() {
 		add_action( 'admin_menu', array( $this, 'admin_register_menu' ), 62 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_style' ) );
@@ -37,7 +60,12 @@ class Admin {
 		add_action( 'rest_api_init', array( $this, 'register_settings' ) );
 	}
 
-	// Register Page Setting
+	/**
+	 * Register admin menu
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
 	public function admin_register_menu() {
 		// Filter to remove Admin menu.
 		add_menu_page(
@@ -51,7 +79,12 @@ class Admin {
 		);
 	}
 
-	// Register Tour Settings
+	/**
+	 * Register admin style
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
 	public function load_admin_style() {
 		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		wp_enqueue_style(
@@ -81,6 +114,12 @@ class Admin {
 		);
 	}
 
+	/**
+	 * Register admin settings
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
 	public function register_settings() {
 		$data = boostify_list_widget();
 		foreach ( $data as $widget_group ) {
@@ -98,7 +137,12 @@ class Admin {
 		}
 	}
 
-
+	/**
+	 * Register admin settings page
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
 	public function setting_page() {
 		$data = boostify_list_widget();
 		?>
@@ -110,7 +154,7 @@ class Admin {
 					<div class="form-setting-header">
 						<div class="header-left">
 							<div class="logo">
-								<img src="<?php echo esc_url( BOOSTIFY_ELEMENTOR_IMG . 'logo.png' ) ?>" alt="<?php echo esc_attr( 'Boostify Logo' ); ?>">
+								<img src="<?php echo esc_url( BOOSTIFY_ELEMENTOR_IMG . 'logo.png' ); ?>" alt="<?php echo esc_attr( 'Boostify Logo' ); ?>">
 							</div>
 							<h2 class="title"><?php echo esc_html__( 'Boostify Elementor Addons Settings', 'boostify' ); ?></h2>
 						</div>
@@ -139,7 +183,7 @@ class Admin {
 											<div class="form-widget-group">
 												<?php foreach ( $widget_group['widget'] as $widget ) : ?>
 													<?php
-														$check = ( 'on' == get_option( $widget['name'] ) ) ? 'checked' : '';
+														$check = ( 'on' == get_option( $widget['name'] ) ) ? 'checked' : ''; //phpcs:ignore
 													?>
 													<div class="widget-item">
 														<label><?php echo esc_html( $widget['label'] ); ?></label>
@@ -153,7 +197,7 @@ class Admin {
 											</div>
 										</div>
 									<?php endforeach ?>
-									<?php do_action('boostify_addons_toggle'); ?>
+									<?php do_action( 'boostify_addons_toggle' ); ?>
 								</div>
 							</div>
 						</div>
@@ -167,8 +211,6 @@ class Admin {
 		</div>
 		<?php
 	}
-
-
 }
 
 \Boostify_Elementor\Admin::instance();

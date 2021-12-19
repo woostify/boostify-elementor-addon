@@ -28,12 +28,20 @@ jQuery( document ).ready(
 			);
 		}
 
+		function videoPopup() {
+			var html5lightbox_options = {
+				watermark: "http://html5box.com/images/html5boxlogo.png",
+				watermarklink: "http://html5box.com"
+			};
+		}
+
 		onElementorLoaded(
 			function () {
 				elementorFrontend.hooks.addAction(
 					'frontend/element_ready/global',
 					function () {
 						masonryBlog();
+						videoPopup();
 					}
 				);
 			}

@@ -87,11 +87,11 @@ class Widgets {
 	 */
 	public function get_widgets() {
 		$list_widget = boostify_list_widget();
-		$widgets      = array();
+		$widgets     = array();
 		foreach ( $list_widget as $folder => $widget_group ) {
 			foreach ( $widget_group['widget'] as $widget ) {
 				$active = get_option( $widget['name'] );
-				if ( 'on' == $active ) {
+				if ( 'on' == $active ) { //phpcs:ignore
 					$widgets[ $folder ][] = $widget['key'];
 				}
 			}
@@ -139,8 +139,24 @@ class Widgets {
 		);
 
 		wp_register_script(
+			'lightgallery',
+			BOOSTIFY_ELEMENTOR_JS . 'lightgallery.min.js',
+			array( 'jquery' ),
+			BOOSTIFY_ELEMENTOR_VER,
+			true
+		);
+
+		wp_register_script(
 			'swiper',
 			BOOSTIFY_ELEMENTOR_JS . 'swiper.min.js',
+			array(),
+			BOOSTIFY_ELEMENTOR_VER,
+			true
+		);
+
+		wp_register_script(
+			'html5lightbox',
+			BOOSTIFY_ELEMENTOR_JS . 'html5lightbox/html5lightbox.js',
 			array(),
 			BOOSTIFY_ELEMENTOR_VER,
 			true
@@ -153,7 +169,6 @@ class Widgets {
 			BOOSTIFY_ELEMENTOR_VER,
 			true
 		);
-
 
 		wp_register_script(
 			'boostify-addon-faq',
@@ -171,6 +186,21 @@ class Widgets {
 			true
 		);
 
+		wp_register_script(
+			'boostify-video-popup',
+			BOOSTIFY_ELEMENTOR_JS . 'base/video-popup' . $suffix . '.js',
+			array( 'jquery', 'html5lightbox' ),
+			BOOSTIFY_ELEMENTOR_VER,
+			true
+		);
+
+		wp_register_script(
+			'boostify-addon-toc',
+			BOOSTIFY_ELEMENTOR_JS . 'base/toc' . $suffix . '.js',
+			array( 'jquery' ),
+			BOOSTIFY_ELEMENTOR_VER,
+			true
+		);
 	}
 
 
@@ -182,6 +212,7 @@ class Widgets {
 			array(
 				'jquery',
 				'masonry',
+				'html5lightbox',
 			),
 			BOOSTIFY_ELEMENTOR_VER,
 			true
@@ -252,7 +283,6 @@ class Widgets {
 			array(),
 			BOOSTIFY_ELEMENTOR_VER
 		);
-
 
 		wp_enqueue_style(
 			'swiper',

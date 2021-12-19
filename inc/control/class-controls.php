@@ -1,13 +1,18 @@
 <?php
 /**
- * Class Boostify_Elementor\Elementor
+ * Elementor Controls.
  *
- * Main Plugin
  * @since 1.0.0
+ * @package Boostify Addon
  */
 
 namespace Boostify_Elementor;
 
+/**
+ * Elementor Controls.
+ *
+ * @class Admin
+ */
 class Controls {
 	/**
 	 * Instance
@@ -20,14 +25,23 @@ class Controls {
 	 */
 	private static $instance = null;
 
-
+	/**
+	 * Modules Manager
+	 *
+	 * @since 1.0.0
+	 * @access private
+	 * @static
+	 *
+	 * @var modules_manager.
+	 */
 	private $modules_manager;
+
 	/**
 	 * Instance
 	 *
 	 * Ensures only one instance of the class is loaded or can be loaded.
 	 *
-	 * @since 1.2.0
+	 * @since 1.0.0
 	 * @access public
 	 *
 	 * @return Plugin An instance of the class.
@@ -44,17 +58,29 @@ class Controls {
 	 *
 	 * Register plugin action hooks and filters
 	 *
-	 * @since 1.2.0
+	 * @since 1.0.0
 	 * @access public
 	 */
 	public function __construct() {
 		$this->setup_hooks();
 	}
 
+	/**
+	 * Register plugin action hooks and filters
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
 	private function setup_hooks() {
 		add_action( 'elementor/controls/controls_registered', array( $this, 'register_controls' ) );
 	}
 
+	/**
+	 * Register controls
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
 	public function register_controls() {
 		include_once BOOSTIFY_ELEMENTOR_CONTROL . 'class-group-control-post.php';
 		$control_manager = \Elementor\Plugin::instance()->controls_manager;
@@ -62,6 +88,6 @@ class Controls {
 	}
 
 }
-// Instantiate Boostify_Elementor_Addon Class
+// Instantiate Boostify_Elementor_Addon Class.
 Controls::instance();
 

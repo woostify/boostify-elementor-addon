@@ -159,7 +159,6 @@ abstract class Posts extends Base_Widget {
 			array(
 				'label'    => __( 'Typography', 'boostify' ),
 				'name'     => 'typo_pagination',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .boostify-pagination .page-numbers, {{WRAPPER}} .boostify-pagination .page-numbers.next:after, {{WRAPPER}} .boostify-pagination .page-numbers.prev:after',
 			)
 		);

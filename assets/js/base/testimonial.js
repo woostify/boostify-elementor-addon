@@ -17,11 +17,11 @@
 				el: '.swiper-pagination',
 				clickable: true,
 			},
-			autoplay: {
-				delay: 5000,
-				disableOnInteraction: false,
-			},
-			loop: true,
+			// autoplay: {
+			// 	delay: 5000,
+			// 	disableOnInteraction: false,
+			// },
+			loop: false,
 			// loopFillGroupWithBlank: true,
 			speed: 1000
 		};

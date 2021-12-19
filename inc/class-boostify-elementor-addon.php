@@ -1,11 +1,14 @@
 <?php
 /**
- * Class Boostify_Elementor\Elementor
+ * Main Plugin Boostify Addon.
  *
- * Main Plugin
  * @since 1.0.0
+ * @package Boostify Addon
  */
 
+/**
+ * Boostify Elementor Addon.
+ */
 class Boostify_Elementor_Addon {
 	/**
 	 * Instance
@@ -23,7 +26,7 @@ class Boostify_Elementor_Addon {
 	 *
 	 * Ensures only one instance of the class is loaded or can be loaded.
 	 *
-	 * @since 1.2.0
+	 * @since 1.0.0
 	 * @access public
 	 *
 	 * @return Plugin An instance of the class.
@@ -40,7 +43,7 @@ class Boostify_Elementor_Addon {
 	 *
 	 * Register plugin action hooks and filters
 	 *
-	 * @since 1.2.0
+	 * @since 1.0.0
 	 * @access public
 	 */
 	public function __construct() {
@@ -49,11 +52,21 @@ class Boostify_Elementor_Addon {
 		$this->include_files();
 	}
 
-	private function setup_hooks() {
-
-
+	/**
+	 * Register plugin action hooks and filters
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function setup_hooks() {
 	}
 
+	/**
+	 * Register file
+	 *
+	 * @since 1.0.0
+	 * @access protected
+	 */
 	protected function include_files() {
 		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'post/skin/class-layout.php';
 		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'basic/skin/class-layout.php';
@@ -69,6 +82,6 @@ class Boostify_Elementor_Addon {
 	}
 
 }
-// Instantiate Boostify_Elementor_Addon Class
+// Instantiate Boostify_Elementor_Addon Class.
 Boostify_Elementor_Addon::instance();
 

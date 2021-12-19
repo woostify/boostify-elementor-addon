@@ -1,4 +1,10 @@
 <?php
+/**
+ * Elementor Group Post Controls.
+ *
+ * @since 1.0.0
+ * @package Boostify Addon
+ */
 
 namespace Boostify_Elementor;
 
@@ -47,6 +53,17 @@ class Group_Control_Post extends Group_Control_Base {
 		return 'boostify-post';
 	}
 
+	/**
+	 * Fiels.
+	 *
+	 * Retrieve args, in this case `post`.
+	 *
+	 * @param array $args | fiels array.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @static
+	 */
 	protected function init_args( $args ) {
 		parent::init_args( $args );
 		$args           = $this->get_args();
@@ -60,14 +77,23 @@ class Group_Control_Post extends Group_Control_Base {
 	 *
 	 * @since 1.2.2
 	 * @access protected
-	 *
-	 * @return array Control fields.
 	 */
 	protected function init_fields() {
 		$args = $this->get_args();
 		$this->init_fields_by_name( $args['name'] );
 	}
 
+	/**
+	 * Fiels.
+	 *
+	 * Retrieve args, in this case `post`.
+	 *
+	 * @param array $name | fiels array.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @static
+	 */
 	public function init_fields_by_name( $name ) {
 		$fields          = array();
 		$name           .= '_';

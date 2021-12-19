@@ -13,10 +13,17 @@ class Layout {
 	public function testimonial() {
 		$layout = array(
 			'default' => __( 'Default', 'boostify' ),
-			'masonry' => __( 'Masonry', 'boostify' ),
 		);
 
 		return apply_filters( 'boostify_testimonial_layout', $layout );
+	}
+
+	public function team_member() {
+		$layout = array(
+			'default' => __( 'Default', 'boostify' ),
+		);
+
+		return apply_filters( 'boostify_team_member_layout', $layout );
 	}
 
 }

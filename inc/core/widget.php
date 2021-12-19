@@ -21,9 +21,29 @@ function boostify_list_widget() {
 					'name'  => 'testimonial',
 					'label' => __( 'Testimonial', 'boostify' ),
 				),
-			)
+				array(
+					'key'   => 'Video_Popup',
+					'name'  => 'video_popup',
+					'label' => __( 'Video Popup', 'boostify' ),
+				),
+				array(
+					'key'   => 'Price_Box',
+					'name'  => 'price_box',
+					'label' => __( 'Price Box', 'boostify' ),
+				),
+				array(
+					'key'   => 'Team_Member',
+					'name'  => 'team_member',
+					'label' => __( 'Team Member', 'boostify' ),
+				),
+				array(
+					'key'   => 'Table_Of_Content',
+					'name'  => 'table_of_content',
+					'label' => __( 'Table of Content', 'boostify' ),
+				),
+			),
 		),
-		'post' => array(
+		'post'  => array(
 			'label'  => __( 'Post', 'boostify' ),
 			'value'  => 'post',
 			'widget' => array(
@@ -47,7 +67,7 @@ function boostify_list_widget() {
 					'name'  => 'breadcrumb',
 					'label' => __( 'Breadcrumb', 'boostify' ),
 				),
-			)
+			),
 		),
 	);
 
@@ -56,7 +76,7 @@ function boostify_list_widget() {
 
 function boostify_get_widget() {
 	$list_widget = boostify_list_widget();
-	$widgets = array();
+	$widgets     = array();
 	if ( ! empty( $list_widget ) ) {
 		foreach ( $list_widget as $folder => $wids ) {
 			foreach ( $wids['widget'] as $widget ) {

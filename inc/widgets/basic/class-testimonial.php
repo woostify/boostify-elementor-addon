@@ -1,11 +1,16 @@
 <?php
+/**
+ * Widget Testimonial.
+ *
+ * @since 1.0.0
+ * @package Boostify Addon
+ */
 
 namespace Boostify_Elementor\Widgets;
 
 use Boostify_Elementor\Base_Widget;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Box_Shadow;
@@ -13,15 +18,12 @@ use Boostify_Elementor\Basic\Skin\Layout as Layout;
 
 
 /**
- * \FAQs
+ * Testimonial
  *
- * Elementor widget for \FAQs.
+ * Elementor widget for Testimonial.
  * Author: ptp
  */
 class Testimonial extends Base_Widget {
- // Exit if accessed directly
-
-
 	/**
 	 * Retrieve the widget name.
 	 *
@@ -51,7 +53,7 @@ class Testimonial extends Base_Widget {
 	/**
 	 * Retrieve the widget icon.
 	 *
-	 * @since 1.2.0
+	 * @since 1.0.0
 	 *
 	 * @access public
 	 *
@@ -85,7 +87,7 @@ class Testimonial extends Base_Widget {
 	 *
 	 * @access protected
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->start_controls_section(
 			'section_content',
 			array(
@@ -116,11 +118,21 @@ class Testimonial extends Base_Widget {
 		);
 
 		$repeater->add_control(
+			'position',
+			array(
+				'label'       => __( 'Position', 'boostify' ),
+				'type'        => \Elementor\Controls_Manager::TEXT,
+				'default'     => __( 'Design', 'boostify' ),
+				'placeholder' => __( 'Enter Position', 'boostify' ),
+			)
+		);
+
+		$repeater->add_control(
 			'image',
 			array(
-				'label'       => esc_html__( 'Image', 'boostify-tour' ),
-				'type'        => \Elementor\Controls_Manager::MEDIA,
-				'default'     => array(
+				'label'   => esc_html__( 'Image', 'boostify-tour' ),
+				'type'    => \Elementor\Controls_Manager::MEDIA,
+				'default' => array(
 					'url' => \Elementor\Utils::get_placeholder_image_src(),
 				),
 			)
@@ -135,12 +147,14 @@ class Testimonial extends Base_Widget {
 				'title_field' => '{{{ name }}}',
 				'default'     => array(
 					array(
-						'name'    => 'John Doe',
-						'content' => 'Me and my travel buddy decided to book a tour on boostify, and that is the best decision we’ve ever made. The tour itself is full  excitement activities, but the staff are also kind & helpful. I’d love  to recommend this agent for all travel lovers',
+						'name'     => 'John Doe',
+						'position' => 'Designer',
+						'content'  => 'Me and my travel buddy decided to book a tour on boostify, and that is the best decision we’ve ever made. The tour itself is full  excitement activities, but the staff are also kind & helpful. I’d love  to recommend this agent for all travel lovers',
 					),
 					array(
-						'name'    => 'Nick',
-						'content' => 'Me and my travel buddy decided to book a tour on boostify, and that is the best decision we’ve ever made. The tour itself is full  excitement activities, but the staff are also kind & helpful. I’d love  to recommend this agent for all travel lovers',
+						'name'     => 'Nick',
+						'position' => 'Designer',
+						'content'  => 'Me and my travel buddy decided to book a tour on boostify, and that is the best decision we’ve ever made. The tour itself is full  excitement activities, but the staff are also kind & helpful. I’d love  to recommend this agent for all travel lovers',
 					),
 				),
 			)
@@ -156,7 +170,6 @@ class Testimonial extends Base_Widget {
 			)
 		);
 
-
 		$this->end_controls_section();
 
 		$this->start_controls_section(
@@ -168,10 +181,62 @@ class Testimonial extends Base_Widget {
 		);
 
 		$this->add_control(
+			'testimonial_heading',
+			array(
+				'label' => __( 'Testimonial', 'boostify' ),
+				'type'  => \Elementor\Controls_Manager::HEADING,
+			)
+		);
+
+		$this->add_control(
+			'padding',
+			array(
+				'label'      => __( 'Padding', 'boostify' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px' ),
+				'default'    => array(
+					'top'    => 40,
+					'left'   => 40,
+					'bottom' => 40,
+					'right'  => 40,
+					'unit '  => 'px',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .testimonial-item--wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'align',
+			array(
+				'label'   => __( 'Alignment', 'boostify' ),
+				'type'    => \Elementor\Controls_Manager::CHOOSE,
+				'options' => array(
+					'left'   => array(
+						'title' => __( 'Left', 'boostify' ),
+						'icon'  => 'eicon-h-align-left',
+					),
+					'center' => array(
+						'title' => __( 'Center', 'boostify' ),
+						'icon'  => 'eicon-h-align-center',
+					),
+					'right'  => array(
+						'title' => __( 'Right', 'boostify' ),
+						'icon'  => 'eicon-h-align-center',
+					),
+				),
+				'default' => 'center',
+				'toggle'  => true,
+			)
+		);
+
+		$this->add_control(
 			'name_heading',
 			array(
-				'label' => __( 'Name', 'boostify' ),
-				'type'  => \Elementor\Controls_Manager::HEADING,
+				'label'     => __( 'Name', 'boostify' ),
+				'type'      => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
 			)
 		);
 
@@ -192,7 +257,6 @@ class Testimonial extends Base_Widget {
 			array(
 				'name'     => 'name_typography',
 				'label'    => __( 'Typography', 'boostify' ),
-				'scheme'   => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .name',
 			)
 		);
@@ -217,6 +281,55 @@ class Testimonial extends Base_Widget {
 		);
 
 		$this->add_control(
+			'name_position',
+			array(
+				'label'     => __( 'Job', 'boostify' ),
+				'type'      => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+			)
+		);
+
+		$this->add_control(
+			'position_color',
+			array(
+				'label'     => __( 'Color', 'boostify' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'default'   => '#999999',
+				'selectors' => array(
+					'{{WRAPPER}} .position' => 'color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'position_typography',
+				'label'    => __( 'Typography', 'boostify' ),
+				'selector' => '{{WRAPPER}} .position',
+			)
+		);
+
+		$this->add_responsive_control(
+			'position_space',
+			array(
+				'label'      => __( 'Space', 'boostify' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 90,
+						'step' => 1,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .position' => 'margin-top: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_control(
 			'content_heading',
 			array(
 				'label'     => __( 'Content', 'boostify' ),
@@ -230,7 +343,7 @@ class Testimonial extends Base_Widget {
 			array(
 				'label'     => __( 'Color', 'boostify' ),
 				'type'      => \Elementor\Controls_Manager::COLOR,
-				'default'   => '#1c1c1c',
+				'default'   => '#666666',
 				'selectors' => array(
 					'{{WRAPPER}} .content' => 'color: {{VALUE}};',
 				),
@@ -242,8 +355,30 @@ class Testimonial extends Base_Widget {
 			array(
 				'name'     => 'conent_typography',
 				'label'    => __( 'Typography', 'boostify' ),
-				'scheme'   => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .content',
+			)
+		);
+
+		$this->add_responsive_control(
+			'space_content',
+			array(
+				'label'      => __( 'Space', 'boostify' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'default'    => array(
+					'size' => 40,
+					'unit' => 'px',
+				),
+				'range'      => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 90,
+						'step' => 1,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .testimonial-content' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				),
 			)
 		);
 
@@ -299,13 +434,12 @@ class Testimonial extends Base_Widget {
 			)
 		);
 
-
 		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'testimonial_layout',
 			array(
-				'label' => __( 'Layout', 'boostify' )
+				'label' => __( 'Layout', 'boostify' ),
 			)
 		);
 
@@ -334,8 +468,8 @@ class Testimonial extends Base_Widget {
 		$this->add_control(
 			'column',
 			array(
-				'label' => __( 'Column', 'boostify' ),
-				'type' => Controls_Manager::NUMBER,
+				'label'   => __( 'Column', 'boostify' ),
+				'type'    => Controls_Manager::NUMBER,
 				'default' => 1,
 			)
 		);
@@ -385,23 +519,44 @@ class Testimonial extends Base_Widget {
 		$col         = $settings['column'];
 		$arrow       = $settings['arrow'];
 		$dot         = $settings['dot'];
-		$action = 'boostify_testimonial_' . $layout;
+		$action      = 'boostify_testimonial_' . $layout;
 		do_action( $action, $settings );
 	}
 
+	/**
+	 * Register Layout.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @access protected
+	 */
 	public function layouts() {
-		$layout = new Layout();
+		$layout  = new Layout();
 		$layouts = $layout->testimonial();
 
 		return $layouts;
 	}
 
+	/**
+	 * Register Layout.
+	 *
+	 * Written in PHP and used to generate the final HTML.
+	 *
+	 * @param array $item | image data.
+	 * @param array $settings | Setting data.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @access protected
+	 */
 	private function get_image( $item, $settings ) {
 		if ( empty( $item['image']['id'] ) ) {
 
-				?>
-				<img src="<?php echo esc_url( $item['image']['url'] ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>">
-				<?php
+			?>
+			<img src="<?php echo esc_url( $item['image']['url'] ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>">
+			<?php
 
 		} else {
 			$url = \Elementor\Group_Control_Image_Size::get_attachment_image_src( $item['image']['id'], 'thumbnail', $settings );

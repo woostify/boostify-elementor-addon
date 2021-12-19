@@ -408,7 +408,6 @@ class Button extends Base_Widget {
 			array(
 				'name'     => 'label_typography',
 				'selector' => '{{WRAPPER}} .boostify-btn-default, {{WRAPPER}} .boostify-label-hover',
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_3,
 			)
 		);
 

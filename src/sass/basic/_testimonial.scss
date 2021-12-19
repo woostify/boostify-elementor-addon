@@ -1,0 +1,56 @@
+.elementor-widget-boostify-testimonial {
+	.widget-testimonial {
+		text-align: center;
+		margin: 0 -15px;
+
+		.widget-testimonial--wrapper {
+			padding: 0 15px;
+		}
+
+		.content {
+			font-weight: normal;
+			font-size: 20px;
+		}
+
+		.name {
+			display: block;
+			font-weight: 600;
+			text-transform: uppercase;
+		}
+
+		.avatar {
+			width: 80px;
+			height: 80px;
+			overflow: hidden;
+			margin: 0 auto;
+			border-radius: 50%;
+			padding: 3px;
+			border: 1px solid #275ce1;
+
+			img {
+				border-radius: 50%;
+			}
+		}
+
+		.image-placeholer {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.position {
+		font-size: 12px;
+	}
+
+	.testimonial-item--wrapper {
+		box-shadow: 1px 3px 15px rgba( 0, 0, 0, 0.15 );
+	}
+}
+
+
+.boostify-addon-widget {
+	.swiper-pagination {
+		position: unset;
+	}
+}

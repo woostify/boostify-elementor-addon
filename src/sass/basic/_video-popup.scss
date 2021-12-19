@@ -1,0 +1,33 @@
+.boostify-video-box {
+	position: relative;
+	display: inline-block;
+
+	.btn-play,
+	.btn-play:before{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.btn-play{
+		position: absolute;
+		display: flex;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+		&:before{
+			border-radius: 50%;
+			font-weight: 900;
+		}
+	}
+
+	.image-icon-wrapper {
+		width: 60px;
+		height: 60px;
+		display: block;
+		justify-content: center;
+		align-items: center;
+	}
+}

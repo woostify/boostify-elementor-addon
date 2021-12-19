@@ -241,7 +241,6 @@ abstract class Post_Base extends Posts {
 			array(
 				'name'     => 'title_typography',
 				'label'    => __( 'Typography', 'boostify' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .boostify-post-title',
 			)
 		);
@@ -295,7 +294,6 @@ abstract class Post_Base extends Posts {
 			array(
 				'name'     => 'meta_typography',
 				'label'    => __( 'Typography', 'boostify' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .boostify-meta-item',
 			)
 		);
@@ -352,7 +350,6 @@ abstract class Post_Base extends Posts {
 			array(
 				'name'      => 'excpert_typography',
 				'label'     => __( 'Typography', 'boostify' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .boostify-post-excpert .post-excpert',
 				'condition' => array(
 					'excpert' => 'yes',
@@ -479,7 +476,6 @@ abstract class Post_Base extends Posts {
 			array(
 				'name'      => 'read_more_typography',
 				'label'     => __( 'Typography', 'boostify' ),
-				'scheme'    => Scheme_Typography::TYPOGRAPHY_1,
 				'selector'  => '{{WRAPPER}} .boostify-post-read-more',
 				'condition' => array(
 					'show_read_more' => 'yes',

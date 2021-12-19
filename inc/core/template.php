@@ -274,36 +274,39 @@ function boostify_template_testimonial_default( $settings ) {
 			<?php foreach ( $list as $item ) : ?>
 				<div class="testimonial-item swiper-slide">
 					<div class="testimonial-item--wrapper">
-						<?php if ( $show_avatar ) : ?>
-							<div class="avatar">
-								<?php
-									if ( empty( $item['image']['id'] ) ) {
-
-											?>
-											<img src="<?php echo esc_url( $item['image']['url'] ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>">
-											<?php
-
+						<div class="testimonial-content">
+							<span class="content">
+								<?php echo esc_html( $item['content'] ); ?>
+							</span>
+						</div>
+						<div class="testimonial-infomation">
+							<?php if ( $show_avatar ) : ?>
+								<div class="avatar">
+									<?php
+										if ( empty( $item['image']['id'] ) ) {
+										?>
+										<img src="<?php echo esc_url( $item['image']['url'] ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" class="image-placeholer">
+										<?php
 									} else {
 										$url = \Elementor\Group_Control_Image_Size::get_attachment_image_src( $item['image']['id'], 'thumbnail', $settings );
 										?>
-										<img src="<?php echo esc_url( $url ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>">
+											<img src="<?php echo esc_url( $url ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>">
 										<?php
 									}
-								?>
-							</div>
-						<?php endif ?>
-						<span class="content">
-							<?php echo esc_html( $item['content'] ); ?>
-						</span>
-						<span class="name"><?php echo esc_html( $item['name'] ); ?></span>
+									?>
+								</div>
+							<?php endif ?>
+							<span class="name"><?php echo esc_html( $item['name'] ); ?></span>
+							<span class="position"><?php echo esc_html( $item['position'] ); ?></span>
+						</div>
 					</div>
 				</div>
 			<?php endforeach ?>
 			</div>
-			<?php if ( $dot == 'yes' ): ?>
+			<?php if ( $dot == 'yes' ) :  //phpcs:ignore ?>
 				<div class="swiper-pagination"></div>
 			<?php endif ?>
-			<?php if ( $arrow == 'yes' ): ?>
+			<?php if ( $arrow == 'yes' ) : //phpcs:ignore ?>
 				<div class="swiper-button-next"></div>
 				<div class="swiper-button-prev"></div>
 			<?php endif ?>
@@ -311,3 +314,65 @@ function boostify_template_testimonial_default( $settings ) {
 	</div>
 	<?php
 }
+
+
+function boostify_template_teammember_default( $settings ) {
+	$name         = $settings['name'];
+	$position     = $settings['position'];
+	$contact_list = $settings['contact_list'];
+
+	if ( empty( $settings['image']['id'] ) ) {
+		$image_html = \Elementor\Group_Control_Image_Size::get_attachment_image_html( $settings, 'size', 'image' );
+	} else {
+		$image_url = \Elementor\Group_Control_Image_Size::get_attachment_image_src( $settings['image']['id'], 'size', $settings );
+
+		$image_html = '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( 'Avatar of ' . $name ) . '" >';
+	}
+	?>
+	<div class="boostify-widget widget-team-member">
+		<div class="widget-team-member--wrapper">
+			<div class="member-avatar">
+				<?php
+				echo wp_kses(
+					$image_html,
+					array(
+						'img' => array(
+							'src'   => array(),
+							'class' => array(),
+							'alt'   => array(),
+						),
+					)
+				);
+				?>
+				<div class="member-contact">
+					<div class="contact--wrapper">
+						<?php foreach ( $contact_list as $item ) : ?>
+							<?php $icon = $item['icon']; ?>
+							<div class="item-contact">
+								<?php
+								if ( ! empty( $icon['value'] ) ) :
+									if ( is_string( $icon['value'] ) ) :
+										?>
+										<a href="<?php echo esc_url( $item['link']['url'] ); ?>" class="icon-contact <?php echo esc_attr( $icon['value'] ); ?>"></a>
+									<?php else : ?>
+										<a href="<?php echo esc_url( $item['link']['url'] ); ?>" class="icon-contact <?php echo esc_attr( $item['icon'] ); ?>"><?php Icons_Manager::render_icon( $icon, array( 'aria-hidden' => 'true' ) ); ?></a>
+
+										<?php
+									endif;
+								endif;
+								?>
+
+							</div>
+						<?php endforeach ?>
+					</div>
+				</div>
+			</div>
+			<div class="member-info">
+				<h4 class="member-name"><?php echo esc_html( $name ); ?></h4>
+				<span class="member-position"><?php echo esc_html( $position ); ?></span>
+			</div>
+		</div>
+	</div>
+	<?php
+}
+

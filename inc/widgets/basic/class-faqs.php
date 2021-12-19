@@ -216,7 +216,6 @@ class Faqs extends Base_Widget {
 			array(
 				'label' => esc_html__( 'Typography', 'boostify' ),
 				'name' => 'question_boostify',
-				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .boostify-answer span',
 			)
 		);
@@ -275,7 +274,6 @@ class Faqs extends Base_Widget {
 			array(
 				'label' => esc_html__( 'Typography', 'boostify' ),
 				'name' => 'answer_boostify',
-				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .boostify-answer span',
 			)
 		);

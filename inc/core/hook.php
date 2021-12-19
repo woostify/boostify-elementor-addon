@@ -22,3 +22,5 @@ add_action( 'boostify_post_list_zigzag', 'boostify_template_post_list', 10, 1 );
 add_action( 'boostify_post_slider_default', 'boostify_template_post_slider', 10, 1 );
 
 add_action( 'boostify_testimonial_default', 'boostify_template_testimonial_default', 10, 1 );
+
+add_action( 'boostify_teammember_default', 'boostify_template_teammember_default', 10, 1 );
