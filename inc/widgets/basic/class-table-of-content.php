@@ -326,50 +326,6 @@ class Table_Of_Content extends Base_Widget {
 			)
 		);
 
-		$breakpoints = Responsive::get_breakpoints();
-
-		$this->add_control(
-			'minimized_on',
-			array(
-				'label'              => __( 'Minimized On', 'boostify' ),
-				'type'               => Controls_Manager::SELECT,
-				'default'            => 'tablet',
-				'options'            => array(
-					'mobile' => sprintf( __( 'Mobile (< %dpx)', 'boostify' ), $breakpoints['md'] ), //phpcs:ignore
-					'tablet' => sprintf( __( 'Tablet (< %dpx)', 'boostify' ), $breakpoints['lg'] ), //phpcs:ignore
-					'none'   => __( 'None', 'boostify' ),
-				),
-				'prefix_class'       => 'boostify-toc--minimized-on-',
-				'condition'          => array(
-					'minimize_box!' => '',
-				),
-				'frontend_available' => true,
-			)
-		);
-
-		$this->add_control(
-			'hierarchical_view',
-			array(
-				'label'              => __( 'Hierarchical View', 'boostify' ),
-				'type'               => Controls_Manager::SWITCHER,
-				'default'            => 'yes',
-				'frontend_available' => true,
-			)
-		);
-
-		$this->add_control(
-			'collapse_subitems',
-			array(
-				'label'              => __( 'Collapse Subitems', 'boostify' ),
-				'type'               => Controls_Manager::SWITCHER,
-				'description'        => __( 'The "Collapse" option should only be used if the Table of Contents is made sticky', 'boostify' ),
-				'frontend_available' => true,
-				'condition'          => array(
-					'hierarchical_view' => 'yes',
-				),
-			)
-		);
-
 		$this->end_controls_section();
 
 		$this->start_controls_section(
@@ -387,7 +343,7 @@ class Table_Of_Content extends Base_Widget {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '',
 				'selectors' => array(
-					'{{WRAPPER}}' => '--box-background-color: {{VALUE}}',
+					'{{WRAPPER}} .boostify-widget-toc' => 'background-color: {{VALUE}}',
 				),
 			)
 		);
@@ -398,7 +354,8 @@ class Table_Of_Content extends Base_Widget {
 				'label'     => __( 'Border Color', 'boostify' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}}' => '--box-border-color: {{VALUE}}',
+					'{{WRAPPER}} .boostify-widget-toc' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .boostify-toc-header' => 'border-bottom-color: {{VALUE}}',
 				),
 			)
 		);
@@ -409,7 +366,7 @@ class Table_Of_Content extends Base_Widget {
 				'label'     => __( 'Border Width', 'boostify' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => array(
-					'{{WRAPPER}}' => '--box-border-width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .boostify-widget-toc' => 'border-width: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);
@@ -420,7 +377,7 @@ class Table_Of_Content extends Base_Widget {
 				'label'     => __( 'Border Radius', 'boostify' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => array(
-					'{{WRAPPER}}' => '--box-border-radius: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .boostify-widget-toc' => 'border-radius: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);
@@ -431,7 +388,8 @@ class Table_Of_Content extends Base_Widget {
 				'label'     => __( 'Padding', 'boostify' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => array(
-					'{{WRAPPER}}' => '--box-padding: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .boostify-widget-toc .boostify-toc-header' => 'padding: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .boostify-widget-toc .boostify-toc-body' => 'padding: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);
@@ -450,7 +408,7 @@ class Table_Of_Content extends Base_Widget {
 					),
 				),
 				'selectors'          => array(
-					'{{WRAPPER}}' => '--box-min-height: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .boostify-widget-toc' => 'min-height: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);
@@ -459,7 +417,7 @@ class Table_Of_Content extends Base_Widget {
 			Group_Control_Box_Shadow::get_type(),
 			array(
 				'name'     => 'box_shadow',
-				'selector' => '{{WRAPPER}}',
+				'selector' => '{{WRAPPER}} .boostify-widget-toc',
 			)
 		);
 
@@ -479,7 +437,7 @@ class Table_Of_Content extends Base_Widget {
 				'label'     => __( 'Background Color', 'boostify' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
-					'{{WRAPPER}}' => '--header-background-color: {{VALUE}}',
+					'{{WRAPPER}} .boostify-widget-toc .boostify-toc-header' => 'background-color: {{VALUE}}',
 				),
 			)
 		);
@@ -493,7 +451,7 @@ class Table_Of_Content extends Base_Widget {
 					'default' => Global_Colors::COLOR_SECONDARY,
 				),
 				'selectors' => array(
-					'{{WRAPPER}}' => '--header-color: {{VALUE}}',
+					'{{WRAPPER}} .boostify-toc-header-title' => 'color: {{VALUE}}',
 				),
 			)
 		);
@@ -518,7 +476,7 @@ class Table_Of_Content extends Base_Widget {
 					'minimize_box' => 'yes',
 				),
 				'selectors' => array(
-					'{{WRAPPER}}' => '--toggle-button-color: {{VALUE}}',
+					'{{WRAPPER}} .boostify-toc-toggle-button' => 'button-color: {{VALUE}}',
 				),
 			)
 		);
@@ -529,7 +487,7 @@ class Table_Of_Content extends Base_Widget {
 				'label'     => __( 'Separator Width', 'boostify' ),
 				'type'      => Controls_Manager::SLIDER,
 				'selectors' => array(
-					'{{WRAPPER}}' => '--separator-width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .boostify-toc-header' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);
@@ -557,7 +515,7 @@ class Table_Of_Content extends Base_Widget {
 					),
 				),
 				'selectors'  => array(
-					'{{WRAPPER}}' => '--toc-body-max-height: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .boostify-toc-body' => 'max-height: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);
@@ -569,21 +527,6 @@ class Table_Of_Content extends Base_Widget {
 				'selector' => '{{WRAPPER}} .boostify-toc-list-item',
 				'global'   => array(
 					'default' => Global_Typography::TYPOGRAPHY_TEXT,
-				),
-			)
-		);
-
-		$this->add_control(
-			'list_indent',
-			array(
-				'label'      => __( 'Indent', 'boostify' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px', 'em' ),
-				'default'    => array(
-					'unit' => 'em',
-				),
-				'selectors'  => array(
-					'{{WRAPPER}}' => '--nested-list-indent: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);
@@ -606,7 +549,7 @@ class Table_Of_Content extends Base_Widget {
 					'default' => Global_Colors::COLOR_TEXT,
 				),
 				'selectors' => array(
-					'{{WRAPPER}}' => '--item-text-color: {{VALUE}}',
+					'{{WRAPPER}} .boostify-toc-list-item a' => 'color: {{VALUE}}',
 				),
 			)
 		);
@@ -617,7 +560,7 @@ class Table_Of_Content extends Base_Widget {
 				'label'     => __( 'Underline', 'boostify' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'selectors' => array(
-					'{{WRAPPER}}' => '--item-text-decoration: underline',
+					'{{WRAPPER}} .boostify-toc-list-item a' => 'text-decoration: underline',
 				),
 			)
 		);
@@ -640,7 +583,7 @@ class Table_Of_Content extends Base_Widget {
 					'default' => Global_Colors::COLOR_ACCENT,
 				),
 				'selectors' => array(
-					'{{WRAPPER}}' => '--item-text-hover-color: {{VALUE}}',
+					'{{WRAPPER}} .boostify-toc-list-item:hover a' => 'color: {{VALUE}}',
 				),
 			)
 		);
@@ -652,38 +595,7 @@ class Table_Of_Content extends Base_Widget {
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'yes',
 				'selectors' => array(
-					'{{WRAPPER}}' => '--item-text-hover-decoration: underline',
-				),
-			)
-		);
-
-		$this->end_controls_tab();
-
-		$this->start_controls_tab(
-			'active',
-			array(
-				'label' => __( 'Active', 'boostify' ),
-			)
-		);
-
-		$this->add_control(
-			'item_text_color_active',
-			array(
-				'label'     => __( 'Text Color', 'boostify' ),
-				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
-					'{{WRAPPER}}' => '--item-text-active-color: {{VALUE}}',
-				),
-			)
-		);
-
-		$this->add_control(
-			'item_text_underline_active',
-			array(
-				'label'     => __( 'Underline', 'boostify' ),
-				'type'      => Controls_Manager::SWITCHER,
-				'selectors' => array(
-					'{{WRAPPER}}' => '--item-text-active-decoration: underline',
+					'{{WRAPPER}} .boostify-toc-list-item:hover a' => 'text-decoration: underline',
 				),
 			)
 		);
@@ -710,7 +622,8 @@ class Table_Of_Content extends Base_Widget {
 					'default' => Global_Colors::COLOR_TEXT,
 				),
 				'selectors' => array(
-					'{{WRAPPER}}' => '--marker-color: {{VALUE}}',
+					'{{WRAPPER}} .boostify-toc-list-item-text:before' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .boostify-toc-list-item-text span:before' => 'color: {{VALUE}}',
 				),
 			)
 		);
@@ -722,7 +635,8 @@ class Table_Of_Content extends Base_Widget {
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}}' => '--marker-size: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .boostify-toc-list-item-text:before' => 'font-size: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .boostify-toc-list-item-text span:before' => 'font-size: {{SIZE}}{{UNIT}}',
 				),
 			)
 		);
@@ -745,13 +659,18 @@ class Table_Of_Content extends Base_Widget {
 		?>
 		<div class="boostify-addon-widget boostify-widget-toc">
 			<div class="boostify-toc-header">
-				<?php echo '<' . $html_tag . ' class="boostify-toc-header-title">' . $settings['title'] . '</' . $html_tag . '>'; //phpcs:ignore ?>
+				<<?php echo esc_attr( $html_tag ); ?> class="boostify-toc-header-title">
+					<?php echo $settings['title']; //phpcs:ignore ?>
+				</<?php echo esc_attr( $html_tag ); ?>>
+
 				<?php if ( 'yes' === $settings['minimize_box'] ) : ?>
-					<div class="boostify-toc-toggle-button boostify-toc-toggle-button--expand"><?php Icons_Manager::render_icon( $settings['expand_icon'] ); ?></div>
-					<div class="boostify-toc-toggle-button boostify-toc-toggle-button--collapse"><?php Icons_Manager::render_icon( $settings['collapse_icon'] ); ?></div>
+					<div class="list-togle-button">
+						<div class="boostify-toc-toggle-button boostify-toc-toggle-button-expand"><?php Icons_Manager::render_icon( $settings['expand_icon'] ); ?></div>
+						<div class="boostify-toc-toggle-button boostify-toc-toggle-button-collapse"><?php Icons_Manager::render_icon( $settings['collapse_icon'] ); ?></div>
+					</div>
 				<?php endif; ?>
 			</div>
-			<div class="">
+			<div class="boostify-toc-body">
 				<div class="boostify-toc-spinner-container">
 					<i class="icon-spinner eicon-loading eicon-animation-spin" aria-hidden="true"></i>
 				</div>

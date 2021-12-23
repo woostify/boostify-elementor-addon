@@ -576,6 +576,63 @@
   position: unset;
 }
 
+.boostify-toc-list-wrapper {
+  counter-reset: item;
+  list-style: none;
+  padding: 0;
+}
+
+.boostify-toc-list-wrapper .boostify-toc-list-item {
+  margin-bottom: 15px;
+}
+
+.boostify-toc-list-wrapper .boostify-toc-list-item.numbers {
+  counter-increment: item;
+}
+
+.boostify-toc-list-wrapper .boostify-toc-list-item.numbers .boostify-toc-list-item-text:before {
+  content: counters(item, ".") ". ";
+}
+
+.boostify-toc-list-wrapper .boostify-toc-list-item.numbers .boostify-toc-list-item-text:before,
+.boostify-toc-list-wrapper .boostify-toc-list-item.numbers .boostify-toc-list-item-text span:before {
+  margin-right: 5px;
+}
+
+.boostify-toc-list-wrapper .boostify-toc-list-wrapper {
+  margin: 15px 0 0 15px;
+}
+
+.boostify-widget-toc {
+  border: 1px solid #a4afb7;
+  border-radius: 3px;
+}
+
+.boostify-toc-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  align-items: center;
+  border-bottom: 1px solid #a4afb7;
+}
+
+.boostify-toc-header .elementor-menu-anchor {
+  display: none;
+}
+
+.boostify-toc-header .boostify-toc-toggle-button-expand {
+  display: none;
+}
+
+.boostify-toc-header .list-togle-button {
+  cursor: pointer;
+}
+
+.boostify-toc-body {
+  padding: 30px 20px;
+  overflow-y: scroll;
+}
+
 .boostify-video-box {
   position: relative;
   display: inline-block;
