@@ -227,6 +227,105 @@
   }
 }
 
+.boostify-widget-contact-form-7 {
+  display: flex;
+}
+
+.boostify-widget-contact-form-7 .wpcf7-form-control-wrap {
+  display: block;
+  margin-top: 10px;
+}
+
+.boostify-widget-contact-form-7 .wpcf7-form-control {
+  max-width: 100%;
+}
+
+.boostify-widget-contact-form-7 .wpcf7-radio,
+.boostify-widget-contact-form-7 .wpcf7-checkbox {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.boostify-widget-contact-form-7 .wpcf7-radio .wpcf7-list-item,
+.boostify-widget-contact-form-7 .wpcf7-checkbox .wpcf7-list-item {
+  margin: 0;
+}
+
+.boostify-widget-contact-form-7 .wpcf7-radio input,
+.boostify-widget-contact-form-7 .wpcf7-checkbox input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid;
+  padding: 3px;
+}
+
+.boostify-widget-contact-form-7 .wpcf7-radio input:after,
+.boostify-widget-contact-form-7 .wpcf7-checkbox input:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: block;
+  transition: .3s all;
+}
+
+.boostify-widget-contact-form-7 .wpcf7-radio input:checked:after,
+.boostify-widget-contact-form-7 .wpcf7-checkbox input:checked:after {
+  background: #000;
+}
+
+.boostify-widget-contact-form-7 .wpcf7-radio label,
+.boostify-widget-contact-form-7 .wpcf7-checkbox label {
+  position: relative;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.boostify-widget-contact-form-7 .wpcf7-radio .wpcf7-list-item-label,
+.boostify-widget-contact-form-7 .wpcf7-checkbox .wpcf7-list-item-label {
+  padding-left: 25px;
+}
+
+.boostify-widget-contact-form-7 .wpcf7-radio input {
+  border-radius: 50%;
+}
+
+.boostify-widget-contact-form-7 .wpcf7-radio input:after {
+  border-radius: 50%;
+}
+
+.boostify-widget-contact-form-7 .wpcf7-checkbox input {
+  border-radius: 3px;
+}
+
+.boostify-widget-contact-form-7 .wpcf7-checkbox input:after {
+  border-radius: 3px;
+}
+
+.boostify-widget-contact-form-7 input[type="submit"] {
+  display: block;
+}
+
+.boostify-contact-form-button-align-left .wpcf7-submit {
+  margin-right: auto;
+}
+
+.boostify-contact-form-button-align-center .wpcf7-submit {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.boostify-contact-form-button-align-right .wpcf7-submit {
+  margin-left: auto;
+}
+
+.boostify-contact-form-7-button-full-width .wpcf7-submit {
+  width: 100%;
+}
+
 .boostify-faq {
   border-bottom: 2px solid;
 }

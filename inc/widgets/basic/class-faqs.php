@@ -1,4 +1,10 @@
 <?php
+/**
+ * Widget Faqs.
+ *
+ * @since 1.0.0
+ * @package Boostify Addon
+ */
 
 namespace Boostify_Elementor\Widgets;
 
@@ -18,7 +24,7 @@ use Elementor\Group_Control_Box_Shadow;
  * Author: ptp
  */
 class Faqs extends Base_Widget {
- // Exit if accessed directly
+	// Exit if accessed directly.
 
 
 	/**
@@ -94,41 +100,39 @@ class Faqs extends Base_Widget {
 
 		$repeater = new \Elementor\Repeater();
 
-
 		$repeater->add_control(
 			'question',
 			array(
-				'label' => esc_html__( 'Question', 'boostify' ),
-				'type' => Controls_Manager::TEXTAREA,
-				'rows' => 3,
-				'default' => esc_html__( 'Lorem Ipsum', 'boostify' ),
-				'placeholer' => esc_html__( 'Enter Question', 'boostify' )
+				'label'      => esc_html__( 'Question', 'boostify' ),
+				'type'       => Controls_Manager::TEXTAREA,
+				'rows'       => 3,
+				'default'    => esc_html__( 'Lorem Ipsum', 'boostify' ),
+				'placeholer' => esc_html__( 'Enter Question', 'boostify' ),
 			)
 		);
 
 		$repeater->add_control(
 			'answer',
 			array(
-				'label' => esc_html__( 'Answer', 'boostify' ),
-				'type' => Controls_Manager::TEXTAREA,
-				'rows' => 10,
-				'default' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices lectus at odio laoreet rutrum. Integer risus quam, euismod vitae lacus in, tempor efficitur orci.', 'boostify' ),
-				'placeholer' => esc_html__( 'Enter Answer', 'boostify' )
+				'label'      => esc_html__( 'Answer', 'boostify' ),
+				'type'       => Controls_Manager::TEXTAREA,
+				'rows'       => 10,
+				'default'    => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices lectus at odio laoreet rutrum. Integer risus quam, euismod vitae lacus in, tempor efficitur orci.', 'boostify' ),
+				'placeholer' => esc_html__( 'Enter Answer', 'boostify' ),
 			)
 		);
-
 
 		$this->add_control(
 			'faq',
 			array(
-				'label' => esc_html__( 'FAQS', 'boostify' ),
-				'type' => Controls_Manager::REPEATER,
-				'fields' => $repeater->get_controls(),
-				'default' => array(
+				'label'       => esc_html__( 'FAQS', 'boostify' ),
+				'type'        => Controls_Manager::REPEATER,
+				'fields'      => $repeater->get_controls(),
+				'default'     => array(
 					array(
 						'question' => esc_html__( 'Can ', 'boostify' ),
-						'answer' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'boostify' )
-					)
+						'answer'   => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'boostify' ),
+					),
 				),
 				'title_field' => '{{{ question }}}'
 			)
@@ -324,10 +328,8 @@ class Faqs extends Base_Widget {
 
 		<div class="boostify-addon-widget boostify-faqs">
 			<div class="faqs-wrapper">
-
-
 				<?php
-					foreach ($settings['faq'] as $key => $faq) {
+					foreach ( $settings['faq'] as $key => $faq ) {
 				?>
 					<div class="boostify-faq">
 						<div class="boostify-question">

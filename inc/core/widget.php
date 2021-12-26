@@ -41,6 +41,12 @@ function boostify_list_widget() {
 					'name'  => 'table_of_content',
 					'label' => __( 'Table of Content', 'boostify' ),
 				),
+				array(
+					'key'   => 'Contact_Form7',
+					'name'  => 'contact_form7',
+					'label' => __( 'Contact Form 7', 'boostify' ),
+				),
+
 			),
 		),
 		'post'  => array(

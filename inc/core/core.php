@@ -113,7 +113,9 @@ function boostify_post_time() {
 	</span>
 	<?php
 }
-
+/**
+ * Return All Post Type
+ */
 function boostify_comment_count() {
 	$comment = get_comments_number();
 	?>
@@ -247,7 +249,7 @@ function boostify_taxonomies_by_post_type( $post_type ) {
 /**
  * Return All Post of Post Type
  *
- * @param string    $post_type  Post Type.
+ * @param string $post_type  Post Type.
  * @return array    $list_post  List Post of Post Type.
  */
 function boostify_post( $post_type ) {
@@ -272,12 +274,61 @@ function boostify_post( $post_type ) {
 	return $list_post;
 }
 
+/**
+ * Check contact form 7 active
+ */
+function check_contact_form7_active() {
+	return function_exists( 'wpcf7' );
+}
 
-function test_layout($layout)
-{
+/**
+ * Get list contact Form 7
+ */
+function get_list_contact_form7() {
+	$options = array();
+
+	if ( check_contact_form7_active() ) {
+		$wpcf7_form_list = get_posts(
+			array(
+				'post_type' => 'wpcf7_contact_form',
+				'showposts' => 999,
+			)
+		);
+		$options[0]      = esc_html__( 'Select a Contact Form', 'boostify' );
+		if ( ! empty( $wpcf7_form_list ) && ! is_wp_error( $wpcf7_form_list ) ) {
+			foreach ( $wpcf7_form_list as $post ) {
+				$options[ $post->ID ] = $post->post_title;
+			}
+		} else {
+			$options[0] = esc_html__( 'Create a Form First', 'boostify' );
+		}
+	}
+	return $options;
+}
+
+/**
+ * Check user can register
+ */
+function boostify_users_can_register() {
+	return get_option( 'users_can_register' );
+}
+
+/**
+ * Check user can register
+ */
+
+/**
+ * Demo for layout
+ *
+ * @param array $layout list layout type.
+ * @return array    $layout  List layout type.
+ */
+function test_layout( $layout ) {
 	$layout['test'] = 'test';
 
 	return $layout;
 }
 
 add_filter( 'boostify_testimonial_layout', 'test_layout', 10, 2 );
+
+
