@@ -46,7 +46,11 @@ function boostify_list_widget() {
 					'name'  => 'contact_form7',
 					'label' => __( 'Contact Form 7', 'boostify' ),
 				),
-
+				array(
+					'key'   => 'WP_Login_Register',
+					'name'  => 'wp_login_register',
+					'label' => __( 'Login Register', 'boostify' ),
+				),
 			),
 		),
 		'post'  => array(

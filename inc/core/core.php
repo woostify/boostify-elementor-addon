@@ -314,6 +314,23 @@ function boostify_users_can_register() {
 }
 
 /**
+ * Get User Roles
+ */
+function boostify_get_user_roles() {
+	$user_roles[''] = __( 'Default', 'boostify' );
+	if ( function_exists( 'get_editable_roles' ) ) {
+		$wp_roles = get_editable_roles();
+		$roles    = $wp_roles ? $wp_roles : array();
+		if ( ! empty( $roles ) && is_array( $roles ) ) {
+			foreach ( $wp_roles as $role_key => $role ) {
+				$user_roles[ $role_key ] = $role['name'];
+			}
+		}
+	}
+	return $user_roles;
+}
+
+/**
  * Check user can register
  */
 

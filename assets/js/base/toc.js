@@ -23,8 +23,6 @@
 			depth[includeTag[i]] = i;
 		}
 
-		console.log( setting );
-
 		heading.each( function( index ) {
 			$(this).before('<div id="boostify-toc-' + index +'"></div>');
 			var item = $(this),

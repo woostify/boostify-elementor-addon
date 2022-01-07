@@ -49,6 +49,9 @@ class Widgets {
 		$this->setup_hooks();
 	}
 
+	/**
+	 * Widget setup hooks
+	 */
 	private function setup_hooks() {
 
 		add_action( 'elementor/elements/categories_registered', array( $this, 'add_elementor_widget_categories' ) );
@@ -73,6 +76,8 @@ class Widgets {
 
 	/**
 	 * Register custom widget categories.
+	 *
+	 * @param (object) $elements_manager | Object elementor manager.
 	 */
 	public function add_elementor_widget_categories( $elements_manager ) {
 		$elements_manager->add_category(
@@ -101,16 +106,26 @@ class Widgets {
 	}
 
 	/**
-	 * widget_scripts
+	 * Widget_scripts
 	 *
 	 * Load required plugin core files.
 	 *
-	 * @since 1.2.0
+	 * @since 1.0.0
 	 * @access public
 	 */
 	public function widget_scripts() {
-		$suffix = $this->suffix();
+		$suffix                 = $this->suffix();
+		$recaptcha_sitekey      = get_option( 'boostify_recaptcha_site_key' );
+		$recaptcha_secretkey    = get_option( 'boostify_recaptcha_secret_key' );
+		$recaptcha_sitekey_v3   = get_option( 'boostify_recaptcha_v3_site_key' );
+		$recaptcha_secretkey_v3 = get_option( 'boostify_recaptcha_v3_secret_key' );
+		$recaptcha              = ( ! empty( $recaptcha_sitekey ) && ! empty( $recaptcha_sitekey ) ) ? true : false;
+		$recaptchav3            = ( ! empty( $recaptcha_sitekey_v3 ) && ! empty( $recaptcha_secretkey_v3 ) ) ? true : false;
+		$recaptcha_script       = array( 'jquery', 'google-recaptcha' );
 
+		if ( $recaptchav3 ) {
+			$recaptcha_sitekey = $recaptcha_sitekey_v3;
+		}
 		wp_register_script(
 			'masonry',
 			BOOSTIFY_ELEMENTOR_JS . 'masonry' . $suffix . '.js',
@@ -201,9 +216,50 @@ class Widgets {
 			BOOSTIFY_ELEMENTOR_VER,
 			true
 		);
+
+		wp_register_script(
+			'google-recaptcha',
+			'https://www.google.com/recaptcha/api.js?render=' . $recaptcha_sitekey,
+			array( 'jquery' ),
+			BOOSTIFY_ELEMENTOR_VER,
+			true
+		);
+
+		wp_register_script(
+			'boostify-addon-login-register',
+			BOOSTIFY_ELEMENTOR_JS . 'base/login-register' . $suffix . '.js',
+			$recaptcha_script,
+			BOOSTIFY_ELEMENTOR_VER,
+			true
+		);
+
+		$admin_vars = array(
+			'url'               => admin_url( 'admin-ajax.php' ),
+			'nonce'             => wp_create_nonce( 'boostify_wp_login_register' ),
+			'recaptcha_sitekey' => $recaptcha_sitekey,
+			'validate'          => array(
+				'user' => __( 'Username is required!' ),
+				'pass' => __( 'Password is required!' ),
+			),
+		);
+
+		wp_localize_script(
+			'boostify-addon-login-register',
+			'admin',
+			$admin_vars
+		);
+
 	}
 
 
+	/**
+	 * Scripts in preview mode
+	 *
+	 * Load widgets files
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
 	public function scripts_in_preview_mode() {
 		$suffix = $this->suffix();
 		wp_enqueue_script(

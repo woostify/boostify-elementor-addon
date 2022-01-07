@@ -192,8 +192,7 @@ function boostify_button_load_more( $text ) {
 /**
  * Post List Template
  *
- * @param string    $settings  Setting in elemetor.
- * @param string    $class  custom class.
+ * @param string $settings  Setting in elemetor.
  */
 function boostify_template_post_list( $settings ) {
 	$meta_data = $settings['meta_data'];
@@ -255,11 +254,21 @@ function boostify_template_post_list( $settings ) {
 	<?php
 }
 
-
+/**
+ * Post Slider Template
+ *
+ * @param string $settings  Setting in elemetor.
+ */
 function boostify_template_post_slider( $settings ) {
 	boostify_default_template( $settings, 'swiper-slide' );
 }
 
+
+/**
+ * Testimonial Template
+ *
+ * @param string $settings  Setting in elemetor.
+ */
 function boostify_template_testimonial_default( $settings ) {
 	$list        = $settings['testi'];
 	$layout      = $settings['layout'];
@@ -315,7 +324,11 @@ function boostify_template_testimonial_default( $settings ) {
 	<?php
 }
 
-
+/**
+ * Team member Template
+ *
+ * @param array $settings  Setting in elemetor.
+ */
 function boostify_template_teammember_default( $settings ) {
 	$name         = $settings['name'];
 	$position     = $settings['position'];
@@ -376,3 +389,84 @@ function boostify_template_teammember_default( $settings ) {
 	<?php
 }
 
+
+/**
+ * Team member Template
+ *
+ * @param string $settings  Setting in elemetor.
+ */
+function boostify_form_register( $settings ) {
+	?>
+
+		<div class="register-form-header">
+			<div class="form-header-wrapper">
+				<?php if ( ! empty( $settings['logo']['id'] ) ) : ?>
+					<div class="header-logo">
+						<?php
+							$image_url = \Elementor\Group_Control_Image_Size::get_attachment_image_src( $settings['logo']['id'], 'logo_size', $settings );
+
+						?>
+						<img class="header-logo-img" src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( 'Header Logo' ); ?>">
+
+					</div>
+				<?php endif ?>
+
+				<?php if ( ! empty( $settings['login_form_title'] ) ) : ?>
+					<div class="form-title">
+						<h3 class="title"><?php echo esc_html( $settings['login_form_title'] ); ?></h3>
+						<span class="form-subtitle">
+							<?php echo esc_html( $settings['login_form_subtitle'] ); ?>
+						</span>
+					</div>
+				<?php endif ?>
+			</div>
+		</div>
+		<form action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" class="wp-form-register">
+			<?php do_action( 'boostify_addon_register_form_before' ); ?>
+
+			<?php
+			var_dump( $settings['register_fields'] );
+
+			foreach ( $settings['register_fields'] as $f_index => $field ) :
+				$type = 'text';
+				switch ( $field['field_type'] ) {
+					case 'email':
+						$type = 'email';
+						break;
+
+					case 'password':
+					case 'confirm_pass':
+						$type = 'password';
+						break;
+
+					case 'website':
+						$type = 'url';
+						break;
+
+					default:
+						$type = 'text';
+						break;
+				}
+				?>
+				<div class="field-control <?php echo esc_attr( $field['field_type'] ); ?>">
+					<label for="boostify-field-<?php echo esc_attr( $field['_id'] ); ?>" class="field-label"><?php echo esc_html( $field['field_label'] ); ?></label>
+					<input type="<?php echo esc_attr( $type ); ?>" id="boostify-field-<?php echo esc_attr( $field['_id'] ); ?>" name="<?php echo esc_attr( $field['field_type'] ); ?>">
+				</div>
+				<?php
+
+			endforeach;
+			?>
+
+
+			<?php do_action( 'boostify_addon_register_form_after' ); ?>
+			<div class="field-control field-submit">
+				<?php if ( 'yes' == $settings['redirect_after_login'] && $settings['redirect_url']['url'] ) : //phpcs:ignore ?>
+					<input type="hidden" name="redirect_url" value="<?php echo esc_url( $settings['redirect_url']['url'] ); ?>">
+				<?php endif ?>
+
+				<button type="submit" class="btn-submit btn-login"><?php echo esc_html( $settings['login_button_text'] ); ?></button>
+			</div>
+		</form>
+
+	<?php
+}

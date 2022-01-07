@@ -80,6 +80,51 @@ class Admin {
 	}
 
 	/**
+	 * Settings screen admin menu
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function setting_screen() {
+		?>
+		<div class="boostify-elementor-addon-settings">
+			<div class="boostify-elementor-settings-wrapper">
+				<form method="post" action="options.php">
+					<?php settings_fields( 'boostify_elementor_addon' ); ?>
+					<div class="form-setting-header">
+						<div class="header-left">
+							<div class="logo">
+								<img src="<?php echo esc_url( BOOSTIFY_ELEMENTOR_IMG . 'logo.png' ); ?>" alt="<?php echo esc_attr( 'Boostify Logo' ); ?>">
+							</div>
+							<h2 class="title"><?php echo esc_html__( 'Boostify Elementor Addons Settings', 'boostify' ); ?></h2>
+						</div>
+						<div class="header-right">
+							<?php submit_button(); ?>
+						</div>
+					</div>
+
+					<div class="form-setting-content">
+						<div class="form-content-wrapper">
+							<div class="form-content-header">
+								<h2 class="title-content-header"><?php echo esc_html__( 'Settings', 'boostify' ); ?></h2>
+							</div>
+							<div class="form-content-setting">
+
+							</div>
+						</div>
+					</div>
+
+					<div class="form-button">
+						<?php submit_button(); ?>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<?php
+	}
+
+	/**
 	 * Register admin style
 	 *
 	 * @since 1.0.0
@@ -135,6 +180,46 @@ class Admin {
 				);
 			}
 		}
+
+		register_setting(
+			'boostify_elementor_addon',
+			'boostify_recaptcha_site_key',
+			array(
+				'type'              => 'string',
+				'show_in_rest'      => true,
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		register_setting(
+			'boostify_elementor_addon',
+			'boostify_recaptcha_secret_key',
+			array(
+				'type'              => 'string',
+				'show_in_rest'      => true,
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		register_setting(
+			'boostify_elementor_addon',
+			'boostify_recaptcha_v3_site_key',
+			array(
+				'type'              => 'string',
+				'show_in_rest'      => true,
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		register_setting(
+			'boostify_elementor_addon',
+			'boostify_recaptcha_v3_secret_key',
+			array(
+				'type'              => 'string',
+				'show_in_rest'      => true,
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
 	}
 
 	/**
@@ -145,6 +230,12 @@ class Admin {
 	 */
 	public function setting_page() {
 		$data = boostify_list_widget();
+		$options = array(
+			'boostify_recaptcha_site_key'      => get_option( 'boostify_recaptcha_site_key' ),
+			'boostify_recaptcha_secret_key'    => get_option( 'boostify_recaptcha_secret_key' ),
+			'boostify_recaptcha_v3_site_key'   => get_option( 'boostify_recaptcha_v3_site_key' ),
+			'boostify_recaptcha_v3_secret_key' => get_option( 'boostify_recaptcha_v3_secret_key' ),
+		);
 		?>
 
 		<div class="boostify-elementor-addon-settings">
@@ -165,39 +256,98 @@ class Admin {
 
 					<div class="form-setting-content">
 						<div class="form-content-wrapper">
-							<div class="form-content-header">
-								<h2 class="title-content-header"><?php echo esc_html__( 'GLOBAL CONTROL', 'boostify' ); ?></h2>
+							<ul class="list-tab">
+								<li class="tab-item"><a href="#controls" class="tab active" ><?php echo esc_html__( 'Controls', 'boostify' ); ?></a></li>
+								<li class="tab-item"><a href="#settings" class="tab" ><?php echo esc_html__( 'Settings', 'boostify' ); ?></a></li>
+							</ul>
+							<div class="content-wrapper">
+								<div class="tab-content tab-controls active" id="controls">
+									<div class="form-content-header">
+										<h2 class="title-content-header"><?php echo esc_html__( 'GLOBAL CONTROL', 'boostify' ); ?></h2>
 
-								<div class="lis-action-togle">
-									<button class="btn-enable-widget btn-action"><?php echo esc_html__( 'Enable All', 'boostify' ); ?></button>
-									<button class="btn-disable-widget btn-action"><?php echo esc_html__( 'Disable All', 'boostify' ); ?></button>
-								</div>
-							</div>
-							<div class="form-content-setting">
-								<div class="list-widget-setting">
-									<?php foreach ( $data as $widget_group ) : ?>
-										<div class="widget-group">
-											<div class="group-title">
-												<h3 class="title" data-title="<?php echo esc_attr( $widget_group['value'] ); ?>"><?php echo esc_html( $widget_group['label'] ); ?></h3>
-											</div>
-											<div class="form-widget-group">
-												<?php foreach ( $widget_group['widget'] as $widget ) : ?>
-													<?php
-														$check = ( 'on' == get_option( $widget['name'] ) ) ? 'checked' : ''; //phpcs:ignore
-													?>
-													<div class="widget-item">
-														<label><?php echo esc_html( $widget['label'] ); ?></label>
-														<label class="widget-switch">
-															<input type="checkbox" class="widget-check" name="<?php echo esc_attr( $widget['name'] ); ?>" <?php echo esc_attr( $check ); ?>>
-															<span class="widget-slider round"></span>
-														</label>
-													</div>
-												<?php endforeach ?>
-
-											</div>
+										<div class="lis-action-togle">
+											<button class="btn-enable-widget btn-action"><?php echo esc_html__( 'Enable All', 'boostify' ); ?></button>
+											<button class="btn-disable-widget btn-action"><?php echo esc_html__( 'Disable All', 'boostify' ); ?></button>
 										</div>
-									<?php endforeach ?>
-									<?php do_action( 'boostify_addons_toggle' ); ?>
+									</div>
+									<div class="form-content-setting">
+										<div class="list-widget-setting">
+											<?php do_action( 'boostify_addons_toggle_before' ); ?>
+											<?php foreach ( $data as $widget_group ) : ?>
+												<div class="widget-group">
+													<div class="group-title">
+														<h3 class="title" data-title="<?php echo esc_attr( $widget_group['value'] ); ?>"><?php echo esc_html( $widget_group['label'] ); ?></h3>
+													</div>
+													<div class="form-widget-group">
+														<?php foreach ( $widget_group['widget'] as $widget ) : ?>
+															<?php
+																$check = ( 'on' == get_option( $widget['name'] ) ) ? 'checked' : ''; //phpcs:ignore
+															?>
+															<div class="widget-item">
+																<label><?php echo esc_html( $widget['label'] ); ?></label>
+																<label class="widget-switch">
+																	<input type="checkbox" class="widget-check" name="<?php echo esc_attr( $widget['name'] ); ?>" <?php echo esc_attr( $check ); ?>>
+																	<span class="widget-slider round"></span>
+																</label>
+															</div>
+														<?php endforeach ?>
+
+													</div>
+												</div>
+											<?php endforeach ?>
+											<?php do_action( 'boostify_addons_toggle_after' ); ?>
+										</div>
+									</div>
+								</div>
+								<div class="tab-content tab-controls" id="settings">
+									<div class="form-content-header">
+										<h2 class="title-content-header"><?php echo esc_html__( 'Global Settings', 'boostify' ); ?></h2>
+									</div>
+									<div class="form-content-setting">
+										<div class="list-setting">
+											<?php do_action( 'boostify_addons_settings_before' ); ?>
+											<div class="form-control-box box-recaptcha">
+												<div class="box-heading">
+													<h3 class="box-title"><?php echo esc_attr( 'reCAPTCHA' ); ?></h3>
+													<span class="box-description">
+														<?php echo esc_html__( 'reCAPTCHA is a free service by Google that protects your website from spam and abuse. It does this while letting your valid users pass through with ease.', 'boostify' ); ?>
+														<a href="<?php echo esc_url( 'https://www.google.com/recaptcha/admin/create/' ); ?>"><?php echo esc_attr( 'Create reCAPTCHA' ); ?></a>
+													</span>
+												</div>
+
+												<div class="form-control">
+													<label for="recaptcha-site-key" class="form-lable"><?php echo esc_html__( 'Site Key' ); ?></label>
+													<input type="text" id="recaptcha-site-key" class="form-input" name="boostify_recaptcha_site_key" value="<?php echo esc_attr( $options['boostify_recaptcha_site_key'] ); ?>" >
+												</div>
+												<div class="form-control">
+													<label for="recaptcha-site-key" class="form-lable"><?php echo esc_html__( 'Site Key' ); ?></label>
+													<input type="text" id="recaptcha-site-key" class="form-input" name="boostify_recaptcha_secret_key" value="<?php echo esc_attr( $options['boostify_recaptcha_secret_key'] ); ?>" >
+												</div>
+
+											</div>
+
+											<div class="form-control-box box-recaptcha">
+												<div class="box-heading">
+													<h3 class="box-title"><?php echo esc_attr( 'reCAPTCHA v3' ); ?></h3>
+													<span class="box-description">
+														<?php echo esc_html__( 'reCAPTCHA v3 is a free service by Google that protects your website from spam and abuse. It does this while letting your valid users pass through with ease.', 'boostify' ); ?>
+														<a href="<?php echo esc_url( 'https://www.google.com/recaptcha/admin/create/' ); ?>"><?php echo esc_attr( 'Create reCAPTCHA v3' ); ?></a>
+													</span>
+												</div>
+
+												<div class="form-control">
+													<label for="recaptcha-site-key" class="form-lable"><?php echo esc_html__( 'Site Key' ); ?></label>
+													<input type="text" id="recaptcha-site-key" class="form-input" name="boostify_recaptcha_v3_site_key" value="<?php echo esc_attr( $options['boostify_recaptcha_v3_site_key'] ); ?>" >
+												</div>
+												<div class="form-control">
+													<label for="recaptcha-site-key" class="form-lable"><?php echo esc_html__( 'Site Key' ); ?></label>
+													<input type="text" id="recaptcha-site-key" class="form-input" name="boostify_recaptcha_v3_secret_key" value="<?php echo esc_attr( $options['boostify_recaptcha_v3_secret_key'] ); ?>" >
+												</div>
+
+											</div>
+											<?php do_action( 'boostify_addons_settings_after' ); ?>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

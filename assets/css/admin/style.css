@@ -178,3 +178,66 @@
 .lis-action-togle .btn-action.btn-enable-widget {
   background-color: #007cba;
 }
+
+.list-tab {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+
+.list-tab .tab-item {
+  margin-bottom: 0;
+}
+
+.list-tab .tab {
+  display: block;
+  padding: 8px 15px;
+  color: #666;
+  font-size: 14px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  margin-right: 10px;
+  font-weight: 600;
+  transition: .3s all;
+  background: #f8fafb;
+}
+
+.list-tab .tab.active {
+  color: #000;
+  background: #fff;
+}
+
+.form-setting-content .tab-content {
+  display: none;
+  transition: .3s all;
+}
+
+.form-setting-content .tab-content.active {
+  display: block;
+}
+
+.list-setting .box-heading {
+  margin-bottom: 30px;
+}
+
+.list-setting .box-heading .box-title {
+  margin-bottom: 8px;
+}
+
+.list-setting .form-lable {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.list-setting .form-control {
+  margin-bottom: 15px;
+}
+
+.list-setting .form-input {
+  width: 580px;
+}
+
+.list-setting .form-control-box {
+  margin-bottom: 40px;
+}
