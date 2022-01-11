@@ -1,0 +1,264 @@
+.boostify-wp-login-register {
+	.wp-login-register-wrapper {
+		margin: 0 auto;
+		display: flex;
+		justify-content: center;
+	}
+
+	.boostify-form {
+		width: 500px;
+		padding: 45px 30px 50px;
+		border-radius: 5px;
+		box-shadow: 1px 3px 16px rgba(0, 0, 0, 0.16);
+		position: relative;
+
+		&:before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(255, 255, 255, 0.5);
+			content: "";
+			display: none;
+		}
+
+		&:after {
+			border: 4px solid #f3f3f3;
+			border-top: 4px solid #0f60d7;
+			border-left: 4px solid #0f60d7;
+			border-radius: 50%;
+			width: 30px;
+			height: 30px;
+			animation: spin .5s linear infinite;
+			content: "";
+			display: none;
+			position: absolute;
+			left: calc( ( 100% - 30px )/2 );
+			top: calc( ( 100% - 30px )/2 );
+		}
+
+		&.loading {
+			&:before,
+			&:after {
+				display: block;
+			}
+		}
+	}
+
+	.form-action-footer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.field-wrapper {
+		position: relative;
+	}
+
+	.visibility-password {
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		padding: 2px 15px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.btn-submit {
+		background: #0f60d7;
+		background: -moz-linear-gradient(90deg, #0f60d7 0%, #2290f4 100%);
+		background: -webkit-linear-gradient( 90deg, #0f60d7 0%, #2290f4 100%);
+		background: linear-gradient( 90deg, #0f60d7 0%, #2290f4 100%);
+		border: none;
+		padding: 10px 35px;
+		color: #fff;
+		font-weight: 500;
+	}
+
+	.field-control {
+		&:not(:last-child) {
+			margin-bottom: 15px;
+		}
+
+		&.error {
+			.field-input {
+				border: 1px solid red;
+			}
+		}
+
+		.boostify-error {
+			color: red;
+			font-size: 14px;
+			font-style: italic;
+		}
+	}
+
+	.form-bottom-actions {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.field-label {
+		margin-bottom: 5px;
+		font-weight: 500;
+		font-size: 14px;
+	}
+
+
+	.field-checkbox-label {
+		display: flex;
+		align-items: center;
+
+		.label {
+			margin-left: 8px;
+		}
+	}
+
+	.boostify-field {
+		border-radius: 5px;
+		border: 1px solid #eee;
+	}
+
+	.field-checkbox {
+		display: none;
+
+		&:checked {
+
+			&~.checkmark {
+				background: #333;
+				border: 1px solid #333;
+
+				&:after {
+					display: block;
+				}
+			}
+
+		}
+	}
+
+	.checkmark {
+		height: 15px;
+		width: 15px;
+		border: 1px solid #ddd;
+		border-radius: 3px;
+		position: relative;
+
+		&:after {
+			position: absolute;
+			display: none;
+			left: 4px;
+			top: 1px;
+			width: 5px;
+			height: 9px;
+			border: solid #fff;
+			border-width: 0 2px 2px 0;
+			-webkit-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			transform: rotate(45deg);
+			content: "";
+		}
+	}
+
+	.form-popup {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba( 0, 0, 0, 0.3 );
+		display: flex;
+		align-items: center;
+		opacity: 0;
+		z-index: -1;
+		transition: .3s all;
+
+		.form-popup-wrapper {
+			max-width: 900px;
+			margin: 0 auto;
+			max-height: 90vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 2;
+
+			.boostify-form {
+				background: #fff;
+				overflow-y: scroll;
+			}
+		}
+
+		.popup-overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba( 0, 0, 0, 0.3 );
+			z-index: 1;
+		}
+
+		&.show {
+			z-index: 999999;
+			opacity: 1;
+
+
+		}
+	}
+
+	.has-icon {
+		position: relative;
+
+		.menu-item-icon {
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			display: flex;
+			width: 30px;
+			align-items: center;
+			justify-content: center;
+
+			&~ input {
+				padding-left: 45px;
+			}
+		}
+	}
+
+	.mark-required {
+		&:after {
+			display: inline-block;
+			content: "*";
+			margin-left: 3px;
+		}
+	}
+
+	/* width */
+	::-webkit-scrollbar {
+		width: 5px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: #888;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #555;
+	}
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}

@@ -356,6 +356,260 @@
   content: '\f0aa';
 }
 
+.boostify-wp-login-register {
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.boostify-wp-login-register .wp-login-register-wrapper {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.boostify-wp-login-register .boostify-form {
+  width: 500px;
+  padding: 45px 30px 50px;
+  border-radius: 5px;
+  box-shadow: 1px 3px 16px rgba(0, 0, 0, 0.16);
+  position: relative;
+}
+
+.boostify-wp-login-register .boostify-form:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.5);
+  content: "";
+  display: none;
+}
+
+.boostify-wp-login-register .boostify-form:after {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #0f60d7;
+  border-left: 4px solid #0f60d7;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin .5s linear infinite;
+  content: "";
+  display: none;
+  position: absolute;
+  left: calc( ( 100% - 30px )/2);
+  top: calc( ( 100% - 30px )/2);
+}
+
+.boostify-wp-login-register .boostify-form.loading:before, .boostify-wp-login-register .boostify-form.loading:after {
+  display: block;
+}
+
+.boostify-wp-login-register .form-action-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.boostify-wp-login-register .field-wrapper {
+  position: relative;
+}
+
+.boostify-wp-login-register .visibility-password {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 2px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boostify-wp-login-register .btn-submit {
+  background: #0f60d7;
+  background: -moz-linear-gradient(90deg, #0f60d7 0%, #2290f4 100%);
+  background: -webkit-linear-gradient(90deg, #0f60d7 0%, #2290f4 100%);
+  background: linear-gradient(90deg, #0f60d7 0%, #2290f4 100%);
+  border: none;
+  padding: 10px 35px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.boostify-wp-login-register .field-control:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.boostify-wp-login-register .field-control.error .field-input {
+  border: 1px solid red;
+}
+
+.boostify-wp-login-register .field-control .boostify-error {
+  color: red;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.boostify-wp-login-register .form-bottom-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.boostify-wp-login-register .field-label {
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.boostify-wp-login-register .field-checkbox-label {
+  display: flex;
+  align-items: center;
+}
+
+.boostify-wp-login-register .field-checkbox-label .label {
+  margin-left: 8px;
+}
+
+.boostify-wp-login-register .boostify-field {
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+
+.boostify-wp-login-register .field-checkbox {
+  display: none;
+}
+
+.boostify-wp-login-register .field-checkbox:checked ~ .checkmark {
+  background: #333;
+  border: 1px solid #333;
+}
+
+.boostify-wp-login-register .field-checkbox:checked ~ .checkmark:after {
+  display: block;
+}
+
+.boostify-wp-login-register .checkmark {
+  height: 15px;
+  width: 15px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  position: relative;
+}
+
+.boostify-wp-login-register .checkmark:after {
+  position: absolute;
+  display: none;
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  content: "";
+}
+
+.boostify-wp-login-register .form-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  z-index: -1;
+  transition: .3s all;
+}
+
+.boostify-wp-login-register .form-popup .form-popup-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  max-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.boostify-wp-login-register .form-popup .form-popup-wrapper .boostify-form {
+  background: #fff;
+  overflow-y: scroll;
+}
+
+.boostify-wp-login-register .form-popup .popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.boostify-wp-login-register .form-popup.show {
+  z-index: 999999;
+  opacity: 1;
+}
+
+.boostify-wp-login-register .has-icon {
+  position: relative;
+}
+
+.boostify-wp-login-register .has-icon .menu-item-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  width: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.boostify-wp-login-register .has-icon .menu-item-icon ~ input {
+  padding-left: 45px;
+}
+
+.boostify-wp-login-register .mark-required:after {
+  display: inline-block;
+  content: "*";
+  margin-left: 3px;
+}
+
+.boostify-wp-login-register ::-webkit-scrollbar {
+  width: 5px;
+}
+
+.boostify-wp-login-register ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.boostify-wp-login-register ::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.boostify-wp-login-register ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .boostify-price-table {
   text-align: center;
 }

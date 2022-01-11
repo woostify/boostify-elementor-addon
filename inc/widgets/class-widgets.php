@@ -238,8 +238,9 @@ class Widgets {
 			'nonce'             => wp_create_nonce( 'boostify_wp_login_register' ),
 			'recaptcha_sitekey' => $recaptcha_sitekey,
 			'validate'          => array(
-				'user' => __( 'Username is required!' ),
-				'pass' => __( 'Password is required!' ),
+				'user'  => __( 'Username is required!' ),
+				'pass'  => __( 'Password is required!' ),
+				'email' => __( 'Email is required!' ),
 			),
 		);
 

@@ -152,7 +152,7 @@ function boostify_template_post_grid_masonry( $settings ) {
 /**
  * Pagination
  *
- * @param int    $total_page .
+ * @param int $total_page .
  */
 function boostify_pagination( $total_page ) {
 	if ( $total_page > 1 ) {
@@ -389,15 +389,52 @@ function boostify_template_teammember_default( $settings ) {
 	<?php
 }
 
+/**
+ * Render google recaptcha template.
+ *
+ * @param int $id Widget ID.
+ * @since 1.0.0
+ */
+function boostify_get_google_recaptcha( $id ) {
+	$recaptcha_sitekey      = get_option( 'boostify_recaptcha_site_key' );
+	$recaptcha_secretkey    = get_option( 'boostify_recaptcha_secret_key' );
+	$recaptcha_sitekey_v3   = get_option( 'boostify_recaptcha_v3_site_key' );
+	$recaptcha_secretkey_v3 = get_option( 'boostify_recaptcha_v3_secret_key' );
+	$recaptcha              = ( ! empty( $recaptcha_sitekey ) && ! empty( $recaptcha_sitekey ) ) ? true : false;
+	$recaptchav3            = ( ! empty( $recaptcha_sitekey_v3 ) && ! empty( $recaptcha_secretkey_v3 ) ) ? true : false;
+	if ( $recaptchav3 ) {
+		$recaptcha_sitekey = $recaptcha_sitekey_v3;
+	}
+	?>
+	<div class="field-control fiel-recaptcha">
+		<input type="hidden" value="<?php echo esc_html( $recaptcha_sitekey ); ?>" name="g-recaptcha">
+		<div id="g-recaptcha-register-<?php echo esc_attr( $id ); ?>" class="g-recaptcha"></div>
+	</div>
+	<?php
+}
 
 /**
  * Team member Template
  *
  * @param string $settings  Setting in elemetor.
+ * @param int    $id Widget ID.
+ *
+ * @since 1.0.0
  */
-function boostify_form_register( $settings ) {
-	?>
+function boostify_form_register( $settings, $id ) {
+	$recaptcha_sitekey      = get_option( 'boostify_recaptcha_site_key' );
+	$recaptcha_secretkey    = get_option( 'boostify_recaptcha_secret_key' );
+	$recaptcha_sitekey_v3   = get_option( 'boostify_recaptcha_v3_site_key' );
+	$recaptcha_secretkey_v3 = get_option( 'boostify_recaptcha_v3_secret_key' );
+	$recaptcha              = ( ! empty( $recaptcha_sitekey ) && ! empty( $recaptcha_sitekey ) ) ? true : false;
+	$recaptchav3            = ( ! empty( $recaptcha_sitekey_v3 ) && ! empty( $recaptcha_secretkey_v3 ) ) ? true : false;
+	if ( $recaptchav3 ) {
+		$recaptcha_sitekey = $recaptcha_sitekey_v3;
+	}
 
+	$register_action = is_string( $settings['register_action'] ) ? array( $settings['register_action'] ) : $settings['register_action'];
+
+	?>
 		<div class="register-form-header">
 			<div class="form-header-wrapper">
 				<?php if ( ! empty( $settings['logo']['id'] ) ) : ?>
@@ -411,22 +448,20 @@ function boostify_form_register( $settings ) {
 					</div>
 				<?php endif ?>
 
-				<?php if ( ! empty( $settings['login_form_title'] ) ) : ?>
+				<?php if ( ! empty( $settings['register_form_title'] ) ) : ?>
 					<div class="form-title">
-						<h3 class="title"><?php echo esc_html( $settings['login_form_title'] ); ?></h3>
+						<h3 class="title"><?php echo esc_html( $settings['register_form_title'] ); ?></h3>
 						<span class="form-subtitle">
-							<?php echo esc_html( $settings['login_form_subtitle'] ); ?>
+							<?php echo esc_html( $settings['register_form_subtitle'] ); ?>
 						</span>
 					</div>
 				<?php endif ?>
 			</div>
 		</div>
-		<form action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" class="wp-form-register">
+		<form class="wp-form-register">
 			<?php do_action( 'boostify_addon_register_form_before' ); ?>
 
 			<?php
-			var_dump( $settings['register_fields'] );
-
 			foreach ( $settings['register_fields'] as $f_index => $field ) :
 				$type = 'text';
 				switch ( $field['field_type'] ) {
@@ -447,24 +482,146 @@ function boostify_form_register( $settings ) {
 						$type = 'text';
 						break;
 				}
+
+				$label_class  = 'field-label';
+				$label_class .= ( 'yes' == $field['required'] || 'username' == $field['field_type'] || 'email' == $field['field_type'] ) ? ' required' : ''; //phpcs:ignore
+				$label_class .= ( 'yes' == $settings['mark_required'] ) ? ' mark-required' : ''; //phpcs:ignore
+
+				$field_class  = 'field-control ' . $field['field_type'];
+				$field_class .= ( ! empty( $settings['width'] ) ) ? ' boostify-col-' . $settings['width'] : '';
+				$field_class .= ( ! empty( $settings['width_tablet'] ) ) ? ' elementor-md-' . $settings['width_tablet'] : '';
+				$field_class .= ( ! empty( $settings['width_mobile'] ) ) ? ' elementor-sm-' . $settings['width_mobile'] : '';
+				$field_class .= ( 'yes' == $field['required'] || 'username' == $field['field_type'] || 'email' == $field['field_type'] ) ? ' field-required' : ''; //phpcs:ignore
+				$required = ( 'yes' == $field['required'] || 'username' == $field['field_type'] || 'email' == $field['field_type'] ) ? 'required' : ''; //phpcs:ignore
+
 				?>
-				<div class="field-control <?php echo esc_attr( $field['field_type'] ); ?>">
-					<label for="boostify-field-<?php echo esc_attr( $field['_id'] ); ?>" class="field-label"><?php echo esc_html( $field['field_label'] ); ?></label>
-					<input type="<?php echo esc_attr( $type ); ?>" id="boostify-field-<?php echo esc_attr( $field['_id'] ); ?>" name="<?php echo esc_attr( $field['field_type'] ); ?>">
+				<div class="<?php echo esc_attr( $field_class ); ?>">
+					<?php if ( 'yes' == $settings['show_labels'] ) : //phpcs:ignore ?>
+						<label for="boostify-field-<?php echo esc_attr( $field['_id'] ); ?>" class="<?php echo esc_attr( $label_class ); ?>"><?php echo esc_html( $field['field_label'] ); ?></label>
+					<?php endif ?>
+					<input type="<?php echo esc_attr( $type ); ?>" id="boostify-field-<?php echo esc_attr( $field['_id'] ); ?>" class="field-input boostify-field" name="<?php echo esc_attr( $field['field_type'] ); ?>" placeholder="<?php echo esc_attr( $field['placeholder'] ); ?>" <?php echo esc_attr( $required ); ?>>
+					<div class="boostify-error"></div>
 				</div>
 				<?php
 
 			endforeach;
+
+			do_action( 'boostify_before_register_google_recaptcha' );
+
+			if ( 'yes' == $settings['enable_register_recaptcha'] ): //phpcs:ignore
+				boostify_get_google_recaptcha( $id );
+			endif;
+
 			?>
 
-
 			<?php do_action( 'boostify_addon_register_form_after' ); ?>
-			<div class="field-control field-submit">
-				<?php if ( 'yes' == $settings['redirect_after_login'] && $settings['redirect_url']['url'] ) : //phpcs:ignore ?>
-					<input type="hidden" name="redirect_url" value="<?php echo esc_url( $settings['redirect_url']['url'] ); ?>">
+				<?php if ( 'yes' == $settings['show_terms_conditions'] ) : //phpcs:ignore ?>
+					<div class="field-control field-terms-conditions">
+						<label for="label-terms-<?php echo esc_attr( $id ); ?>" class="field-label">
+							<input type="checkbox" name="terms_conditions" class=" field-checkbox boostify-field" value="1" id="label-terms-<?php echo esc_attr( $id ); ?>">
+							<span class="checkmark"></span>
+							<span class="label-terms">
+								<?php
+								$url        = '#';
+								$attributes = '';
+								if ( 'custom' == $settings['acceptance_text_source'] && $settings['acceptance_text_url']['url'] ) { // phpcs:ignore
+									$url         = $settings['acceptance_text_url']['url'];
+									$attributes .= ! empty( $settings['acceptance_text_url']['is_external'] ) ? ' target="_blank"' : '';
+									$attributes .= ! empty( $settings['acceptance_text_url']['nofollow'] ) ? ' rel="nofollow"' : '';
+								}
+
+								$html  = '<a href="' . $url . '" class="term-conditions_link"' . $attributes . '>';
+								$label = str_replace( '[', $html, $settings['acceptance_label'] );
+								$label = str_replace( ']', '</a>', $label );
+								echo wp_kses(
+									$label,
+									array(
+										'a' => array(
+											'class'  => array(),
+											'href'   => array(),
+											'id'     => array(),
+											'target' => array(),
+											'rel'    => array(),
+										),
+									)
+								);
+								?>
+							</span>
+						</label>
+						<?php if ( 'editor' == $settings['acceptance_text_source'] ) : //phpcs:ignore ?>
+							<div class="boostify-terms-conditions-popup">
+								<div class="terms-conditions-popup-wrapper">
+									<?php echo $settings['acceptance_text']; // phpcs:ignore ?>
+								</div>
+							</div>
+						<?php endif ?>
+					</div>
+				<?php endif ?>
+			<div class="form-action-footer">
+				<div class="field-control field-submit">
+					<div class="group-control">
+						<?php if ( ! empty( $settings['register_action'] ) ) : ?>
+							<input type="hidden" value="<?php echo esc_html( implode( ',', $register_action ) ); ?>" name="register_action">
+						<?php endif ?>
+
+						<?php if ( 'yes' == $settings['enable_register_recaptcha'] ) : // phpcs:ignore ?>
+							<input type="hidden" value="<?php echo esc_html( $recaptcha_sitekey ); ?>" name="g-recaptcha">
+						<?php endif ?>
+						<?php if ( ! empty( $settings['register_action'] ) && in_array( 'redirect', $register_action ) && $settings['register_redirect_url']['url'] ) : //phpcs:ignore ?>
+							<input type="hidden" name="register_redirect_url" value="<?php echo esc_url( $settings['register_redirect_url']['url'] ); ?>">
+						<?php endif ?>
+						<?php if ( 'custom' == $settings['reg_admin_email_template_type'] ) : // phpcs:ignore ?>
+							<?php if ( ! empty( $settings['reg_admin_email_subject'] ) ) : ?>
+								<input type="hidden" value="<?php echo esc_html( $settings['reg_admin_email_subject'] ); ?>" name="admin_email_subject">
+							<?php endif ?>
+							<?php if ( ! empty( $settings['reg_admin_email_message'] ) ) : ?>
+								<input type="hidden" value="<?php echo esc_html( $settings['reg_admin_email_message'] ); ?>" name="admin_email_message">
+							<?php endif ?>
+							<input type="hidden" value="<?php echo esc_html( $settings['reg_admin_email_content_type'] ); ?>" name="admin_email_content_type">
+						<?php endif ?>
+						<?php if ( 'custom' == $settings['reg_email_template_type'] ) : // phpcs:ignore ?>
+							<?php if ( ! empty( $settings['reg_email_subject'] ) ) : ?>
+								<input type="hidden" value="<?php echo esc_html( $settings['reg_email_subject'] ); ?>" name="email_subject">
+							<?php endif ?>
+							<?php if ( ! empty( $settings['reg_email_message'] ) ) : ?>
+								<input type="hidden" value="<?php echo esc_html( $settings['reg_email_message'] ); ?>" name="email_message">
+							<?php endif ?>
+							<input type="hidden" value="<?php echo esc_html( $settings['reg_email_content_type'] ); ?>" name="email_content_type">
+						<?php endif ?>
+					</div>
+
+
+					<button type="submit" class="btn-submit btn-register"><?php echo esc_html( $settings['register_button_text'] ); ?></button>
+				</div>
+				<?php if ( 'yes' == $settings['show_login_link'] ) : //phpcs:ignore ?>
+					<?php
+					$link      = '#';
+					$link_atts = '';
+					switch ( $settings['login_link_action'] ) {
+						case 'default':
+							$link = wp_registration_url();
+							break;
+
+						case 'custom':
+							if ( ! empty( $settings['custom_login_url']['url'] ) ) {
+								$link       = $settings['custom_login_url']['url'];
+								$link_atts  = ! empty( $settings['custom_login_url']['is_external'] ) ? ' target="_blank"' : '';
+								$link_atts .= ! empty( $settings['custom_login_url']['nofollow'] ) ? ' rel="nofollow"' : '';
+							}
+							break;
+
+						default:
+							$link = '#';
+							break;
+					}
+					?>
+				<div class="field-control field-login field-link">
+					<a href="<?php echo esc_url( $link ); ?>" <?php echo $link_atts; //phpcs:ignore ?>>
+						<?php echo esc_html( $settings['login_link_text'] ); ?>
+					</a>
+				</div>
 				<?php endif ?>
 
-				<button type="submit" class="btn-submit btn-login"><?php echo esc_html( $settings['login_button_text'] ); ?></button>
 			</div>
 		</form>
 
