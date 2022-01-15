@@ -323,7 +323,7 @@ class Widgets {
 	public function init_widgets() {
 		$this->autoload_widgets();
 		$list_widget = $this->get_widgets();
-		// Its is now safe to include Widgets files
+		// Its is now safe to include Widgets files.
 		$widget_manager = \Elementor\Plugin::instance()->widgets_manager;
 		foreach ( $list_widget as $widgets ) {
 			foreach ( $widgets as $widget ) {
@@ -333,6 +333,14 @@ class Widgets {
 		}
 	}
 
+	/**
+	 * Register Style
+	 *
+	 * Load widgets files
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
 	public function style() {
 		wp_enqueue_style(
 			'boostify-addon-style',
@@ -349,6 +357,14 @@ class Widgets {
 		);
 	}
 
+	/**
+	 * Register Icon
+	 *
+	 * Load widgets files
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
 	public function enqueue_icon() {
 		wp_enqueue_style(
 			'boostify-font',
@@ -372,19 +388,35 @@ class Widgets {
 		);
 	}
 
+	/**
+	 * Custom elemetor core.
+	 *
+	 * Add custom control
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
 	public function register_core() {
 		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'class-base-widget.php';
 		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'post/base/class-posts.php';
 		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'post/base/class-post-base.php';
+		include_once BOOSTIFY_ELEMENTOR_WIDGET . 'woocommerce/base/class-woocommerce.php';
 	}
 
-
+	/**
+	 * Register Layout
+	 *
+	 * Load widgets files
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
 	public function elementor_loaded() {
 		new \Boostify_Elementor\Posts\Skin\Layout();
 		new \Boostify_Elementor\Basic\Skin\Layout();
 	}
 
 }
-// Instantiate Boostify_Elementor_Addon Class
+// Instantiate Boostify_Elementor_Addon Class.
 Widgets::instance();
 

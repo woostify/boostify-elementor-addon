@@ -627,3 +627,18 @@ function boostify_form_register( $settings, $id ) {
 
 	<?php
 }
+
+
+/**
+ * Product Grid template.
+ *
+ * @param array $settings | Settings widget.
+ * @since 1.0.0
+ */
+function boostify_product_grid( $settings ) {
+	?>
+	<div class="boosty-product product-item">
+		<?php woocommerce_template_loop_product_thumbnail(); ?>
+	</div>	
+	<?php
+}

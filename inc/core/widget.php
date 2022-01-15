@@ -2,7 +2,7 @@
 
 function boostify_list_widget() {
 	$list_widget = array(
-		'basic' => array(
+		'basic'       => array(
 			'label'  => __( 'General', 'boostify' ),
 			'value'  => 'base',
 			'widget' => array(
@@ -53,7 +53,7 @@ function boostify_list_widget() {
 				),
 			),
 		),
-		'post'  => array(
+		'post'        => array(
 			'label'  => __( 'Post', 'boostify' ),
 			'value'  => 'post',
 			'widget' => array(
@@ -76,6 +76,17 @@ function boostify_list_widget() {
 					'key'   => 'Breadcrumb',
 					'name'  => 'breadcrumb',
 					'label' => __( 'Breadcrumb', 'boostify' ),
+				),
+			),
+		),
+		'woocommerce' => array(
+			'label'  => __( 'Woocommerce', 'boostify' ),
+			'value'  => 'woocommerce',
+			'widget' => array(
+				array(
+					'key'   => 'Product_Grid',
+					'name'  => 'product_grid',
+					'label' => __( 'Product Grid', 'boostify' ),
 				),
 			),
 		),

@@ -83,8 +83,10 @@ class Controls {
 	 */
 	public function register_controls() {
 		include_once BOOSTIFY_ELEMENTOR_CONTROL . 'class-group-control-post.php';
+		include_once BOOSTIFY_ELEMENTOR_CONTROL . 'class-group-control-product.php';
 		$control_manager = \Elementor\Plugin::instance()->controls_manager;
 		$control_manager->add_group_control( 'boostify-post', new Group_Control_Post() );
+		$control_manager->add_group_control( 'boostify-product', new Group_Control_Product() );
 	}
 
 }

@@ -100,13 +100,11 @@ class Breadcrumb extends Base_Widget {
 			'custom_class',
 			array(
 				'label' => __( 'Custom Class', 'boostify' ),
-				'type'    => Controls_Manager::TEXT,
+				'type'  => Controls_Manager::TEXT,
 			)
 		);
 
 		$this->end_controls_section();
-
-
 
 		$this->start_controls_section(
 			'section_style',
@@ -182,14 +180,14 @@ class Breadcrumb extends Base_Widget {
 		$class_custom    = ( ! empty( $settings['custom_class'] ) ? $settings['custom_class'] : '' );
 		$crumb           = new BoostifyBreadcrumb();
 		$separator_class = ( ! $settings['separator'] ) ? 'default-separator' : '';
-		if ( 'default' == $settings['home_label'] ) {
+		if ( 'default' == $settings['home_label'] ) { //phpcs:ignore
 			$crumb->add_crumb( 'Home', home_url() );
 		} else {
 			$crumb->add_crumb( get_bloginfo( 'name' ), home_url() );
 		}
 
 		$list_crumb = $crumb->generate();
-		$length = count( $list_crumb );
+		$length     = count( $list_crumb );
 		bcn_display();
 		?>
 		<div class="boostify-addon-breadcrumb widget-breadcrumb <?php echo esc_attr( $class_custom ); ?>">
@@ -198,8 +196,7 @@ class Breadcrumb extends Base_Widget {
 
 					<?php foreach ( $list_crumb as $key => $item ) : ?>
 						<li class="boostify-item-breadcrumb">
-						<?php
-							if ( $key < ( $length - 1 ) && 'yes' == $settings['show_link'] ) {
+						<?php if ( $key < ( $length - 1 ) && 'yes' == $settings['show_link'] ) {
 								?>
 								<a href="<?php echo esc_url( $item[1] ); ?>" class="item-title link">
 									<?php echo esc_html( $item[0] ); ?>
